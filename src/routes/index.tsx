@@ -271,6 +271,12 @@ function Nav() {
                 {l.label}
               </a>
             ))}
+            <Link
+              to="/references"
+              className="rounded-full px-3 py-1.5 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-foreground"
+            >
+              References
+            </Link>
           </nav>
           <div className="flex items-center gap-2">
             <a href="#contact" className="btn-primary hidden text-sm sm:inline-flex">
