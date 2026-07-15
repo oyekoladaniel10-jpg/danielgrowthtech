@@ -15,7 +15,7 @@ export const Route = createFileRoute("/")({
       { title: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
       { name: "description", content: "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands." },
       { property: "og:title", content: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
-      { property: "og:description", content: "CRO, SEO, paid, email and analytics engineered for compounding profit." },
+      { property: "og:description", content: "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

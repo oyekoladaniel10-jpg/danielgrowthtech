@@ -81,17 +81,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies across Shopify, WooCommerce, BigCommerce and Amazon.",
+          "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
       { name: "author", content: "SigmaConsultantFair.pro" },
       { property: "og:title", content: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
       {
         property: "og:description",
         content:
-          "Data-driven ecommerce growth: CRO, SEO, paid media, email and analytics for high-value DTC brands.",
+          "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
+      { name: "twitter:description", content: "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/62cca8fc-2d3a-482e-8792-ae63fc76c955/id-preview-d59d8b83--167ad0d0-aa27-445d-ae60-12133794b16f.lovable.app-1784087240331.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/62cca8fc-2d3a-482e-8792-ae63fc76c955/id-preview-d59d8b83--167ad0d0-aa27-445d-ae60-12133794b16f.lovable.app-1784087240331.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
