@@ -1,13 +1,22 @@
+import logo from "@/assets/jacob-growth-logo.png.asset.json";
+
 export const BRAND = {
-  name: "SigmaConsultantFair.pro",
-  short: "Sigma",
+  name: "Jacob Growth",
+  short: "Jacob",
   tagline: "Ecommerce Sales Growth Expert",
   sub: "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies.",
-  email: "hello@sigmaconsultantfair.pro",
-  phone: "+44 20 4525 8890",
-  whatsapp: "+44 7000 000 000",
-  website: "sigmaconsultantfair.pro",
+  email: "Jacobgrowth01@gmail.com",
+  phone: "+44 7828 727015",
+  whatsapp: "+44 7828 727015",
+  website: "jacobgrowth.lovable.app",
+  copyright: "© 2026 Jacob Growth. All rights reserved.",
   offices: ["London, UK", "Dubai, UAE", "Singapore"],
+  logo: logo.url,
+  // Editable — paste your real profile URLs here.
+  socials: {
+    fiverr: "https://www.fiverr.com/",
+    upwork: "https://www.upwork.com/",
+  },
 };
 
 export type NavLink = { label: string; to: string };
@@ -22,28 +31,31 @@ export const NAV: NavLink[] = [
   { label: "Contact", to: "/contact" },
 ];
 
+// Curated Unsplash imagery — swap the URLs freely.
+const IMG = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+
 export const SERVICES = [
-  { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates." },
-  { title: "Ecommerce SEO", tag: "Organic", desc: "Technical, content and PDP-level SEO built for durable category dominance." },
-  { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited." },
-  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS." },
-  { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing." },
-  { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale." },
-  { title: "Pinterest Marketing", tag: "Discovery", desc: "Inspiration-first campaigns for fashion, home, beauty and lifestyle brands." },
-  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue." },
-  { title: "Website Speed Optimisation", tag: "Performance", desc: "Sub-2s LCP builds that unlock conversion, SEO and paid efficiency." },
-  { title: "Shopify Growth", tag: "Platform", desc: "Theme, apps, checkout and infrastructure tuned for scaling Shopify stores." },
-  { title: "WooCommerce Growth", tag: "Platform", desc: "Hardened Woo builds and revenue engines for content-led brands." },
-  { title: "BigCommerce Growth", tag: "Platform", desc: "Headless and native BigCommerce optimisation for mid-market retailers." },
-  { title: "Amazon Marketplace Growth", tag: "Marketplace", desc: "PPC, listings, A+ content and brand store strategy for Amazon sellers." },
-  { title: "Reddit Marketing", tag: "Community", desc: "Authentic Reddit strategy plus paid campaigns for niche audiences." },
-  { title: "Quora Marketing", tag: "Intent", desc: "Answer-led acquisition capturing high-intent research traffic." },
-  { title: "Analytics & Reporting", tag: "Insights", desc: "GA4, server-side tracking and executive dashboards you can trust." },
+  { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates.", img: IMG("photo-1460925895917-afdab827c52f") },
+  { title: "Ecommerce SEO", tag: "Organic", desc: "Technical, content and PDP-level SEO built for durable category dominance.", img: IMG("photo-1554774853-aae0a22c8aa4") },
+  { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited.", img: IMG("photo-1677442136019-21780ecad995") },
+  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS.", img: IMG("photo-1611162616475-46b635cb6868") },
+  { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing.", img: IMG("photo-1611605698335-8b1569810432") },
+  { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale.", img: IMG("photo-1596558450268-9c27524ba856") },
+  { title: "Pinterest Marketing", tag: "Discovery", desc: "Inspiration-first campaigns for fashion, home, beauty and lifestyle brands.", img: IMG("photo-1522199755839-a2bacb67c546") },
+  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: IMG("photo-1596526131083-e8c633c948d2") },
+  { title: "Website Speed Optimisation", tag: "Performance", desc: "Sub-2s LCP builds that unlock conversion, SEO and paid efficiency.", img: IMG("photo-1551288049-bebda4e38f71") },
+  { title: "Shopify Growth", tag: "Platform", desc: "Theme, apps, checkout and infrastructure tuned for scaling Shopify stores.", img: IMG("photo-1556742049-0cfed4f6a45d") },
+  { title: "WooCommerce Growth", tag: "Platform", desc: "Hardened WooCommerce builds and revenue engines for content-led brands.", img: IMG("photo-1499750310107-5fef28a66643") },
+  { title: "BigCommerce Growth", tag: "Platform", desc: "Headless and native BigCommerce optimisation for mid-market retailers.", img: IMG("photo-1556155092-490a1ba16284") },
+  { title: "Amazon Marketplace Growth", tag: "Marketplace", desc: "PPC, listings, A+ content and brand store strategy for Amazon sellers.", img: IMG("photo-1586528116311-ad8dd3c8310d") },
+  { title: "Reddit Marketing", tag: "Community", desc: "Authentic Reddit strategy plus paid campaigns for niche audiences.", img: IMG("photo-1522071820081-009f0129c71c") },
+  { title: "Quora Marketing", tag: "Intent", desc: "Answer-led acquisition capturing high-intent research traffic.", img: IMG("photo-1454165804606-c3d57bc86b40") },
+  { title: "Analytics & Reporting", tag: "Insights", desc: "GA4, server-side tracking and executive dashboards you can trust.", img: IMG("photo-1543286386-2e659306cd6c") },
 ];
 
 export const INDUSTRIES = [
-  "Fashion", "Beauty", "Health", "Home & Garden", "Jewellery", "Electronics",
-  "Pet Supplies", "Food & Beverage", "Automotive", "Sports", "Luxury", "B2B Ecommerce",
+  "Fashion", "Beauty", "Health & Wellness", "Home & Garden", "Jewellery", "Electronics",
+  "Pet Supplies", "Food & Beverage", "Luxury Brands", "Automotive", "Sports & Outdoor", "B2B Ecommerce",
 ];
 
 export const PROCESS = [
@@ -65,15 +77,22 @@ export const STATS = [
   { end: 98, suffix: "%", label: "Client Satisfaction" },
 ];
 
+export const VALUES = [
+  "Transparency",
+  "Results-driven execution",
+  "Continuous optimisation",
+  "Long-term partnerships",
+  "Clear communication",
+  "Integrity",
+];
+
 export const WHY = [
-  { t: "Tailored Strategies", d: "No templates. Every roadmap is built around your brand economics." },
+  { t: "Tailored Growth Strategies", d: "No templates — every roadmap is built around your brand's economics." },
   { t: "Data-Driven Decisions", d: "Every recommendation is defended with numbers and experiments." },
-  { t: "Transparent Communication", d: "Weekly async updates and real-time dashboards, always." },
-  { t: "Continuous Optimisation", d: "A relentless testing cadence across every channel." },
-  { t: "Long-Term Growth", d: "We optimise for LTV and contribution profit, not vanity ROAS." },
-  { t: "Multi-Channel Marketing", d: "SEO, paid, email, marketplaces — orchestrated as one system." },
-  { t: "Performance Reporting", d: "Executive-grade dashboards you can share with your board." },
-  { t: "Reliable Support", d: "Senior specialists on Slack, not junior account managers." },
+  { t: "Multi-Channel Expertise", d: "SEO, paid, email, marketplaces — orchestrated as one system." },
+  { t: "Transparent Reporting", d: "Weekly async updates and real-time dashboards, always." },
+  { t: "Conversion-Focused", d: "Optimising for LTV and contribution profit, not vanity ROAS." },
+  { t: "Long-Term Partnership", d: "Senior specialists on Slack, not junior account managers." },
 ];
 
 export const FAQS = [
@@ -88,48 +107,67 @@ export const FAQS = [
 
 export const PRICING = [
   {
-    tier: "Growth Audit",
-    price: "£2,500",
-    cadence: "one-time",
-    desc: "A 3-week diagnostic covering CRO, SEO, paid, email and analytics — with a prioritised 90-day roadmap.",
+    tier: "Basic",
+    price: "From £—",
+    cadence: "editable",
+    desc: "Best for small ecommerce stores starting their growth journey.",
     features: [
-      "Full store & funnel audit",
-      "Competitor and category intelligence",
-      "90-day prioritised roadmap",
-      "Executive readout call",
+      "Store review",
+      "Basic CRO improvements",
+      "SEO foundation",
+      "Marketing recommendations",
+      "Performance review",
     ],
     highlight: false,
-    cta: "Start with an audit",
+    cta: "Get started",
   },
   {
-    tier: "Growth Retainer",
-    price: "£7,500",
-    cadence: "per month",
-    desc: "Senior, hands-on execution across two or three channels with a weekly experimentation cadence.",
+    tier: "Standard",
+    price: "From £—",
+    cadence: "editable",
+    desc: "Best for growing ecommerce brands looking to increase traffic and conversions.",
     features: [
-      "Multi-channel execution",
-      "Weekly experiments & creative",
-      "Live performance dashboard",
-      "Slack + monthly exec review",
+      "Advanced CRO optimisation",
+      "SEO improvements",
+      "Paid marketing support",
+      "Email marketing improvements",
+      "Monthly optimisation",
     ],
     highlight: true,
     cta: "Book a strategy call",
   },
   {
-    tier: "Full Growth Partner",
-    price: "Custom",
+    tier: "Premium",
+    price: "Custom quote",
     cadence: "engagement",
-    desc: "Embedded growth leadership across every channel, plus creative, dev and analytics support.",
+    desc: "Best for brands ready for aggressive scaling.",
     features: [
-      "Fractional CMO leadership",
-      "Cross-channel orchestration",
-      "Dedicated creative & dev pod",
-      "Board-ready reporting",
+      "Full ecommerce growth strategy",
+      "Multi-channel marketing",
+      "CRO testing",
+      "Paid ads management",
+      "SEO and AI visibility",
+      "Continuous optimisation",
+      "Reporting",
     ],
     highlight: false,
-    cta: "Discuss a partnership",
+    cta: "Request a quote",
   },
 ];
+
+export const PARTNERSHIP = {
+  tier: "Performance Partnership",
+  eyebrow: "Commission-Based Growth",
+  desc: "Work together with a results-focused model — aligned on the outcomes that actually move the business.",
+  features: [
+    "No large upfront commitment",
+    "Strategy and execution based on agreed goals",
+    "5% commission on generated sales/results",
+    "Clear tracking and reporting",
+    "Suitable for qualified ecommerce brands",
+  ],
+  cta: "Discuss a Partnership",
+};
 
 export const CASES_META = [
   {

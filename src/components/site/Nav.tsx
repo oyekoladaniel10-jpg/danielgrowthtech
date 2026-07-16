@@ -16,10 +16,14 @@ export function Nav() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}>
       <div className="container-lg">
         <div className={`glass-strong flex items-center justify-between gap-3 rounded-full px-4 py-2.5 md:px-6 ${scrolled ? "shadow-2xl" : ""}`}>
-          <Link to="/" className="flex min-w-0 items-center gap-2">
-            <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-emerald-brand to-gold text-primary-foreground font-display text-lg">
-              Σ
-            </div>
+          <Link to="/" className="flex min-w-0 items-center gap-2.5">
+            <img
+              src={BRAND.logo}
+              alt={`${BRAND.name} logo`}
+              width={40}
+              height={40}
+              className="h-10 w-10 shrink-0 rounded-full object-cover ring-1 ring-white/10"
+            />
             <span className="hidden truncate text-sm font-medium tracking-wide sm:inline">
               {BRAND.name}
             </span>
@@ -55,6 +59,10 @@ export function Nav() {
         </div>
         {open && (
           <div className="glass-strong mt-2 rounded-3xl p-4 xl:hidden">
+            <div className="mb-3 flex items-center gap-2.5">
+              <img src={BRAND.logo} alt="" className="h-9 w-9 rounded-full object-cover ring-1 ring-white/10" />
+              <span className="text-sm font-medium">{BRAND.name}</span>
+            </div>
             <div className="grid grid-cols-2 gap-1">
               {NAV.map((l) => (
                 <Link

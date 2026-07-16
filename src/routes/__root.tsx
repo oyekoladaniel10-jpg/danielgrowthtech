@@ -77,29 +77,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
+      { title: "Jacob Growth — Ecommerce Sales Growth Expert" },
       {
         name: "description",
         content:
-          "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
+          "Jacob Growth — data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
-      { name: "author", content: "SigmaConsultantFair.pro" },
-      { property: "og:title", content: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
+      { name: "author", content: "Jacob Growth" },
+      { property: "og:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
       {
         property: "og:description",
         content:
-          "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
+          "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "SigmaConsultantFair.pro — Ecommerce Sales Growth Expert" },
-      { name: "twitter:description", content: "Data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/62cca8fc-2d3a-482e-8792-ae63fc76c955/id-preview-d59d8b83--167ad0d0-aa27-445d-ae60-12133794b16f.lovable.app-1784087240331.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/62cca8fc-2d3a-482e-8792-ae63fc76c955/id-preview-d59d8b83--167ad0d0-aa27-445d-ae60-12133794b16f.lovable.app-1784087240331.png" },
+      { name: "twitter:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { name: "twitter:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/__l5e/assets-v1/cf98ebe4-c0a2-46e9-a4b3-767203c8cfd6/jacob-growth-logo.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

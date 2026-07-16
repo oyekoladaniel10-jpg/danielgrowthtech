@@ -1,15 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Facebook, Instagram, Linkedin, Mail, MapPin, MessageCircle, Phone, Twitter, Youtube } from "lucide-react";
+import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { BRAND } from "@/lib/site-content";
+import { FiverrIcon, UpworkIcon } from "@/components/site/social-icons";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — SigmaConsultantFair.pro" },
-      { name: "description", content: "Book a free ecommerce growth consultation. Reply within one business day with next steps and pricing." },
-      { property: "og:title", content: "Contact — SigmaConsultantFair.pro" },
+      { title: "Contact — Jacob Growth" },
+      { name: "description", content: "Book a free ecommerce growth consultation with Jacob Growth. Reply within one business day with next steps and pricing." },
+      { property: "og:title", content: "Contact — Jacob Growth" },
       { property: "og:description", content: "Book a free ecommerce growth consultation." },
     ],
   }),
@@ -44,12 +45,12 @@ function ContactPage() {
             <a href={`mailto:${BRAND.email}`} className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
               <Mail className="h-4 w-4 shrink-0 text-gold" /> <span className="truncate">{BRAND.email}</span>
             </a>
-            <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+              <Phone className="h-4 w-4 shrink-0 text-gold" /> {BRAND.phone}
+            </a>
+            <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
               <MessageCircle className="h-4 w-4 shrink-0 text-gold" /> WhatsApp {BRAND.whatsapp}
             </a>
-            <div className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
-              <Phone className="h-4 w-4 shrink-0 text-gold" /> {BRAND.phone}
-            </div>
             <div className="glass rounded-2xl px-4 py-3">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <MapPin className="h-4 w-4 shrink-0 text-gold" /> Global offices
@@ -60,22 +61,44 @@ function ContactPage() {
                 ))}
               </div>
             </div>
-            <div className="glass grid aspect-[16/9] place-items-center rounded-2xl text-xs tracking-widest text-muted-foreground uppercase">
-              Google Map placeholder
-            </div>
-            <div className="flex gap-2">
-              {[Instagram, Linkedin, Twitter, Facebook, Youtube].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social"
-                   className="glass grid h-10 w-10 place-items-center rounded-full transition hover:border-gold/40 hover:text-gold">
-                  <Icon className="h-4 w-4" />
+
+            <div className="card-lux">
+              <div className="text-xs tracking-widest text-gold uppercase">Work With Me</div>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Prefer to hire through a marketplace? Find my verified profiles below.
+              </p>
+              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                <a
+                  href={BRAND.socials.fiverr}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="glass flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:border-gold/40 hover:text-gold"
+                >
+                  <FiverrIcon className="h-5 w-5 shrink-0 text-gold" />
+                  <div className="min-w-0">
+                    <div className="text-sm font-medium">Fiverr</div>
+                    <div className="truncate text-xs text-muted-foreground">Hire me on Fiverr</div>
+                  </div>
                 </a>
-              ))}
+                <a
+                  href={BRAND.socials.upwork}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="glass flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:border-gold/40 hover:text-gold"
+                >
+                  <UpworkIcon className="h-5 w-5 shrink-0 text-gold" />
+                  <div className="min-w-0">
+                    <div className="text-sm font-medium">Upwork</div>
+                    <div className="truncate text-xs text-muted-foreground">Hire me on Upwork</div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
 
           <form
             className="glass-strong h-fit rounded-3xl p-6 md:p-8"
-            onSubmit={(e) => { e.preventDefault(); alert("Thanks — we'll be in touch shortly."); }}
+            onSubmit={(e) => { e.preventDefault(); alert("Thanks — I'll be in touch shortly."); }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full name" name="name" required />

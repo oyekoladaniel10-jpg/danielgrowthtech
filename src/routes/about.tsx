@@ -3,16 +3,16 @@ import portrait from "@/assets/portrait.jpg";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { BarChart3 } from "lucide-react";
-import { WHY, PROCESS } from "@/lib/site-content";
+import { BarChart3, Check } from "lucide-react";
+import { WHY, PROCESS, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — SigmaConsultantFair.pro" },
-      { name: "description", content: "12+ years scaling ecommerce brands across four continents — a senior operator for ambitious DTC, marketplace and B2B stores." },
-      { property: "og:title", content: "About — SigmaConsultantFair.pro" },
-      { property: "og:description", content: "Meet the senior operator behind the growth work." },
+      { title: "About — Jacob Growth" },
+      { name: "description", content: "Meet Jacob — founder of Jacob Growth. Partnering with ecommerce brands to increase qualified traffic, conversions and long-term profitability." },
+      { property: "og:title", content: "About — Jacob Growth" },
+      { property: "og:description", content: "Ecommerce Sales Growth Expert — helping ambitious brands scale sustainably." },
     ],
   }),
   component: AboutPage,
@@ -28,15 +28,15 @@ function AboutPage() {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-brand/30 to-gold/20 blur-2xl" />
               <img
                 src={portrait}
-                alt="Founder portrait"
+                alt="Jacob — founder of Jacob Growth"
                 width={900}
                 height={1100}
                 loading="eager"
                 className="relative w-full rounded-3xl border border-white/10 object-cover"
               />
               <div className="glass-strong absolute -bottom-6 right-4 w-56 rounded-2xl p-4">
-                <div className="text-2xl gradient-text">12+ yrs</div>
-                <div className="text-xs tracking-widest text-muted-foreground uppercase">Ecommerce growth</div>
+                <div className="text-2xl gradient-text">Ecommerce</div>
+                <div className="text-xs tracking-widest text-muted-foreground uppercase">Sales Growth Expert</div>
               </div>
             </div>
           </Reveal>
@@ -44,26 +44,34 @@ function AboutPage() {
             <Reveal>
               <div className="text-xs tracking-[0.25em] text-gold uppercase">About</div>
               <h1 className="mt-3 text-4xl md:text-6xl">
-                A senior operator for <span className="gradient-text">ambitious ecommerce brands.</span>
+                Helping ambitious ecommerce brands achieve <span className="gradient-text">sustainable, profitable growth.</span>
               </h1>
               <p className="mt-5 text-muted-foreground">
-                I partner with founders and CMOs to build durable, profitable growth systems.
-                After 12+ years scaling DTC, marketplace and B2B brands across four continents,
-                my work is defined by clarity, commercial rigour and quiet execution.
+                I'm Jacob, the founder of {BRAND.name}. I partner with ecommerce brands to increase
+                qualified traffic, improve conversion rates, and scale revenue through data-driven
+                strategies. My approach combines Conversion Rate Optimisation (CRO), SEO, paid
+                advertising, AI Search Visibility, email marketing, and marketplace growth to build
+                long-term, measurable results rather than short-term wins.
               </p>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {[
-                { t: "Mission", d: "Turn ecommerce brands into category leaders through data-driven growth." },
-                { t: "Values", d: "Rigour, transparency, craft, and long-term partnership." },
-                { t: "Why us", d: "Senior specialists, commercial thinking, and full-funnel execution." },
-                { t: "Industries", d: "Fashion, beauty, home, luxury, B2B and everything in between." },
-              ].map((b) => (
-                <div key={b.t} className="card-lux">
-                  <div className="text-sm tracking-widest text-gold uppercase">{b.t}</div>
-                  <p className="mt-2 text-sm text-muted-foreground">{b.d}</p>
-                </div>
-              ))}
+              <div className="card-lux">
+                <div className="text-sm tracking-widest text-gold uppercase">Mission</div>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  To help ecommerce businesses grow with proven strategies that increase traffic,
+                  conversions and long-term profitability.
+                </p>
+              </div>
+              <div className="card-lux">
+                <div className="text-sm tracking-widest text-gold uppercase">Values</div>
+                <ul className="mt-2 space-y-1.5 text-sm text-muted-foreground">
+                  {VALUES.map((v) => (
+                    <li key={v} className="flex items-start gap-2">
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-brand" /> {v}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -71,8 +79,8 @@ function AboutPage() {
 
       <section className="section-pad">
         <div className="container-lg">
-          <SectionHeader eyebrow="Why Choose Us" title={<>Eight reasons brands <span className="gradient-text">stay for years.</span></>} />
-          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeader eyebrow="Why Work With Me" title={<>Six reasons brands <span className="gradient-text">stay for years.</span></>} />
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {WHY.map((w, i) => (
               <Reveal key={w.t} delay={i * 60}>
                 <div className="card-lux h-full">
@@ -81,6 +89,21 @@ function AboutPage() {
                   </div>
                   <h3 className="mt-5 text-lg">{w.t}</h3>
                   <p className="mt-2 text-sm text-muted-foreground">{w.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-pad">
+        <div className="container-lg">
+          <SectionHeader eyebrow="Industries" title={<>Categories I <span className="gradient-text">work with.</span></>} />
+          <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+            {INDUSTRIES.map((i, idx) => (
+              <Reveal key={i} delay={idx * 30}>
+                <div className="glass flex h-full items-center justify-between rounded-2xl px-5 py-4">
+                  <span className="font-medium">{i}</span>
                 </div>
               </Reveal>
             ))}
