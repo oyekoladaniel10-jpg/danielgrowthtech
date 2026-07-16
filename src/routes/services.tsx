@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero, Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -8,9 +8,9 @@ import { SERVICES } from "@/lib/site-content";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — SigmaConsultantFair.pro" },
+      { title: "Services — Jacob Growth" },
       { name: "description", content: "Sixteen specialised ecommerce growth services — CRO, SEO, AI Search, paid media, email, marketplaces and analytics." },
-      { property: "og:title", content: "Services — SigmaConsultantFair.pro" },
+      { property: "og:title", content: "Services — Jacob Growth" },
       { property: "og:description", content: "A full growth stack orchestrated as one performance system." },
     ],
   }),
@@ -27,26 +27,36 @@ function ServicesPage() {
       />
       <section className="pb-24">
         <div className="container-lg">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={i * 30}>
-                <article className="card-lux group flex h-full flex-col">
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase">{s.tag}</span>
-                    <ArrowUpRight className="h-5 w-5 text-muted-foreground transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" />
+                <article className="card-lux group flex h-full flex-col overflow-hidden !p-0">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <img
+                      src={s.img}
+                      alt={s.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                    <span className="absolute top-3 left-3 rounded-full border border-white/15 bg-background/60 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase backdrop-blur">
+                      {s.tag}
+                    </span>
                   </div>
-                  <h3 className="mt-6 text-2xl">{s.title}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
-                  <ul className="mt-5 space-y-1.5 text-sm">
-                    {["Overview", "Benefits", "Deliverables", "Expected outcomes"].map((li) => (
-                      <li key={li} className="flex items-center gap-2 text-muted-foreground">
-                        <Check className="h-3.5 w-3.5 text-emerald-brand" /> {li}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link to="/contact" className="mt-6 inline-flex items-center gap-1 text-sm text-gold hover:underline">
-                    Discuss this service <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="text-xl md:text-2xl">{s.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                    <ul className="mt-5 space-y-1.5 text-sm">
+                      {["Overview", "Benefits", "Deliverables", "Expected outcomes"].map((li) => (
+                        <li key={li} className="flex items-center gap-2 text-muted-foreground">
+                          <Check className="h-3.5 w-3.5 text-emerald-brand" /> {li}
+                        </li>
+                      ))}
+                    </ul>
+                    <Link to="/contact" className="mt-6 inline-flex items-center gap-1 text-sm text-gold hover:underline">
+                      Discuss this service <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
                 </article>
               </Reveal>
             ))}
