@@ -8,9 +8,9 @@ import { CASES } from "@/lib/case-assets";
 export const Route = createFileRoute("/case-studies")({
   head: () => ({
     meta: [
-      { title: "Case Studies — SigmaConsultantFair.pro" },
+      { title: "Case Studies — Jacob Growth" },
       { name: "description", content: "Real ecommerce brands, real revenue. Selected case studies across beauty, fashion and home." },
-      { property: "og:title", content: "Case Studies — SigmaConsultantFair.pro" },
+      { property: "og:title", content: "Case Studies — Jacob Growth" },
       { property: "og:description", content: "Selected client wins across DTC, Shopify Plus and WooCommerce." },
     ],
   }),
