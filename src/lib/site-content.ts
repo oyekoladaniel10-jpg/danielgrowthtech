@@ -10,11 +10,16 @@ export const BRAND = {
   whatsapp: "+44 7828 727015",
   website: "jacobgrowth.lovable.app",
   copyright: "© 2026 Jacob Growth. All rights reserved.",
-  offices: ["London, UK", "Dubai, UAE", "Singapore"],
+  offices: [
+    { country: "United Kingdom", flag: "🇬🇧" },
+    { country: "United States", flag: "🇺🇸" },
+    { country: "Canada", flag: "🇨🇦" },
+    { country: "Germany", flag: "🇩🇪" },
+  ],
   logo: logo.url,
   // Editable — paste your real profile URLs here.
   socials: {
-    fiverr: "https://www.fiverr.com/",
+    fiverr: "https://www.fiverr.com/jacobgrowth1?source=inbox",
     upwork: "https://www.upwork.com/",
   },
 };
