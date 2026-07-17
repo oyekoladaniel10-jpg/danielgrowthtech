@@ -55,9 +55,14 @@ function PricingPage() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/contact" className={`${p.highlight ? "btn-primary" : "btn-ghost"} mt-8 w-full`}>
-                    {p.cta} <ArrowRight className="h-4 w-4" />
-                  </Link>
+                  <div className="mt-8 flex flex-col gap-2">
+                    <Link to="/contact" className={`${p.highlight ? "btn-primary" : "btn-ghost"} w-full justify-center`}>
+                      Contact <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    <Link to="/contact" className="btn-ghost w-full justify-center">
+                      Book Consultation
+                    </Link>
+                  </div>
                 </article>
               </Reveal>
             ))}
