@@ -4,7 +4,8 @@ import { Play, X } from "lucide-react";
 export type VideoRef = {
   src: string;
   name: string;
-  business: string;
+  country: string;
+  flag: string;
   industry: string;
   service: string;
 };
