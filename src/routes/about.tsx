@@ -33,7 +33,7 @@ function AboutPage() {
                 width={900}
                 height={1100}
                 loading="eager"
-                className="relative w-full rounded-3xl border border-white/10 object-cover"
+                className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
               />
               <div className="glass-strong absolute -bottom-6 right-4 w-56 rounded-2xl p-4">
                 <div className="text-2xl gradient-text">Ecommerce</div>
