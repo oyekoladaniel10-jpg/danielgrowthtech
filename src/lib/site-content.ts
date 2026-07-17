@@ -237,10 +237,10 @@ import v5 from "@/assets/references/VID_20260419_220452.mp4.asset.json";
 import v6 from "@/assets/references/VID_20260419_222109.mp4.asset.json";
 
 export const REFERENCES = [
-  { src: v1.url, name: "Aarav Mehta",   business: "Lumen Apparel Co.",      industry: "Fashion & Apparel",  service: "Shopify CRO + Paid Social Scaling" },
-  { src: v2.url, name: "Priya Sharma",  business: "Bloom Beauty Studio",    industry: "Beauty & Skincare",  service: "Email Retention & Klaviyo Automation" },
-  { src: v3.url, name: "Daniel Okafor", business: "NorthPeak Outdoors",     industry: "Outdoor & Sports",   service: "Google Ads + Performance Max" },
-  { src: v4.url, name: "Sofia Rossi",   business: "Casa Verde Home",        industry: "Home & Living",      service: "Full-Funnel Growth Strategy" },
-  { src: v5.url, name: "Marcus Bennett",business: "Forge & Steel Watches",  industry: "Luxury Accessories", service: "SEO + Conversion Redesign" },
-  { src: v6.url, name: "Elena Vasquez", business: "Herbal Roots Wellness",  industry: "Health & Wellness",  service: "Amazon Growth & DTC Expansion" },
+  { src: v1.url, name: "Evelyn",       country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
+  { src: v2.url, name: "Gisela",       country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
+  { src: v3.url, name: "Sal",          country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
+  { src: v4.url, name: "Alfred Taran", country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
+  { src: v5.url, name: "Josh",         country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
+  { src: v6.url, name: "Daniel",       country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
 ];

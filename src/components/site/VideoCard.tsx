@@ -4,7 +4,8 @@ import { Play, X } from "lucide-react";
 export type VideoRef = {
   src: string;
   name: string;
-  business: string;
+  country: string;
+  flag: string;
   industry: string;
   service: string;
 };
@@ -58,7 +59,7 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
       <div className="flex flex-1 flex-col gap-1.5 p-6 md:p-7">
         <div className="text-xs uppercase tracking-[0.18em] text-emerald-brand">{data.industry}</div>
         <h3 className="text-2xl leading-tight">{data.name}</h3>
-        <div className="text-sm text-muted-foreground">{data.business}</div>
+        <div className="text-sm text-muted-foreground"><span className="mr-1">{data.flag}</span>{data.country}</div>
         <div className="mt-3 border-t border-white/5 pt-3 text-sm text-foreground/80">
           <span className="text-muted-foreground">Project: </span>{data.service}
         </div>
