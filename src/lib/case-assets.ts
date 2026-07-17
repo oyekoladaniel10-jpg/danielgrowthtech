@@ -1,12 +1,14 @@
-import case1 from "@/assets/case-1.jpg";
-import case2 from "@/assets/case-2.jpg";
-import case3 from "@/assets/case-3.jpg";
+import marketing from "@/assets/cases/case-marketing.jpg.asset.json";
+import analytics from "@/assets/cases/case-analytics.jpg.asset.json";
+import channels from "@/assets/cases/case-channels.jpg.asset.json";
+import customers from "@/assets/cases/case-customers.jpg.asset.json";
 import { CASES_META } from "@/lib/site-content";
 
 const IMG: Record<string, string> = {
-  "aurelia-skincare": case1,
-  "nord-loom": case2,
-  "rowan-home": case3,
+  "marketing-growth": marketing.url,
+  "analytics-scaling": analytics.url,
+  "channels-attribution": channels.url,
+  "customer-expansion": customers.url,
 };
 
 export const CASES = CASES_META.map((c) => ({ ...c, img: IMG[c.slug]! }));

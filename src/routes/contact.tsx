@@ -57,7 +57,9 @@ function ContactPage() {
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
                 {BRAND.offices.map((o) => (
-                  <span key={o} className="rounded-full border border-white/10 px-3 py-1 text-xs">{o}</span>
+                  <span key={o.country} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs">
+                    <span aria-hidden>{o.flag}</span> {o.country}
+                  </span>
                 ))}
               </div>
             </div>

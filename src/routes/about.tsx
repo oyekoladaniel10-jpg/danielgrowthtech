@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portrait from "@/assets/portrait.jpg";
+import portraitAsset from "@/assets/portrait-jacob.jpg.asset.json";
+const portrait = portraitAsset.url;
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -32,7 +33,7 @@ function AboutPage() {
                 width={900}
                 height={1100}
                 loading="eager"
-                className="relative w-full rounded-3xl border border-white/10 object-cover"
+                className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
               />
               <div className="glass-strong absolute -bottom-6 right-4 w-56 rounded-2xl p-4">
                 <div className="text-2xl gradient-text">Ecommerce</div>
