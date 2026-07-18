@@ -60,9 +60,9 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
-  id: '/case-studies/$slug',
-  path: '/case-studies/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CaseStudiesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -143,7 +143,6 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   ReferencesRoute: typeof ReferencesRoute
   ServicesRoute: typeof ServicesRoute
-  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
@@ -207,10 +206,10 @@ declare module '@tanstack/react-router' {
     }
     '/case-studies/$slug': {
       id: '/case-studies/$slug'
-      path: '/case-studies/$slug'
+      path: '/$slug'
       fullPath: '/case-studies/$slug'
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof CaseStudiesRoute
     }
   }
 }
@@ -223,9 +222,18 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   ReferencesRoute: ReferencesRoute,
   ServicesRoute: ServicesRoute,
-  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
