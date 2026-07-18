@@ -105,10 +105,10 @@ function CaseStudyDetail() {
               <div className="text-xs tracking-widest text-gold uppercase">Work Delivered</div>
               <p className="mt-3 text-muted-foreground">{c.work}</p>
               <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                {c.work.split(",").map((w) => (
+                {c.work.split(",").map((w: string) => (
                   <li key={w} className="flex items-start gap-2 text-sm">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{w.trim().replace(/^./, (m) => m.toUpperCase())}</span>
+                    <span>{w.trim().replace(/^./, (m: string) => m.toUpperCase())}</span>
                   </li>
                 ))}
               </ul>
