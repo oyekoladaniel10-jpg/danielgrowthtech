@@ -1,19 +1,22 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Sparkles, Play } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat } from "lucide-react";
+import { useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import portraitAsset from "@/assets/portrait-jacob.jpg.asset.json";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
-import { BRAND, SERVICES, INDUSTRIES, REFERENCES, STATS } from "@/lib/site-content";
+import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
-import { useState } from "react";
+
+const portrait = portraitAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Jacob Growth — Ecommerce Sales Growth Expert" },
-      { name: "description", content: "Jacob Growth — data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands." },
+      { name: "description", content: "Jacob Growth helps ecommerce brands acquire, convert and retain customers through data-driven CRO, SEO, paid media and lifecycle marketing." },
       { property: "og:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
       { property: "og:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
       { property: "og:type", content: "website" },
@@ -24,67 +27,128 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+/* ---------------- Hero + About intro ---------------- */
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-36 md:pt-44">
+    <section className="relative overflow-hidden pt-32 md:pt-40">
       <img
         src={heroBg}
         alt=""
         aria-hidden
         width={1920}
         height={1200}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/50 via-background/70 to-background" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-emerald-brand/20 blur-[120px]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-background/75 to-background" />
+      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/25 blur-[120px]" />
+
       <div className="container-lg relative">
-        <div className="mx-auto max-w-4xl text-center">
-          <Reveal>
-            <div className="glass mx-auto inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest text-muted-foreground uppercase">
-              <Sparkles className="h-3.5 w-3.5 text-gold" />
-              Ecommerce growth · trusted worldwide
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <h1 className="mt-6 text-4xl leading-[1.05] sm:text-6xl md:text-7xl">
-              <span className="gradient-text">Ecommerce Sales</span>
-              <br />
-              <span className="text-foreground">Growth Expert</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={220}>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">
-              {BRAND.sub} From Shopify to Amazon — CRO, SEO, paid media, email and analytics engineered for compounding profit.
-            </p>
-          </Reveal>
-          <Reveal delay={320}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <Link to="/contact" className="btn-primary">
-                Book a strategy call <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/case-studies" className="btn-ghost">View case studies</Link>
-            </div>
-          </Reveal>
-          <Reveal delay={420}>
-            <div className="mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
-              {["Shopify Plus", "Klaviyo", "Google Ads", "Meta Business"].map((t) => (
-                <div key={t} className="glass rounded-2xl px-4 py-3 text-center text-xs tracking-widest text-muted-foreground uppercase">
-                  {t}
-                </div>
-              ))}
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
+          <div>
+            <Reveal>
+              <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest text-muted-foreground uppercase">
+                <Sparkles className="h-3.5 w-3.5 text-gold" />
+                Ecommerce growth · trusted worldwide
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <h1 className="mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
+                Scale your store with a <span className="gradient-text">proven ecommerce growth partner.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={220}>
+              <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+                I help ambitious ecommerce brands increase qualified traffic, lift conversion rates
+                and grow revenue — through CRO, SEO, paid media, email and analytics engineered for
+                compounding profit.
+              </p>
+            </Reveal>
+            <Reveal delay={320}>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Link to="/contact" className="btn-primary">
+                  Book a Free Consultation <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/case-studies" className="btn-ghost">View case studies</Link>
+              </div>
+            </Reveal>
+            <Reveal delay={420}>
+              <div className="mt-10 grid max-w-md grid-cols-3 gap-3">
+                {[
+                  { k: "Revenue lift", v: "+312%" },
+                  { k: "Conv. lift", v: "+168%" },
+                  { k: "Retention", v: "94%" },
+                ].map((s) => (
+                  <div key={s.k} className="glass rounded-2xl px-3 py-3 text-center">
+                    <div className="text-lg gradient-text md:text-xl">{s.v}</div>
+                    <div className="mt-0.5 text-[10px] tracking-widest text-muted-foreground uppercase">{s.k}</div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={200}>
+            <div className="relative mx-auto w-full max-w-md">
+              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/30 to-white/5 blur-2xl" />
+              <img
+                src={portrait}
+                alt="Jacob — founder of Jacob Growth"
+                width={800}
+                height={1000}
+                loading="eager"
+                className="relative aspect-[4/5] w-full rounded-[2rem] border border-white/10 object-cover object-top shadow-2xl"
+              />
+              <div className="glass-strong absolute -bottom-5 -left-4 rounded-2xl px-4 py-3">
+                <div className="text-sm font-medium">Jacob</div>
+                <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Founder · {BRAND.name}</div>
+              </div>
             </div>
           </Reveal>
         </div>
-        <div className="mx-auto mt-16 grid max-w-5xl gap-3 sm:grid-cols-3">
-          {[
-            { k: "Avg. revenue lift", v: "+312%" },
-            { k: "Avg. conversion lift", v: "+168%" },
-            { k: "Client retention", v: "94%" },
-          ].map((s, i) => (
-            <Reveal key={s.k} delay={i * 120}>
-              <div className="card-lux text-center">
-                <div className="text-3xl gradient-text md:text-4xl">{s.v}</div>
-                <div className="mt-1 text-xs tracking-widest text-muted-foreground uppercase">{s.k}</div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Intro ---------------- */
+function Intro() {
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="text-xs tracking-[0.25em] text-gold uppercase">About {BRAND.name}</div>
+            <h2 className="mt-3 text-3xl md:text-5xl">
+              A senior growth partner — not another <span className="gradient-text">agency middleman.</span>
+            </h2>
+            <p className="mt-5 text-muted-foreground">
+              {BRAND.name} is a specialist ecommerce growth practice helping DTC and marketplace
+              brands increase revenue through data-driven strategy and hands-on execution. Every
+              engagement is led personally — no junior handoffs, no vanity metrics, just measurable
+              growth built on transparent reporting and long-term partnership.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Trusted Platforms ---------------- */
+function Platforms() {
+  return (
+    <section className="pb-16">
+      <div className="container-lg">
+        <Reveal>
+          <div className="text-center text-xs tracking-[0.25em] text-muted-foreground uppercase">
+            Trusted Platforms
+          </div>
+        </Reveal>
+        <div className="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
+          {PLATFORMS.map((p, i) => (
+            <Reveal key={p} delay={i * 40}>
+              <div className="glass grid h-14 place-items-center rounded-2xl px-4 text-sm tracking-wide">
+                {p}
               </div>
             </Reveal>
           ))}
@@ -94,7 +158,47 @@ function Hero() {
   );
 }
 
-function ServicesPreview() {
+/* ---------------- 3 Growth Pillars ---------------- */
+const PILLAR_ICONS = [Target, MousePointerClick, Repeat];
+function Pillars() {
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <SectionHeader
+          eyebrow="Growth Pillars"
+          title={<>A complete system for <span className="gradient-text">scaling ecommerce.</span></>}
+          sub="Three integrated pillars working together to compound revenue — not siloed tactics."
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {PILLARS.map((p, i) => {
+            const Icon = PILLAR_ICONS[i];
+            return (
+              <Reveal key={p.t} delay={i * 80}>
+                <article className="card-lux flex h-full flex-col">
+                  <div className="glass grid h-12 w-12 place-items-center rounded-2xl">
+                    <Icon className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="mt-6 text-2xl">{p.t}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+                  <ul className="mt-5 space-y-2">
+                    {p.items.map((it) => (
+                      <li key={it} className="flex items-start gap-2 text-sm">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {it}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- Featured Services ---------------- */
+function FeaturedServices() {
   const preview = SERVICES.slice(0, 6);
   return (
     <section className="section-pad">
@@ -126,95 +230,61 @@ function ServicesPreview() {
   );
 }
 
-function IndustriesPreview() {
-  return (
-    <section className="section-pad">
-      <div className="container-lg">
-        <SectionHeader
-          eyebrow="Industries"
-          title={<>Trusted across <span className="gradient-text">high-consideration categories.</span></>}
-        />
-        <div className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {INDUSTRIES.slice(0, 8).map((i, idx) => (
-            <Reveal key={i} delay={idx * 30}>
-              <div className="glass flex items-center justify-between rounded-2xl px-5 py-5">
-                <span className="font-medium">{i}</span>
-                <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
-              </div>
-            </Reveal>
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link to="/industries" className="btn-ghost">All industries <ArrowRight className="h-4 w-4" /></Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function CasesPreview() {
-  const featured = CASES[0];
+/* ---------------- Featured Cases ---------------- */
+function FeaturedCases() {
+  const featured = CASES.slice(0, 4);
   return (
     <section className="section-pad">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Case Studies"
           title={<>Selected <span className="gradient-text">client wins.</span></>}
+          sub="Real ecommerce brands, real dashboards, real revenue."
         />
-        <Reveal>
-          <article className="glass-strong mt-14 grid gap-0 overflow-hidden rounded-3xl lg:grid-cols-2">
-            <div className="relative aspect-[4/3] lg:aspect-auto">
-              <img src={featured.img} alt={featured.client} loading="lazy" className="h-full w-full object-cover" />
-            </div>
-            <div className="p-8 md:p-10">
-              <div className="text-xs tracking-widest text-gold uppercase">{featured.industry}</div>
-              <h3 className="mt-2 text-3xl">{featured.client}</h3>
-              <p className="mt-4 text-sm text-muted-foreground">{featured.challenge}</p>
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                {featured.results.map((r) => (
-                  <div key={r.k} className="rounded-2xl border border-white/10 p-4 text-center">
-                    <div className="text-2xl gradient-text">{r.v}</div>
-                    <div className="text-[10px] tracking-widest text-muted-foreground uppercase">{r.k}</div>
-                  </div>
-                ))}
-              </div>
-              <Link to="/case-studies" className="mt-8 inline-flex items-center gap-2 text-sm text-gold hover:underline">
-                See all case studies <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
-          </article>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-function ResultsStrip() {
-  return (
-    <section className="section-pad relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-emerald-brand/10 via-transparent to-transparent" />
-      <div className="container-lg relative">
-        <SectionHeader eyebrow="Results" title={<>Numbers that <span className="gradient-text">compound.</span></>} />
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {STATS.map((s, i) => (
-            <Reveal key={s.label} delay={i * 60}>
-              <div className="card-lux text-center">
-                <div className="text-3xl gradient-text md:text-4xl">
-                  {s.prefix ?? ""}{s.end.toLocaleString()}{s.suffix ?? ""}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 md:gap-8">
+          {featured.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 60}>
+              <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
+                <div className="relative aspect-[16/10] overflow-hidden bg-white/[0.02]">
+                  <img
+                    src={c.img}
+                    alt={c.client}
+                    loading="lazy"
+                    className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+                  />
                 </div>
-                <div className="mt-2 text-xs tracking-widest text-muted-foreground uppercase">{s.label}</div>
-              </div>
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-widest text-gold uppercase">
+                    {c.industry}
+                  </span>
+                  <h3 className="mt-4 text-xl md:text-2xl">{c.client}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground">{c.challenge}</p>
+                  <div className="mt-auto pt-6">
+                    <Link
+                      to="/case-studies/$slug"
+                      params={{ slug: c.slug }}
+                      className="btn-ghost w-full justify-center transition group-hover:border-gold/50 group-hover:text-gold"
+                    >
+                      View Case Study <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                </div>
+              </article>
             </Reveal>
           ))}
+        </div>
+        <div className="mt-10 text-center">
+          <Link to="/case-studies" className="btn-ghost">All case studies <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </section>
   );
 }
 
-function FeaturedReference() {
-  const [open, setOpen] = useState(false);
-  const featured = REFERENCES[0];
+/* ---------------- Featured References ---------------- */
+function FeaturedReferences() {
+  const [active, setActive] = useState<number | null>(null);
+  const featured = REFERENCES.slice(0, 3);
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -223,15 +293,43 @@ function FeaturedReference() {
           title={<>Hear it from <span className="gradient-text">the founders.</span></>}
           sub="Authentic video stories from ecommerce brands we've partnered with."
         />
-        <div className="mx-auto mt-14 max-w-3xl">
-          <VideoCard data={featured} onOpen={() => setOpen(true)} />
+        <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
+          {featured.map((r, i) => (
+            <VideoCard key={i} data={r} onOpen={() => setActive(i)} />
+          ))}
         </div>
         <div className="mt-10 text-center">
-          <Link to="/references" className="btn-primary">
-            <Play className="h-4 w-4" /> View all Client References
+          <Link to="/references" className="btn-ghost">
+            <Play className="h-4 w-4" /> View all references
           </Link>
         </div>
-        {open && <Lightbox src={featured.src} onClose={() => setOpen(false)} />}
+        {active !== null && <Lightbox src={featured[active].src} onClose={() => setActive(null)} />}
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- 3-step process ---------------- */
+function Process() {
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <SectionHeader
+          eyebrow="How We Work"
+          title={<>A simple <span className="gradient-text">three-step</span> engagement.</>}
+          sub="Clear scope, clear timeline, clear outcomes."
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
+          {MINI_PROCESS.map((s, i) => (
+            <Reveal key={s.n} delay={i * 80}>
+              <article className="card-lux flex h-full flex-col">
+                <div className="text-xs tracking-[0.25em] text-gold uppercase">Step {s.n}</div>
+                <h3 className="mt-3 text-2xl">{s.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -241,14 +339,17 @@ function Home() {
   return (
     <Shell>
       <Hero />
-      <ServicesPreview />
-      <IndustriesPreview />
-      <CasesPreview />
-      <ResultsStrip />
-      <FeaturedReference />
+      <Intro />
+      <Platforms />
+      <Pillars />
+      <FeaturedServices />
+      <FeaturedCases />
+      <FeaturedReferences />
+      <Process />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Book a free 30-minute strategy call — no obligation, just clarity."
+        primaryLabel="Book a Free Consultation"
         secondaryLabel="View services"
         secondaryTo="/services"
       />
