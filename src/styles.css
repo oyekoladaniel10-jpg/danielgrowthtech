@@ -108,7 +108,7 @@
 }
 
 @utility gradient-text {
-  background: linear-gradient(120deg, var(--gold), var(--emerald-brand) 60%, #fff);
+  background: linear-gradient(120deg, #ffffff, oklch(0.72 0.16 258) 50%, oklch(0.58 0.20 264));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
