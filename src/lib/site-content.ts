@@ -27,13 +27,37 @@ export const BRAND = {
 export type NavLink = { label: string; to: string };
 export const NAV: NavLink[] = [
   { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Industries", to: "/industries" },
   { label: "Case Studies", to: "/case-studies" },
-  { label: "References", to: "/references" },
-  { label: "Pricing", to: "/pricing" },
   { label: "Contact", to: "/contact" },
+];
+
+export const PLATFORMS = [
+  "Shopify", "WooCommerce", "BigCommerce", "Amazon", "Google Ads", "Meta", "Klaviyo",
+];
+
+export const PILLARS = [
+  {
+    t: "Acquire",
+    d: "Bring the right buyers to your store through paid ads, SEO and AI search visibility.",
+    items: ["Google & Meta Ads", "Ecommerce SEO", "AI Search (GEO)"],
+  },
+  {
+    t: "Convert",
+    d: "Turn visits into revenue with CRO, high-performing landing pages and fast site speed.",
+    items: ["CRO Experimentation", "Landing Page Design", "Speed Optimisation"],
+  },
+  {
+    t: "Retain",
+    d: "Increase LTV and repeat purchases through lifecycle email and SMS marketing.",
+    items: ["Klaviyo Flows", "SMS Campaigns", "Segmentation & Win-back"],
+  },
+];
+
+export const MINI_PROCESS = [
+  { n: "01", t: "Audit",     d: "A deep review of your store, funnel, analytics and channels to expose the real growth levers." },
+  { n: "02", t: "Strategy",  d: "A prioritised roadmap tied to revenue targets — clear scope, timeline and expected impact." },
+  { n: "03", t: "Execution", d: "Senior hands-on delivery across CRO, SEO, paid, email and analytics — measured weekly." },
 ];
 
 // Curated Unsplash imagery — swap the URLs freely.

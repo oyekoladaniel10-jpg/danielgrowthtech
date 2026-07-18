@@ -63,7 +63,8 @@ function CaseStudiesPage() {
                     </div>
                     <div className="mt-auto pt-6">
                       <Link
-                        to="/contact"
+                        to="/case-studies/$slug"
+                        params={{ slug: c.slug }}
                         className="btn-ghost w-full justify-center transition group-hover:border-gold/50 group-hover:text-gold"
                       >
                         View Case Study <ArrowRight className="h-4 w-4" />
