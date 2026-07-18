@@ -63,7 +63,7 @@ function CaseStudyDetail() {
               </h1>
               <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">{c.challenge}</p>
               <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
-                {c.results.map((r) => (
+                {c.results.map((r: { k: string; v: string }) => (
                   <div key={r.k} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center">
                     <div className="text-xl gradient-text md:text-2xl">{r.v}</div>
                     <div className="mt-1 text-[10px] tracking-widest text-muted-foreground uppercase">{r.k}</div>
