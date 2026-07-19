@@ -30,15 +30,6 @@ export function Footer() {
             >
               <FiverrIcon className="h-4 w-4" />
             </a>
-            <a
-              href={BRAND.socials.upwork}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Upwork profile"
-              className="glass grid h-10 w-10 place-items-center rounded-full transition hover:border-gold/40 hover:text-gold"
-            >
-              <UpworkIcon className="h-4 w-4" />
-            </a>
           </div>
         </div>
         <div>
