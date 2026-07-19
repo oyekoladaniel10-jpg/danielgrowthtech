@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Mail, Phone, MessageCircle, Star, X, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import portraitAsset from "@/assets/portrait-jacob.jpg.asset.json";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
-import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS } from "@/lib/site-content";
+import { FiverrIcon } from "@/components/site/social-icons";
+import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 const portrait = portraitAsset.url;
@@ -68,6 +69,14 @@ function Hero() {
                 <Link to="/contact" className="btn-primary">
                   Book a Free Consultation <ArrowRight className="h-4 w-4" />
                 </Link>
+                <a
+                  href={BRAND.socials.fiverr}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
+                >
+                  <FiverrIcon className="h-4 w-4" /> Hire Me on Fiverr
+                </a>
                 <Link to="/case-studies" className="btn-ghost">View case studies</Link>
               </div>
             </Reveal>
@@ -335,6 +344,134 @@ function Process() {
   );
 }
 
+/* ---------------- Client Reviews (Fiverr screenshots) ---------------- */
+function ClientReviews() {
+  const [active, setActive] = useState<number | null>(null);
+  useEffect(() => {
+    if (active === null) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
+    window.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [active]);
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <Reveal>
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
+            <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest uppercase">
+              <FiverrIcon className="h-4 w-4 text-[#1DBF73]" />
+              <span className="text-[#1DBF73]">Verified Fiverr Review</span>
+              <Star className="h-3.5 w-3.5 fill-gold text-gold" />
+            </div>
+            <h2 className="text-3xl md:text-5xl">
+              Client <span className="gradient-text">Reviews</span>
+            </h2>
+            <p className="text-muted-foreground">
+              Real, verified 5-star reviews from clients on my Fiverr profile — tap any screenshot to view it larger.
+            </p>
+          </div>
+        </Reveal>
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {REVIEWS.map((src, i) => (
+            <Reveal key={i} delay={i * 40}>
+              <button
+                type="button"
+                onClick={() => setActive(i)}
+                className="group block h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition hover:-translate-y-1 hover:border-gold/40"
+              >
+                <img
+                  src={src}
+                  alt={`Fiverr review ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-contain"
+                />
+              </button>
+            </Reveal>
+          ))}
+        </div>
+        <div className="mt-10 text-center">
+          <a
+            href={BRAND.socials.fiverr}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
+          >
+            <FiverrIcon className="h-4 w-4" /> View My Fiverr Profile <ExternalLink className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+      {active !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-fade-in"
+          onClick={() => setActive(null)}
+        >
+          <button
+            onClick={() => setActive(null)}
+            aria-label="Close"
+            className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <img
+            src={REVIEWS[active]}
+            alt="Fiverr review"
+            className="max-h-[90vh] max-w-full rounded-xl bg-white object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
+    </section>
+  );
+}
+
+/* ---------------- Contact preview ---------------- */
+function ContactPreview() {
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <SectionHeader
+          eyebrow="Contact"
+          title={<>Let's talk <span className="gradient-text">growth.</span></>}
+          sub="Prefer a quick chat first? Reach out on any channel — I reply within one business day."
+        />
+        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3">
+          <a href={`mailto:${BRAND.email}`} className="card-lux flex items-center gap-3 transition hover:border-gold/40">
+            <Mail className="h-5 w-5 shrink-0 text-gold" />
+            <div className="min-w-0">
+              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Email</div>
+              <div className="truncate text-sm">{BRAND.email}</div>
+            </div>
+          </a>
+          <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="card-lux flex items-center gap-3 transition hover:border-gold/40">
+            <Phone className="h-5 w-5 shrink-0 text-gold" />
+            <div className="min-w-0">
+              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Phone</div>
+              <div className="truncate text-sm">{BRAND.phone}</div>
+            </div>
+          </a>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="card-lux flex items-center gap-3 transition hover:border-gold/40">
+            <MessageCircle className="h-5 w-5 shrink-0 text-gold" />
+            <div className="min-w-0">
+              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">WhatsApp</div>
+              <div className="truncate text-sm">{BRAND.whatsapp}</div>
+            </div>
+          </a>
+        </div>
+        <div className="mt-10 text-center">
+          <Link to="/contact" className="btn-primary">
+            Contact <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Home() {
   return (
     <Shell>
@@ -345,7 +482,9 @@ function Home() {
       <FeaturedServices />
       <FeaturedCases />
       <FeaturedReferences />
+      <ClientReviews />
       <Process />
+      <ContactPreview />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Book a free 30-minute strategy call — no obligation, just clarity."

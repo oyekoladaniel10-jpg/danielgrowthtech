@@ -12,17 +12,25 @@ export const BRAND = {
   copyright: "© 2026 Jacob Growth. All rights reserved.",
   offices: [
     { country: "United Kingdom", flag: "🇬🇧" },
-    { country: "United States", flag: "🇺🇸" },
-    { country: "Canada", flag: "🇨🇦" },
-    { country: "Germany", flag: "🇩🇪" },
   ],
+  basedIn: { country: "United Kingdom", flag: "🇬🇧" },
   logo: logo.url,
   // Editable — paste your real profile URLs here.
   socials: {
     fiverr: "https://www.fiverr.com/jacobgrowth1?source=inbox",
-    upwork: "https://www.upwork.com/",
   },
 };
+
+export const WHATSAPP_URL = "https://wa.me/447828727015";
+
+import r1 from "@/assets/reviews/review-1.jpg.asset.json";
+import r2 from "@/assets/reviews/review-2.jpg.asset.json";
+import r3 from "@/assets/reviews/review-3.jpg.asset.json";
+import r4 from "@/assets/reviews/review-4.jpg.asset.json";
+import r5 from "@/assets/reviews/review-5.jpg.asset.json";
+import r6 from "@/assets/reviews/review-6.jpg.asset.json";
+
+export const REVIEWS = [r1.url, r2.url, r3.url, r4.url, r5.url, r6.url];
 
 export type NavLink = { label: string; to: string };
 export const NAV: NavLink[] = [
@@ -254,17 +262,17 @@ export const CASES_META = [
 ];
 
 import v1 from "@/assets/references/VID-20260316-WA0005.mp4.asset.json";
-import v2 from "@/assets/references/VID-20260316-WA0007.mp4.asset.json";
+import v2 from "@/assets/references/VID_20260419_090850_2.mp4.asset.json";
 import v3 from "@/assets/references/VID-20260320-WA0015.mp4.asset.json";
 import v4 from "@/assets/references/VID-20260417-WA0005.mp4.asset.json";
 import v5 from "@/assets/references/VID_20260419_220452.mp4.asset.json";
-import v6 from "@/assets/references/VID_20260419_222109.mp4.asset.json";
+import v6 from "@/assets/references/VID_20260718_111159.mp4.asset.json";
 
 export const REFERENCES = [
-  { src: v1.url, name: "Evelyn",       country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
-  { src: v2.url, name: "Gisela",       country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
-  { src: v3.url, name: "Sal",          country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
-  { src: v4.url, name: "Alfred Taran", country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
-  { src: v5.url, name: "Josh",         country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
-  { src: v6.url, name: "Daniel",       country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
+  { src: v1.url, name: "Liz Bennett",        country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
+  { src: v2.url, name: "Ilana Hubert Katz",  country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
+  { src: v3.url, name: "Sal",                country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
+  { src: v4.url, name: "Alfred Taran",       country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
+  { src: v5.url, name: "Josh",               country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
+  { src: v6.url, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
 ];
