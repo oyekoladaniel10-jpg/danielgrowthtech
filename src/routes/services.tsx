@@ -3,7 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero, Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { SERVICES } from "@/lib/site-content";
+import { SERVICES, WHATSAPP_URL } from "@/lib/site-content";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
