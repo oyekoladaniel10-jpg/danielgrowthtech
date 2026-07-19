@@ -12,10 +12,8 @@ export const BRAND = {
   copyright: "© 2026 Jacob Growth. All rights reserved.",
   offices: [
     { country: "United Kingdom", flag: "🇬🇧" },
-    { country: "United States", flag: "🇺🇸" },
-    { country: "Canada", flag: "🇨🇦" },
-    { country: "Germany", flag: "🇩🇪" },
   ],
+  basedIn: { country: "United Kingdom", flag: "🇬🇧" },
   logo: logo.url,
   // Editable — paste your real profile URLs here.
   socials: {
