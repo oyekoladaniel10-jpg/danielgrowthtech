@@ -53,9 +53,14 @@ function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link to="/contact" className="mt-6 inline-flex items-center gap-1 text-sm text-gold hover:underline">
+                    <a
+                      href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Hi Jacob, I'd like to discuss the "${s.title}" service.`)}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-6 inline-flex items-center gap-1 text-sm text-gold hover:underline"
+                    >
                       Discuss this service <ArrowRight className="h-3.5 w-3.5" />
-                    </Link>
+                    </a>
                   </div>
                 </article>
               </Reveal>
