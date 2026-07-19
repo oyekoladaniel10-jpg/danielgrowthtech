@@ -53,23 +53,21 @@ function ContactPage() {
             </a>
             <div className="glass rounded-2xl px-4 py-3">
               <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 shrink-0 text-gold" /> Global offices
+                <MapPin className="h-4 w-4 shrink-0 text-gold" /> Based in
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
-                {BRAND.offices.map((o) => (
-                  <span key={o.country} className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs">
-                    <span aria-hidden>{o.flag}</span> {o.country}
-                  </span>
-                ))}
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs">
+                  <span aria-hidden>{BRAND.basedIn.flag}</span> {BRAND.basedIn.country}
+                </span>
               </div>
             </div>
 
             <div className="card-lux">
               <div className="text-xs tracking-widest text-gold uppercase">Work With Me</div>
               <p className="mt-2 text-sm text-muted-foreground">
-                Prefer to hire through a marketplace? Find my verified profiles below.
+                Prefer to hire through a marketplace? Find my verified Fiverr profile below.
               </p>
-              <div className="mt-4 grid gap-2 sm:grid-cols-2">
+              <div className="mt-4">
                 <a
                   href={BRAND.socials.fiverr}
                   target="_blank"
@@ -82,21 +80,10 @@ function ContactPage() {
                     <div className="truncate text-xs text-muted-foreground">Hire me on Fiverr</div>
                   </div>
                 </a>
-                <a
-                  href={BRAND.socials.upwork}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="glass flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:border-gold/40 hover:text-gold"
-                >
-                  <UpworkIcon className="h-5 w-5 shrink-0 text-gold" />
-                  <div className="min-w-0">
-                    <div className="text-sm font-medium">Upwork</div>
-                    <div className="truncate text-xs text-muted-foreground">Hire me on Upwork</div>
-                  </div>
-                </a>
               </div>
             </div>
           </div>
+
 
           <form
             className="glass-strong h-fit rounded-3xl p-6 md:p-8"
