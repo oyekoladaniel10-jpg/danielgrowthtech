@@ -3,7 +3,7 @@ import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { BRAND } from "@/lib/site-content";
-import { FiverrIcon, UpworkIcon } from "@/components/site/social-icons";
+import { FiverrIcon } from "@/components/site/social-icons";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
