@@ -18,9 +18,19 @@ export const BRAND = {
   // Editable — paste your real profile URLs here.
   socials: {
     fiverr: "https://www.fiverr.com/jacobgrowth1?source=inbox",
-    upwork: "https://www.upwork.com/",
   },
 };
+
+export const WHATSAPP_URL = "https://wa.me/447828727015";
+
+import r1 from "@/assets/reviews/review-1.jpg.asset.json";
+import r2 from "@/assets/reviews/review-2.jpg.asset.json";
+import r3 from "@/assets/reviews/review-3.jpg.asset.json";
+import r4 from "@/assets/reviews/review-4.jpg.asset.json";
+import r5 from "@/assets/reviews/review-5.jpg.asset.json";
+import r6 from "@/assets/reviews/review-6.jpg.asset.json";
+
+export const REVIEWS = [r1.url, r2.url, r3.url, r4.url, r5.url, r6.url];
 
 export type NavLink = { label: string; to: string };
 export const NAV: NavLink[] = [
