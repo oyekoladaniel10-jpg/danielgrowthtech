@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Mail, Phone, MessageCircle, Star, X, ExternalLink } from "lucide-react";
+import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import portraitAsset from "@/assets/portrait-jacob.jpg.asset.json";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
-import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS } from "@/lib/site-content";
+import { FiverrIcon } from "@/components/site/social-icons";
+import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 const portrait = portraitAsset.url;
