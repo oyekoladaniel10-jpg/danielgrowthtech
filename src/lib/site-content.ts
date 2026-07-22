@@ -270,9 +270,9 @@ import v6 from "@/assets/references/VID_20260718_111159.mp4.asset.json";
 
 export const REFERENCES = [
   { src: v1.url, name: "Liz Bennett",        country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
-  { src: v2.url, name: "Ilana Hubert Katz",  country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
+  { src: v6.url, name: "Ilana Hubert Katz",  country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
   { src: v3.url, name: "Sal",                country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
   { src: v4.url, name: "Alfred Taran",       country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
   { src: v5.url, name: "Josh",               country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
-  { src: v6.url, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
+  { src: v2.url, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
 ];
