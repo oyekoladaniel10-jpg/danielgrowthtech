@@ -42,18 +42,9 @@ function CaseStudyDetail() {
   const { c } = Route.useLoaderData();
   const [open, setOpen] = useState(false);
 
-  const sections: { title: string; body: string }[] = [
-    { title: "Project Overview", body: c.overview },
-    { title: "Challenge", body: c.challenge },
-    { title: "Strategy", body: c.strategy },
-    { title: "Results", body: c.results },
-    { title: "Tools Used", body: c.tools },
-    { title: "Key Outcome", body: c.outcome },
-  ];
-
   return (
     <Shell>
-      <section className="relative overflow-hidden pt-36 pb-10 md:pt-44">
+      <section className="relative overflow-hidden pt-36 pb-20 md:pt-44">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0 -z-10 opacity-70"
@@ -97,19 +88,6 @@ function CaseStudyDetail() {
               </button>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      <section className="section-pad">
-        <div className="container-lg grid gap-6 md:grid-cols-2">
-          {sections.map((s, i) => (
-            <Reveal key={s.title} delay={i * 60}>
-              <div className="card-lux h-full">
-                <div className="text-xs tracking-widest text-gold uppercase">{s.title}</div>
-                <p className="mt-3 whitespace-pre-line text-muted-foreground">{s.body}</p>
-              </div>
-            </Reveal>
-          ))}
         </div>
       </section>
 
