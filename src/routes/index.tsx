@@ -239,56 +239,68 @@ function FeaturedServices() {
   );
 }
 
-/* ---------------- Featured Cases ---------------- */
+/* ---------------- Featured Case ---------------- */
 function FeaturedCases() {
-  const featured = CASES.slice(0, 4);
+  const featured = CASES[0];
+  const [open, setOpen] = useState(false);
   return (
     <section className="section-pad">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Case Studies"
-          title={<>Selected <span className="gradient-text">client wins.</span></>}
-          sub="Real ecommerce brands, real dashboards, real revenue."
+          title={<>Featured <span className="gradient-text">case study.</span></>}
+          sub="Real ecommerce brands, real stores, real results."
         />
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 md:gap-8">
-          {featured.map((c, i) => (
-            <Reveal key={c.slug} delay={i * 60}>
-              <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
-                <div className="relative aspect-[16/10] overflow-hidden bg-white/[0.02]">
-                  <img
-                    src={c.img}
-                    alt={c.client}
-                    loading="lazy"
-                    className="h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6 md:p-7">
-                  <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-widest text-gold uppercase">
-                    {c.industry}
-                  </span>
-                  <h3 className="mt-4 text-xl md:text-2xl">{c.client}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{c.challenge}</p>
-                  <div className="mt-auto pt-6">
-                    <Link
-                      to="/case-studies/$slug"
-                      params={{ slug: c.slug }}
-                      className="btn-ghost w-full justify-center transition group-hover:border-gold/50 group-hover:text-gold"
-                    >
-                      View Case Study <ArrowRight className="h-4 w-4" />
-                    </Link>
+        <div className="mt-14 mx-auto max-w-4xl">
+          <Reveal>
+            <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                aria-label={`Play ${featured.website} case study video`}
+                className="relative block w-full overflow-hidden"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                <video
+                  src={featured.video}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
+                  <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
+                    <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
                   </div>
                 </div>
-              </article>
-            </Reveal>
-          ))}
+              </button>
+              <div className="flex flex-1 flex-col gap-2 p-6 md:p-8">
+                <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-widest text-gold uppercase">
+                  {featured.industry}
+                </span>
+                <h3 className="mt-2 text-2xl md:text-3xl">{featured.website}</h3>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    to="/case-studies/$slug"
+                    params={{ slug: featured.slug }}
+                    className="btn-ghost transition group-hover:border-gold/50 group-hover:text-gold"
+                  >
+                    View Case Study <ArrowRight className="h-4 w-4" />
+                  </Link>
+                  <Link to="/case-studies" className="btn-primary">
+                    View All Case Studies <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          </Reveal>
         </div>
-        <div className="mt-10 text-center">
-          <Link to="/case-studies" className="btn-ghost">All case studies <ArrowRight className="h-4 w-4" /></Link>
-        </div>
+        {open && <Lightbox src={featured.video} onClose={() => setOpen(false)} />}
       </div>
     </section>
   );
 }
+
 
 /* ---------------- Featured References ---------------- */
 function FeaturedReferences() {

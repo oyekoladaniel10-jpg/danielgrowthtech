@@ -1,8 +1,10 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, Check } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, Play } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { Lightbox } from "@/components/site/VideoCard";
 import { CASES } from "@/lib/case-assets";
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -18,12 +20,10 @@ export const Route = createFileRoute("/case-studies/$slug")({
     const { c } = loaderData;
     return {
       meta: [
-        { title: `${c.client} — Case Study | Jacob Growth` },
-        { name: "description", content: c.challenge },
-        { property: "og:title", content: `${c.client} — Case Study` },
-        { property: "og:description", content: c.challenge },
-        { property: "og:image", content: c.img },
-        { name: "twitter:card", content: "summary_large_image" },
+        { title: `${c.website} — Case Study | Jacob Growth` },
+        { name: "description", content: `${c.industry} case study for ${c.website}.` },
+        { property: "og:title", content: `${c.website} — Case Study` },
+        { property: "og:description", content: `${c.industry} case study for ${c.website}.` },
       ],
     };
   },
@@ -40,6 +40,17 @@ export const Route = createFileRoute("/case-studies/$slug")({
 
 function CaseStudyDetail() {
   const { c } = Route.useLoaderData();
+  const [open, setOpen] = useState(false);
+
+  const sections: { title: string; body: string }[] = [
+    { title: "Project Overview", body: c.overview },
+    { title: "Challenge", body: c.challenge },
+    { title: "Strategy", body: c.strategy },
+    { title: "Results", body: c.results },
+    { title: "Tools Used", body: c.tools },
+    { title: "Key Outcome", body: c.outcome },
+  ];
+
   return (
     <Shell>
       <section className="relative overflow-hidden pt-36 pb-10 md:pt-44">
@@ -55,32 +66,35 @@ function CaseStudyDetail() {
           <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4" /> All case studies
           </Link>
-          <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
+          <div className="mt-6 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:items-center">
             <Reveal>
               <div className="text-xs tracking-[0.25em] text-gold uppercase">{c.industry}</div>
-              <h1 className="mt-3 text-4xl md:text-6xl leading-[1.05]">
-                {c.client}
-              </h1>
-              <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">{c.challenge}</p>
-              <div className="mt-8 grid grid-cols-3 gap-3 max-w-lg">
-                {c.results.map((r: { k: string; v: string }) => (
-                  <div key={r.k} className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-center">
-                    <div className="text-xl gradient-text md:text-2xl">{r.v}</div>
-                    <div className="mt-1 text-[10px] tracking-widest text-muted-foreground uppercase">{r.k}</div>
-                  </div>
-                ))}
-              </div>
+              <h1 className="mt-3 text-4xl md:text-6xl leading-[1.05]">{c.website}</h1>
+              <p className="mt-5 max-w-xl text-muted-foreground md:text-lg">
+                Watch the full case study video and explore the strategy, tools, and outcomes behind the project.
+              </p>
             </Reveal>
             <Reveal delay={120}>
-              <div className="relative">
-                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-primary/25 to-white/5 blur-2xl" />
-                <img
-                  src={c.img}
-                  alt={c.client}
-                  loading="eager"
-                  className="relative w-full rounded-3xl border border-white/10 object-cover object-top shadow-2xl"
+              <button
+                type="button"
+                onClick={() => setOpen(true)}
+                aria-label={`Play ${c.website} case study video`}
+                className="group relative block w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] shadow-2xl"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                <video
+                  src={c.video}
+                  preload="metadata"
+                  muted
+                  playsInline
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
-              </div>
+                <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
+                  <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
+                    <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
+                  </div>
+                </div>
+              </button>
             </Reveal>
           </div>
         </div>
@@ -88,37 +102,21 @@ function CaseStudyDetail() {
 
       <section className="section-pad">
         <div className="container-lg grid gap-6 md:grid-cols-2">
-          <Reveal>
-            <div className="card-lux h-full">
-              <div className="text-xs tracking-widest text-gold uppercase">The Challenge</div>
-              <p className="mt-3 text-muted-foreground">{c.challenge}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <div className="card-lux h-full">
-              <div className="text-xs tracking-widest text-gold uppercase">Our Strategy</div>
-              <p className="mt-3 text-muted-foreground">{c.strategy}</p>
-            </div>
-          </Reveal>
-          <Reveal delay={160}>
-            <div className="card-lux h-full md:col-span-2">
-              <div className="text-xs tracking-widest text-gold uppercase">Work Delivered</div>
-              <p className="mt-3 text-muted-foreground">{c.work}</p>
-              <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-                {c.work.split(",").map((w: string) => (
-                  <li key={w} className="flex items-start gap-2 text-sm">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span>{w.trim().replace(/^./, (m: string) => m.toUpperCase())}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Reveal>
+          {sections.map((s, i) => (
+            <Reveal key={s.title} delay={i * 60}>
+              <div className="card-lux h-full">
+                <div className="text-xs tracking-widest text-gold uppercase">{s.title}</div>
+                <p className="mt-3 whitespace-pre-line text-muted-foreground">{s.body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
+      {open && <Lightbox src={c.video} onClose={() => setOpen(false)} />}
+
       <CtaBanner
-        title={<>Want results like <span className="gradient-text">{c.client}?</span></>}
+        title={<>Want results like <span className="gradient-text">{c.website}?</span></>}
         sub="Book a free 30-minute strategy call — no obligation, just clarity."
         secondaryLabel="View all case studies"
         secondaryTo="/case-studies"
