@@ -18,7 +18,7 @@ export function Footer() {
             <span className="font-medium">{BRAND.name}</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
-            We engineer eCommerce growth through proven strategies and data-driven solutions. Scale your business with our global team of experts.
+            I help eCommerce brands grow through practical strategy, conversion optimisation, and data driven marketing. Work directly with a senior growth specialist focused on measurable, sustainable results.
           </p>
           <div className="mt-5 flex gap-2">
             <a
