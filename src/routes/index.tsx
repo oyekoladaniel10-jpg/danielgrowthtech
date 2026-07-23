@@ -10,7 +10,7 @@ import { FiverrIcon } from "@/components/site/social-icons";
 import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
-const portrait = portraitAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
