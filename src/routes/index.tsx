@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Mail, Phone, MessageCircle, Star, X, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import portraitAsset from "@/assets/portrait-jacob-2.jpg.asset.json";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
