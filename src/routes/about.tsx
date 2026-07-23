@@ -48,11 +48,12 @@ function AboutPage() {
                 Helping ambitious ecommerce brands achieve <span className="gradient-text">sustainable, profitable growth.</span>
               </h1>
               <p className="mt-5 text-muted-foreground">
-                I'm Jacob, the founder of {BRAND.name}. I partner with ecommerce brands to increase
-                qualified traffic, improve conversion rates, and scale revenue through data-driven
-                strategies. My approach combines Conversion Rate Optimisation (CRO), SEO, paid
-                advertising, AI Search Visibility, email marketing, and marketplace growth to build
-                long-term, measurable results rather than short-term wins.
+                I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online
+                businesses improve their visibility, attract qualified customers, increase conversions,
+                and grow revenue. Based in the United Kingdom, I work remotely with eCommerce
+                businesses across the UK, US, Canada, Australia, and other countries — so no matter
+                where you're located, we can work together smoothly. My approach is focused on clear
+                strategy, measurable results, and sustainable growth.
               </p>
             </Reveal>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">

@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Mail, Phone, MessageCircle, Star, X, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
-import portraitAsset from "@/assets/portrait-jacob-2.jpg.asset.json";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -11,7 +10,7 @@ import { FiverrIcon } from "@/components/site/social-icons";
 import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
-const portrait = portraitAsset.url;
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,73 +43,54 @@ function Hero() {
       <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/25 blur-[120px]" />
 
       <div className="container-lg relative">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
-          <div>
-            <Reveal>
-              <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest text-muted-foreground uppercase">
-                <Sparkles className="h-3.5 w-3.5 text-gold" />
-                Ecommerce growth · trusted worldwide
-              </div>
-            </Reveal>
-            <Reveal delay={120}>
-              <h1 className="mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
-                Scale your store with a <span className="gradient-text">proven ecommerce growth partner.</span>
-              </h1>
-            </Reveal>
-            <Reveal delay={220}>
-              <p className="mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
-                I help ambitious ecommerce brands increase qualified traffic, lift conversion rates
-                and grow revenue — through CRO, SEO, paid media, email and analytics engineered for
-                compounding profit.
-              </p>
-            </Reveal>
-            <Reveal delay={320}>
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-                <Link to="/contact" className="btn-primary">
-                  Book a Free Consultation <ArrowRight className="h-4 w-4" />
-                </Link>
-                <a
-                  href={BRAND.socials.fiverr}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
-                >
-                  <FiverrIcon className="h-4 w-4" /> Hire Me on Fiverr
-                </a>
-                <Link to="/case-studies" className="btn-ghost">View case studies</Link>
-              </div>
-            </Reveal>
-            <Reveal delay={420}>
-              <div className="mt-10 grid max-w-md grid-cols-3 gap-3">
-                {[
-                  { k: "Revenue lift", v: "+312%" },
-                  { k: "Conv. lift", v: "+168%" },
-                  { k: "Retention", v: "94%" },
-                ].map((s) => (
-                  <div key={s.k} className="glass rounded-2xl px-3 py-3 text-center">
-                    <div className="text-lg gradient-text md:text-xl">{s.v}</div>
-                    <div className="mt-0.5 text-[10px] tracking-widest text-muted-foreground uppercase">{s.k}</div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-
-          <Reveal delay={200}>
-            <div className="relative mx-auto w-full max-w-md">
-              <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-primary/30 to-white/5 blur-2xl" />
-              <img
-                src={portrait}
-                alt="Jacob — founder of Jacob Growth"
-                width={800}
-                height={1000}
-                loading="eager"
-                className="relative aspect-[4/5] w-full rounded-[2rem] border border-white/10 object-cover object-top shadow-2xl"
-              />
-              <div className="glass-strong absolute -bottom-5 -left-4 rounded-2xl px-4 py-3">
-                <div className="text-sm font-medium">Jacob</div>
-                <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Founder · {BRAND.name}</div>
-              </div>
+        <div className="mx-auto max-w-3xl text-center">
+          <Reveal>
+            <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest text-muted-foreground uppercase">
+              <Sparkles className="h-3.5 w-3.5 text-gold" />
+              Ecommerce growth · trusted worldwide
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <h1 className="mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
+              Scale your store with a <span className="gradient-text">proven ecommerce growth partner.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={220}>
+            <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
+              I help ambitious ecommerce brands increase qualified traffic, lift conversion rates
+              and grow revenue — through CRO, SEO, paid media, email and analytics engineered for
+              compounding profit.
+            </p>
+          </Reveal>
+          <Reveal delay={320}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <Link to="/contact" className="btn-primary">
+                Book a Free Consultation <ArrowRight className="h-4 w-4" />
+              </Link>
+              <a
+                href={BRAND.socials.fiverr}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
+              >
+                <FiverrIcon className="h-4 w-4" /> Hire Me on Fiverr
+              </a>
+              <Link to="/case-studies" className="btn-ghost">View case studies</Link>
+              <Link to="/about" className="btn-ghost">About Me <ArrowRight className="h-4 w-4" /></Link>
+            </div>
+          </Reveal>
+          <Reveal delay={420}>
+            <div className="mx-auto mt-10 grid max-w-md grid-cols-3 gap-3">
+              {[
+                { k: "Revenue lift", v: "+312%" },
+                { k: "Conv. lift", v: "+168%" },
+                { k: "Retention", v: "94%" },
+              ].map((s) => (
+                <div key={s.k} className="glass rounded-2xl px-3 py-3 text-center">
+                  <div className="text-lg gradient-text md:text-xl">{s.v}</div>
+                  <div className="mt-0.5 text-[10px] tracking-widest text-muted-foreground uppercase">{s.k}</div>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -126,16 +106,31 @@ function Intro() {
       <div className="container-lg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs tracking-[0.25em] text-gold uppercase">About {BRAND.name}</div>
+            <div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div>
             <h2 className="mt-3 text-3xl md:text-5xl">
               A senior growth partner — not another <span className="gradient-text">agency middleman.</span>
             </h2>
-            <p className="mt-5 text-muted-foreground">
-              {BRAND.name} is a specialist ecommerce growth practice helping DTC and marketplace
-              brands increase revenue through data-driven strategy and hands-on execution. Every
-              engagement is led personally — no junior handoffs, no vanity metrics, just measurable
-              growth built on transparent reporting and long-term partnership.
-            </p>
+            <div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center">
+              <p>
+                I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online
+                businesses improve their visibility, attract qualified customers, increase conversions,
+                and grow revenue.
+              </p>
+              <p>
+                Based in the United Kingdom, I work remotely with eCommerce businesses across the UK,
+                US, Canada, Australia, and other countries, so no matter where you're located, we can
+                work together smoothly.
+              </p>
+              <p>
+                I work closely with each client to understand their business, identify growth
+                opportunities, and build practical strategies around their specific goals — whether
+                that's improving their store, increasing qualified traffic, optimising conversion
+                rates, or scaling their marketing channels.
+              </p>
+              <p>
+                My approach is focused on clear strategy, measurable results, and sustainable growth.
+              </p>
+            </div>
           </div>
         </Reveal>
       </div>
