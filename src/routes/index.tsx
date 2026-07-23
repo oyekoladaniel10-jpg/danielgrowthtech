@@ -106,16 +106,31 @@ function Intro() {
       <div className="container-lg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <div className="text-xs tracking-[0.25em] text-gold uppercase">About {BRAND.name}</div>
+            <div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div>
             <h2 className="mt-3 text-3xl md:text-5xl">
               A senior growth partner — not another <span className="gradient-text">agency middleman.</span>
             </h2>
-            <p className="mt-5 text-muted-foreground">
-              {BRAND.name} is a specialist ecommerce growth practice helping DTC and marketplace
-              brands increase revenue through data-driven strategy and hands-on execution. Every
-              engagement is led personally — no junior handoffs, no vanity metrics, just measurable
-              growth built on transparent reporting and long-term partnership.
-            </p>
+            <div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center">
+              <p>
+                I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online
+                businesses improve their visibility, attract qualified customers, increase conversions,
+                and grow revenue.
+              </p>
+              <p>
+                Based in the United Kingdom, I work remotely with eCommerce businesses across the UK,
+                US, Canada, Australia, and other countries, so no matter where you're located, we can
+                work together smoothly.
+              </p>
+              <p>
+                I work closely with each client to understand their business, identify growth
+                opportunities, and build practical strategies around their specific goals — whether
+                that's improving their store, increasing qualified traffic, optimising conversion
+                rates, or scaling their marketing channels.
+              </p>
+              <p>
+                My approach is focused on clear strategy, measurable results, and sustainable growth.
+              </p>
+            </div>
           </div>
         </Reveal>
       </div>
