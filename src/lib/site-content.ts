@@ -6,9 +6,9 @@ export const BRAND = {
   tagline: "Ecommerce Sales Growth Expert",
   sub: "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies.",
   email: "Jacobgrowth01@gmail.com",
-  phone: "+44 7828 727015",
-  whatsapp: "+44 7828 727015",
-  website: "jacobgrowth.lovable.app",
+  phone: "+44 7828 706004",
+  whatsapp: "+44 7828 706004",
+  website: "jacobgrowth.uk",
   copyright: "© 2026 Jacob Growth. All rights reserved.",
   offices: [
     { country: "United Kingdom", flag: "🇬🇧" },
@@ -21,7 +21,7 @@ export const BRAND = {
   },
 };
 
-export const WHATSAPP_URL = "https://wa.me/447828727015";
+export const WHATSAPP_URL = "https://wa.me/447828706004";
 
 import r1 from "@/assets/reviews/review-1.jpg.asset.json";
 import r2 from "@/assets/reviews/review-2.jpg.asset.json";
