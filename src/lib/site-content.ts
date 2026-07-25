@@ -21,7 +21,7 @@ export const BRAND = {
   },
 };
 
-export const WHATSAPP_URL = "https://wa.me/447828727015";
+export const WHATSAPP_URL = "https://wa.me/447828706004";
 
 import r1 from "@/assets/reviews/review-1.jpg.asset.json";
 import r2 from "@/assets/reviews/review-2.jpg.asset.json";
