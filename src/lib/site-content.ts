@@ -292,3 +292,22 @@ export const REFERENCES = [
   { src: v5.url, name: "Josh",               country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
   { src: v2.url, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
 ];
+
+export const WAYS_TO_WORK = [
+  {
+    title: "Fixed Payment",
+    desc: "Pay the agreed project fee based on the selected package and agreed scope of work.",
+  },
+  {
+    title: "Installment Plan",
+    desc: "Split the agreed project fee into manageable instalments based on an agreed payment schedule.",
+  },
+  {
+    title: "Hybrid Partnership",
+    desc: "Combine an upfront payment with a performance-based component, based on an agreed scope and terms.",
+  },
+  {
+    title: "Performance Partnership",
+    desc: "No upfront professional fee. For selected ecommerce businesses, work under an agreed 5% commission structure.",
+  },
+];
