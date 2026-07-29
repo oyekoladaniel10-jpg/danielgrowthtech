@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, Check, ChevronDown, Handshake } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero, Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { PRICING, WAYS_TO_WORK, FAQS } from "@/lib/site-content";
+import { WaysToWork } from "@/components/site/WaysToWork";
+import { PRICING, FAQS } from "@/lib/site-content";
 import { useState } from "react";
 
 export const Route = createFileRoute("/pricing")({
