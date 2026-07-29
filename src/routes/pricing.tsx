@@ -3,7 +3,7 @@ import { ArrowRight, Check, ChevronDown, Handshake } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero, Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { PRICING, PARTNERSHIP, FAQS } from "@/lib/site-content";
+import { PRICING, WAYS_TO_WORK, FAQS } from "@/lib/site-content";
 import { useState } from "react";
 
 export const Route = createFileRoute("/pricing")({
