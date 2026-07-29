@@ -6,6 +6,7 @@ import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
@@ -458,6 +459,7 @@ function Home() {
       <FeaturedCases />
       <FeaturedReferences />
       <ClientReviews />
+      <WaysToWork />
       <FaqSection />
       <ContactPreview />
       <CtaBanner
