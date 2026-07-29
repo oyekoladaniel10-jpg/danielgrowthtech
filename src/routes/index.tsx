@@ -318,31 +318,6 @@ function FeaturedReferences() {
   );
 }
 
-/* ---------------- 3-step process ---------------- */
-function Process() {
-  return (
-    <section className="section-pad">
-      <div className="container-lg">
-        <SectionHeader
-          eyebrow="How We Work"
-          title={<>A simple <span className="gradient-text">three-step</span> engagement.</>}
-          sub="Clear scope, clear timeline, clear outcomes."
-        />
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
-          {MINI_PROCESS.map((s, i) => (
-            <Reveal key={s.n} delay={i * 80}>
-              <article className="card-lux flex h-full flex-col">
-                <div className="text-xs tracking-[0.25em] text-gold uppercase">Step {s.n}</div>
-                <h3 className="mt-3 text-2xl">{s.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- Client Reviews (Fiverr screenshots) ---------------- */
 function ClientReviews() {
