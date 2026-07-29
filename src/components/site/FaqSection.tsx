@@ -26,59 +26,27 @@ export function FaqSection() {
           {GENERAL_FAQS.map((f, i) => {
             const isOpen = open.includes(i);
             return (
-              <div
-                key={f.q}
-                className={`relative transition-colors duration-300 ${isOpen ? "bg-white/[0.04]" : "hover:bg-white/[0.02]"}`}
-              >
-                <span
-                  aria-hidden
-                  className={`pointer-events-none absolute left-0 top-3 bottom-3 w-px origin-center bg-gold transition-transform duration-500 ease-out ${isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"}`}
-                />
+              <div key={f.q}>
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => toggle(i)}
-                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left transition-colors duration-300 md:px-6"
+                  className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6"
                 >
-                  <span
-                    className={`text-sm font-medium transition-colors duration-300 md:text-base ${isOpen ? "text-gold" : "text-foreground"}`}
-                  >
-                    {f.q}
-                  </span>
-                  <span
-                    className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border transition-all duration-300 ${
-                      isOpen
-                        ? "border-gold/40 bg-gold/10"
-                        : "border-white/10 bg-white/[0.03]"
-                    }`}
-                  >
-                    <ChevronDown
-                      className={`h-4 w-4 text-gold transition-transform duration-500 ${isOpen ? "rotate-180" : ""}`}
-                      style={{ transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)" }}
-                    />
-                  </span>
+                  <span className="text-sm font-medium md:text-base">{f.q}</span>
+                  <ChevronDown
+                    className={`h-5 w-5 shrink-0 text-gold transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  />
                 </button>
                 <div
-                  className="grid px-5 text-sm text-muted-foreground md:px-6"
+                  className="grid overflow-hidden px-5 text-sm text-muted-foreground transition-all duration-300 ease-out md:px-6"
                   style={{
                     gridTemplateRows: isOpen ? "1fr" : "0fr",
                     paddingBottom: isOpen ? "1.25rem" : "0",
                     opacity: isOpen ? 1 : 0,
-                    transition:
-                      "grid-template-rows .45s cubic-bezier(0.22,1,0.36,1), padding-bottom .45s cubic-bezier(0.22,1,0.36,1), opacity .35s ease",
                   }}
                 >
-                  <div className="min-h-0 overflow-hidden">
-                    <p
-                      className="max-w-prose leading-relaxed transition-transform duration-500"
-                      style={{
-                        transform: isOpen ? "translateY(0)" : "translateY(-6px)",
-                        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-                      }}
-                    >
-                      {f.a}
-                    </p>
-                  </div>
+                  <div className="min-h-0 overflow-hidden leading-relaxed">{f.a}</div>
                 </div>
               </div>
             );
