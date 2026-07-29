@@ -132,7 +132,23 @@ export const WHY = [
   { t: "Long-Term Partnership", d: "Senior specialists on Slack, not junior account managers." },
 ];
 
+export const GENERAL_FAQS = [
+  { q: "What type of businesses do you work with?", a: "I work with ecommerce businesses and online brands across industries including fashion, beauty, home, lifestyle, automotive, health and wellness, and more." },
+  { q: "Where are you based?", a: "I'm based in the United Kingdom and work remotely with ecommerce businesses in the UK, US, Canada, Australia, and other international markets." },
+  { q: "What ecommerce platforms do you work with?", a: "I work with platforms including Shopify, WooCommerce, BigCommerce, and Amazon, depending on the needs of the business." },
+  { q: "What services do you offer?", a: "My services include Conversion Rate Optimisation (CRO), Ecommerce SEO, AI Search Visibility, Google Ads, Meta Ads, TikTok Ads, Pinterest Marketing, Email Marketing, Website Speed Optimisation, and ecommerce growth strategy." },
+  { q: "How do you determine which services my business needs?", a: "I start by understanding your business, current performance, goals, and challenges. From there, I identify the biggest growth opportunities and recommend the strategies that are most relevant to your situation." },
+  { q: "Do you offer one-time projects or ongoing support?", a: "Both. I offer one-time projects for specific growth needs as well as ongoing support for businesses looking for continuous optimisation and growth." },
+  { q: "How long does it take to see results?", a: "The timeline depends on the service, starting point, industry, and level of implementation. Some improvements can be seen quickly, while SEO, CRO testing, and long-term growth strategies typically require ongoing optimisation." },
+  { q: "How do we get started?", a: "Book a free consultation or contact me directly. We'll discuss your business, goals, current challenges, and the best next steps." },
+  { q: "Do you offer commission-based partnerships?", a: "Yes. For selected ecommerce businesses, I may offer a performance-based partnership with a 5% commission structure, subject to agreement and suitability." },
+  { q: "Can I see examples of your previous work?", a: "Yes. You can explore my Case Studies and Client References to see examples of projects, results, and feedback from clients I've worked with." },
+  { q: "How do you communicate with clients?", a: "Communication can be handled through channels agreed upon at the start of the project, including WhatsApp, email, and other suitable platforms." },
+  { q: "Do you work with businesses outside the UK?", a: "Yes. Although I'm based in the UK, I work remotely with ecommerce businesses internationally." },
+];
+
 export const FAQS = [
+
   { q: "How long until I see results?", a: "Most brands see meaningful lift in 45–90 days. Deeper structural work (SEO, CRO) compounds over 6–12 months." },
   { q: "How do you communicate?", a: "Async updates via Slack or email, a shared Notion roadmap, and a monthly executive review call." },
   { q: "What reporting will I get?", a: "A live dashboard covering revenue, ROAS, CAC, LTV and channel performance, plus a written monthly report." },
