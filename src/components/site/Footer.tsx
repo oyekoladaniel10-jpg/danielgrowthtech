@@ -20,17 +20,6 @@ export function Footer() {
           <p className="mt-4 text-sm text-muted-foreground">
             I help eCommerce brands grow through practical strategy, conversion optimisation, and data driven marketing. Work directly with a senior growth specialist focused on measurable, sustainable results.
           </p>
-          <div className="mt-5 flex gap-2">
-            <a
-              href={BRAND.socials.fiverr}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Fiverr profile"
-              className="glass grid h-10 w-10 place-items-center rounded-full transition hover:border-gold/40 hover:text-gold"
-            >
-              <FiverrIcon className="h-4 w-4" />
-            </a>
-          </div>
         </div>
         <div>
           <div className="text-xs tracking-widest text-gold uppercase">Quick links</div>
