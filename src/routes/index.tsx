@@ -67,14 +67,6 @@ function Hero() {
               <Link to="/contact" className="btn-primary">
                 Book a Free Consultation <ArrowRight className="h-4 w-4" />
               </Link>
-              <a
-                href={BRAND.socials.fiverr}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-5 py-2.5 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
-              >
-                <FiverrIcon className="h-4 w-4" /> Hire Me on Fiverr
-              </a>
               <Link to="/case-studies" className="btn-ghost">View case studies</Link>
               <Link to="/about" className="btn-ghost">About Me <ArrowRight className="h-4 w-4" /></Link>
             </div>
