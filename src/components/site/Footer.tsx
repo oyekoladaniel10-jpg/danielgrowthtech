@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { BRAND, NAV, SERVICES } from "@/lib/site-content";
-import { FiverrIcon } from "./social-icons";
 
 export function Footer() {
   return (
