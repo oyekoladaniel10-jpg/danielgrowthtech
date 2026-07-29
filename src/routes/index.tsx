@@ -458,7 +458,6 @@ function Home() {
       <FeaturedCases />
       <FeaturedReferences />
       <ClientReviews />
-      <Process />
       <FaqSection />
       <ContactPreview />
       <CtaBanner
