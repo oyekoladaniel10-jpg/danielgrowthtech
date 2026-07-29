@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
+import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
@@ -483,6 +484,7 @@ function Home() {
       <FeaturedReferences />
       <ClientReviews />
       <Process />
+      <FaqSection />
       <ContactPreview />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
