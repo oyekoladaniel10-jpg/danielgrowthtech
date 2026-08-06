@@ -408,7 +408,7 @@ function ClientReviews() {
 /* ---------------- Contact preview ---------------- */
 function ContactPreview() {
   return (
-    <section className="section-pad">
+    <section className="section-pad render-stable">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Contact"
