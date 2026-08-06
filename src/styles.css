@@ -176,17 +176,6 @@
   }
 }
 
-/* Stable rendering for contact surfaces: avoids repaint jitter from
-   backdrop-filter + hover transforms on touch devices. */
-@utility render-stable {
-  contain: layout paint style;
-  @media (hover: none) {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-}
-
-
 @utility section-pad {
   padding-block: 6rem;
 }
