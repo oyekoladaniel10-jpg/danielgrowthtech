@@ -419,7 +419,6 @@ function Home() {
       <ClientReviews />
       <WaysToWork />
       <FaqSection />
-      <ContactPreview />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Book a free 30-minute strategy call — no obligation, just clarity."
