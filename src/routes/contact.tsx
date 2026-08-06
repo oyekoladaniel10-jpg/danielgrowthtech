@@ -39,16 +39,16 @@ function ContactPage() {
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Share a few details and I'll come back within one business day with next steps, a free audit outline and pricing indication."
       />
-      <section className="pb-24">
+      <section className="pb-24 render-stable">
         <div className="container-lg grid gap-10 lg:grid-cols-2">
           <div className="space-y-4 text-sm">
-            <a href={`mailto:${BRAND.email}`} className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+            <a href={`mailto:${BRAND.email}`} className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
               <Mail className="h-4 w-4 shrink-0 text-gold" /> <span className="truncate">{BRAND.email}</span>
             </a>
-            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
               <Phone className="h-4 w-4 shrink-0 text-gold" /> {BRAND.phone}
             </a>
-            <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="glass flex items-center gap-3 rounded-2xl px-4 py-3">
+            <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
               <MessageCircle className="h-4 w-4 shrink-0 text-gold" /> WhatsApp {BRAND.whatsapp}
             </a>
             <div className="glass rounded-2xl px-4 py-3">

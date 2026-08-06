@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "preload", as: "image", href: heroBg, fetchpriority: "high" } as any],
+    links: [{ rel: "preload", as: "image", href: heroBg, fetchPriority: "high" } as any],
   }),
   component: Home,
 });
@@ -408,7 +408,7 @@ function ClientReviews() {
 /* ---------------- Contact preview ---------------- */
 function ContactPreview() {
   return (
-    <section className="section-pad">
+    <section className="section-pad render-stable">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Contact"
