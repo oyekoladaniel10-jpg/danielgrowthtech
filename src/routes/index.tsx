@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Mail, Phone, MessageCircle, Star, X, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Star, X, ExternalLink } from "lucide-react";
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Shell } from "@/components/site/Shell";
@@ -7,9 +7,10 @@ import { Reveal, SectionHeader } from "@/components/site/ui";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
+import { ContactMethods } from "@/components/site/ContactMethods";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
-import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS, WHATSAPP_URL } from "@/lib/site-content";
+import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 
@@ -408,35 +409,15 @@ function ClientReviews() {
 /* ---------------- Contact preview ---------------- */
 function ContactPreview() {
   return (
-    <section className="section-pad render-stable">
+    <section className="section-pad">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Contact"
           title={<>Let's talk <span className="gradient-text">growth.</span></>}
           sub="Prefer a quick chat first? Reach out on any channel — I reply within one business day."
         />
-        <div className="mx-auto mt-12 grid max-w-4xl gap-4 sm:grid-cols-3">
-          <a href={`mailto:${BRAND.email}`} className="card-lux flex items-center gap-3 transition hover:border-gold/40">
-            <Mail className="h-5 w-5 shrink-0 text-gold" />
-            <div className="min-w-0">
-              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Email</div>
-              <div className="truncate text-sm">{BRAND.email}</div>
-            </div>
-          </a>
-          <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="card-lux flex items-center gap-3 transition hover:border-gold/40">
-            <Phone className="h-5 w-5 shrink-0 text-gold" />
-            <div className="min-w-0">
-              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Phone</div>
-              <div className="truncate text-sm">{BRAND.phone}</div>
-            </div>
-          </a>
-          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="card-lux flex items-center gap-3 transition hover:border-gold/40">
-            <MessageCircle className="h-5 w-5 shrink-0 text-gold" />
-            <div className="min-w-0">
-              <div className="text-[10px] tracking-widest text-muted-foreground uppercase">WhatsApp</div>
-              <div className="truncate text-sm">{BRAND.whatsapp}</div>
-            </div>
-          </a>
+        <div className="mx-auto mt-12 max-w-4xl">
+          <ContactMethods />
         </div>
         <div className="mt-10 text-center">
           <Link to="/contact" className="btn-primary">

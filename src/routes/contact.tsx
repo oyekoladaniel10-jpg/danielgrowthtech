@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
-import { BRAND } from "@/lib/site-content";
-import { FiverrIcon } from "@/components/site/social-icons";
+import { ContactMethods } from "@/components/site/ContactMethods";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -25,7 +25,7 @@ function Field({ label, name, type = "text", required, placeholder }: {
       <label className="mb-1.5 block text-xs tracking-widest text-muted-foreground uppercase">{label}</label>
       <input
         name={name} type={type} required={required} placeholder={placeholder}
-        className="w-full rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition focus:border-gold/50"
+        className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-gold/50"
       />
     </div>
   );
@@ -39,54 +39,14 @@ function ContactPage() {
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Share a few details and I'll come back within one business day with next steps, a free audit outline and pricing indication."
       />
-      <section className="pb-24 render-stable">
-        <div className="container-lg grid gap-10 lg:grid-cols-2">
-          <div className="space-y-4 text-sm">
-            <a href={`mailto:${BRAND.email}`} className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
-              <Mail className="h-4 w-4 shrink-0 text-gold" /> <span className="truncate">{BRAND.email}</span>
-            </a>
-            <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
-              <Phone className="h-4 w-4 shrink-0 text-gold" /> {BRAND.phone}
-            </a>
-            <a href={`https://wa.me/${BRAND.whatsapp.replace(/\D/g, "")}`} target="_blank" rel="noreferrer" className="glass render-stable flex items-center gap-3 rounded-2xl px-4 py-3">
-              <MessageCircle className="h-4 w-4 shrink-0 text-gold" /> WhatsApp {BRAND.whatsapp}
-            </a>
-            <div className="glass rounded-2xl px-4 py-3">
-              <div className="flex items-center gap-3 text-muted-foreground">
-                <MapPin className="h-4 w-4 shrink-0 text-gold" /> Based in
-              </div>
-              <div className="mt-2 flex flex-wrap gap-2">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1 text-xs">
-                  <span aria-hidden>{BRAND.basedIn.flag}</span> {BRAND.basedIn.country}
-                </span>
-              </div>
-            </div>
-
-            <div className="card-lux">
-              <div className="text-xs tracking-widest text-gold uppercase">Work With Me</div>
-              <p className="mt-2 text-sm text-muted-foreground">
-                Prefer to hire through a marketplace? Find my verified Fiverr profile below.
-              </p>
-              <div className="mt-4">
-                <a
-                  href={BRAND.socials.fiverr}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="glass flex items-center gap-3 rounded-2xl px-4 py-3 transition hover:border-gold/40 hover:text-gold"
-                >
-                  <FiverrIcon className="h-5 w-5 shrink-0 text-gold" />
-                  <div className="min-w-0">
-                    <div className="text-sm font-medium">Fiverr</div>
-                    <div className="truncate text-xs text-muted-foreground">Hire me on Fiverr</div>
-                  </div>
-                </a>
-              </div>
-            </div>
+      <section className="pb-24">
+        <div className="container-lg flex flex-col gap-10 lg:flex-row">
+          <div className="min-w-0 flex-1">
+            <ContactMethods includeDetails />
           </div>
 
-
           <form
-            className="glass-strong h-fit rounded-3xl p-6 md:p-8"
+            className="h-fit min-w-0 flex-1 rounded-3xl border border-border bg-surface p-6 md:p-8"
             onSubmit={(e) => { e.preventDefault(); alert("Thanks — I'll be in touch shortly."); }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
@@ -98,12 +58,12 @@ function ContactPage() {
             <div className="mt-4">
               <label className="mb-1.5 block text-xs tracking-widest text-muted-foreground uppercase">How can I help?</label>
               <textarea name="msg" rows={5}
-                className="w-full resize-none rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm outline-none transition focus:border-gold/50"
+                className="w-full resize-none rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-gold/50"
                 placeholder="Tell me about your brand, goals and current challenges…" />
             </div>
-            <button type="submit" className="btn-primary mt-6 w-full">
+            <Button type="submit" size="lg" className="mt-6 h-auto w-full rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
               Send message <ArrowRight className="h-4 w-4" />
-            </button>
+            </Button>
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
               Your details stay private. No sales spam, ever.
             </p>
