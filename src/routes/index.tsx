@@ -7,7 +7,6 @@ import { Reveal, SectionHeader } from "@/components/site/ui";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
-import { ContactMethods } from "@/components/site/ContactMethods";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
@@ -406,29 +405,6 @@ function ClientReviews() {
   );
 }
 
-/* ---------------- Contact preview ---------------- */
-function ContactPreview() {
-  return (
-    <section className="section-pad">
-      <div className="container-lg">
-        <SectionHeader
-          eyebrow="Contact"
-          title={<>Let's talk <span className="gradient-text">growth.</span></>}
-          sub="Prefer a quick chat first? Reach out on any channel — I reply within one business day."
-        />
-        <div className="mx-auto mt-12 max-w-4xl">
-          <ContactMethods />
-        </div>
-        <div className="mt-10 text-center">
-          <Link to="/contact" className="btn-primary">
-            Contact <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Home() {
   return (
     <Shell>
@@ -442,7 +418,6 @@ function Home() {
       <ClientReviews />
       <WaysToWork />
       <FaqSection />
-      <ContactPreview />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
         sub="Book a free 30-minute strategy call — no obligation, just clarity."
