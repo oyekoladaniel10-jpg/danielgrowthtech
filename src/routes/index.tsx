@@ -405,7 +405,6 @@ function ClientReviews() {
   );
 }
 
-/* ---------------- Contact preview ---------------- */
 function Home() {
   return (
     <Shell>
