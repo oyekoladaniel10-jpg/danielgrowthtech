@@ -42,7 +42,7 @@ function ReferencesPage() {
         title={<>Ready to become our next <span className="gradient-text">success story?</span></>}
         sub="Let's map a growth plan tailored to your store — no obligation, just clarity."
       />
-      {active !== null && <Lightbox src={REFERENCES[active].src} onClose={() => setActive(null)} />}
+      {active !== null && <Lightbox src={REFERENCES[active].src} poster={REFERENCES[active].poster} onClose={() => setActive(null)} />}
     </Shell>
   );
 }

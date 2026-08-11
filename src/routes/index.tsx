@@ -277,7 +277,6 @@ function FeaturedServices() {
 function FeaturedCases() {
   const featured = CASES[0];
   const [open, setOpen] = useState(false);
-  const { ref: videoRef, inView } = useInView<HTMLButtonElement>(0.1);
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -290,23 +289,20 @@ function FeaturedCases() {
           <Reveal>
             <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
               <button
-                ref={videoRef}
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label={`Play ${featured.website} case study video`}
                 className="relative block aspect-video w-full overflow-hidden bg-surface-2"
               >
-                {inView ? (
-                  <video
-                    src={featured.video}
-                    preload="none"
-                    muted
-                    playsInline
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                ) : (
-                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" aria-hidden />
-                )}
+                <img
+                  src={featured.poster}
+                  alt={`${featured.website} case study video thumbnail`}
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
                   <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
                     <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
@@ -334,7 +330,7 @@ function FeaturedCases() {
             </article>
           </Reveal>
         </div>
-        {open && <Lightbox src={featured.video} onClose={() => setOpen(false)} />}
+        {open && <Lightbox src={featured.video} poster={featured.poster} onClose={() => setOpen(false)} />}
       </div>
     </section>
   );
