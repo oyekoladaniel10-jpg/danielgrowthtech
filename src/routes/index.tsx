@@ -147,7 +147,7 @@ const TRUST_PLATFORMS = [
   { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-12 w-12 md:h-16 md:w-16" },
   { name: "Meta Ads", Logo: MetaLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]" },
   { name: "Google Ads", Logo: GoogleAdsLogo, size: "h-12 w-12 md:h-16 md:w-16" },
-  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-auto w-40 md:w-52" },
+  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-auto w-28 md:w-36" },
 ];
 
 function Platforms() {
