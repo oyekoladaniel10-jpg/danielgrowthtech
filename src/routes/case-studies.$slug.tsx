@@ -75,7 +75,7 @@ function CaseStudyDetail() {
               >
                 <video
                   src={c.video}
-                  preload="metadata"
+                  preload="none"
                   muted
                   playsInline
                   className="absolute inset-0 h-full w-full object-cover"
