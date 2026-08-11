@@ -3,7 +3,7 @@ import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerCl
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Shell } from "@/components/site/Shell";
-import { Reveal, SectionHeader, useInView } from "@/components/site/ui";
+import { Reveal, SectionHeader } from "@/components/site/ui";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
