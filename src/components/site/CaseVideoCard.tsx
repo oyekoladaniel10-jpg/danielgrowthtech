@@ -22,9 +22,13 @@ export function CaseVideoCard({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
     const io = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setInView(true); io.disconnect(); } },
-      { rootMargin: "200px" },
+      ([entry]) => setInView(Boolean(entry?.isIntersecting)),
+      { rootMargin: "80px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -39,8 +43,7 @@ export function CaseVideoCard({
         type="button"
         onClick={onPlay}
         aria-label={`Play ${website} case study video`}
-        className="relative block w-full overflow-hidden"
-        style={{ aspectRatio: "16 / 9" }}
+        className="relative block aspect-video w-full overflow-hidden bg-surface-2"
       >
         {inView ? (
           <video
