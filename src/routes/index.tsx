@@ -53,7 +53,7 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="mt-6 text-3xl leading-[1.08] sm:text-4xl md:text-5xl lg:text-6xl">
               Scale your store with a <span className="gradient-text">proven ecommerce growth partner.</span>
             </h1>
           </Reveal>
