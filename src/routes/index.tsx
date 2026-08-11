@@ -133,20 +133,32 @@ function Intro() {
 }
 
 /* ---------------- Trusted Platforms ---------------- */
+const TRUST_PLATFORMS = [
+  { name: "Shopify", Logo: ShopifyLogo },
+  { name: "Amazon", Logo: AmazonLogo },
+  { name: "Klaviyo", Logo: KlaviyoLogo },
+  { name: "Meta Ads", Logo: MetaLogo },
+  { name: "Google Ads", Logo: GoogleAdsLogo },
+  { name: "WooCommerce", Logo: WooCommerceLogo },
+];
+
 function Platforms() {
   return (
-    <section className="pb-16">
+    <section className="pb-20">
       <div className="container-lg">
         <Reveal>
-          <div className="text-center text-xs tracking-[0.25em] text-muted-foreground uppercase">
-            Trusted Platforms
+          <div className="text-center text-[11px] tracking-[0.3em] text-muted-foreground uppercase md:text-xs">
+            Trusted by Leading Platforms
           </div>
         </Reveal>
-        <div className="mx-auto mt-6 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-7">
-          {PLATFORMS.map((p, i) => (
-            <Reveal key={p} delay={i * 40}>
-              <div className="glass grid h-14 place-items-center rounded-2xl px-4 text-sm tracking-wide">
-                {p}
+        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-x-10 gap-y-12 sm:gap-x-16">
+          {TRUST_PLATFORMS.map(({ name, Logo }, i) => (
+            <Reveal key={name} delay={i * 60}>
+              <div className="group flex flex-col items-center gap-3 text-center transition duration-300 hover:scale-[1.04]">
+                <Logo className="h-12 w-12 opacity-80 transition duration-300 group-hover:opacity-100 md:h-14 md:w-14" />
+                <span className="text-sm tracking-wide text-muted-foreground transition group-hover:text-foreground md:text-base">
+                  {name}
+                </span>
               </div>
             </Reveal>
           ))}
