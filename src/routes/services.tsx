@@ -35,7 +35,7 @@ function ServicesPage() {
                     <img
                       src={s.img}
                       alt={s.title}
-                      loading="lazy"
+                      loading="lazy" decoding="async"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />

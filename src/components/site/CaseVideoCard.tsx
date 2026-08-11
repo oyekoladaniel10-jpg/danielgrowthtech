@@ -45,7 +45,7 @@ export function CaseVideoCard({
         {inView ? (
           <video
             src={video}
-            preload="metadata"
+            preload="none"
             muted
             playsInline
             className="absolute inset-0 h-full w-full object-cover"

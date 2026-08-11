@@ -60,7 +60,7 @@ export function SectionHeader({
   return (
     <div className={wrap}>
       {eyebrow && <div className="text-xs tracking-[0.25em] text-gold uppercase">{eyebrow}</div>}
-      <h2 className="mt-3 text-3xl md:text-5xl">{title}</h2>
+      <h2 className="mt-3 text-2xl md:text-4xl">{title}</h2>
       {sub && <p className="mt-4 text-muted-foreground">{sub}</p>}
     </div>
   );
