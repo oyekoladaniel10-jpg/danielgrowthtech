@@ -196,8 +196,17 @@ function Pillars() {
 }
 
 /* ---------------- Featured Services ---------------- */
+const HOME_SERVICES = [
+  "AI Search Visibility",
+  "Google Ads Management",
+  "Meta Ads",
+  "TikTok Ads",
+  "Website Speed Optimisation",
+  "Amazon Marketplace Growth",
+];
+
 function FeaturedServices() {
-  const preview = SERVICES.slice(0, 6);
+  const preview = HOME_SERVICES.map((t) => SERVICES.find((s) => s.title === t)!).filter(Boolean);
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -209,13 +218,26 @@ function FeaturedServices() {
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {preview.map((s, i) => (
             <Reveal key={s.title} delay={i * 40}>
-              <article className="card-lux group flex h-full flex-col">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full border border-white/10 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase">{s.tag}</span>
-                  <ArrowUpRight className="h-5 w-5 text-muted-foreground transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" />
+              <article className="card-lux group flex h-full flex-col overflow-hidden !p-0">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
+                  <span className="absolute top-3 left-3 rounded-full border border-white/15 bg-background/60 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase backdrop-blur">
+                    {s.tag}
+                  </span>
                 </div>
-                <h3 className="mt-6 text-2xl">{s.title}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <h3 className="text-xl md:text-2xl">{s.title}</h3>
+                    <ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" />
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                </div>
               </article>
             </Reveal>
           ))}
