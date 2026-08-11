@@ -26,7 +26,14 @@ function AboutPage() {
         <div className="container-lg grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
           <Reveal>
             <div className="relative">
-              <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-emerald-brand/30 to-gold/20 blur-2xl" />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-4 rounded-3xl"
+                style={{
+                  background:
+                    "radial-gradient(60% 60% at 30% 20%, color-mix(in oklab, var(--emerald-brand) 22%, transparent), transparent 70%)",
+                }}
+              />
               <img
                 src={portrait}
                 alt="Jacob — founder of Jacob Growth"

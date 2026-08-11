@@ -43,7 +43,14 @@ function Hero() {
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-background/75 to-background" />
-      <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-primary/25 blur-[120px]" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
+        style={{
+          background:
+            "radial-gradient(50% 60% at 50% 0%, color-mix(in oklab, var(--primary) 26%, transparent), transparent 70%)",
+        }}
+      />
 
       <div className="container-lg relative">
         <div className="mx-auto max-w-3xl text-center">
@@ -240,7 +247,7 @@ function FeaturedServices() {
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-                  <span className="absolute top-3 left-3 rounded-full border border-white/15 bg-background/60 px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase backdrop-blur">
+                  <span className="absolute top-3 left-3 rounded-full border border-white/15 bg-[color-mix(in_oklab,var(--background)_82%,white_6%)] px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase">
                     {s.tag}
                   </span>
                 </div>
@@ -418,7 +425,7 @@ function ClientReviews() {
       </div>
       {active !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 animate-fade-in"
           onClick={() => setActive(null)}
         >
           <button

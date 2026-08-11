@@ -81,7 +81,7 @@ export function Lightbox({ src, onClose }: { src: string; onClose: () => void })
   }, [onClose]);
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 animate-fade-in"
       onClick={onClose}
     >
       <button
