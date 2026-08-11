@@ -293,14 +293,20 @@ import v3 from "@/assets/references/VID-20260320-WA0015.mp4.asset.json";
 import v4 from "@/assets/references/VID-20260417-WA0005.mp4.asset.json";
 import v5 from "@/assets/references/VID_20260419_220452.mp4.asset.json";
 import v6 from "@/assets/references/VID_20260718_111159.mp4.asset.json";
+import p1 from "@/assets/posters/VID-20260316-WA0005.jpg";
+import p2 from "@/assets/posters/VID_20260419_090850_2.jpg";
+import p3 from "@/assets/posters/VID-20260320-WA0015.jpg";
+import p4 from "@/assets/posters/VID-20260417-WA0005.jpg";
+import p5 from "@/assets/posters/VID_20260419_220452.jpg";
+import p6 from "@/assets/posters/VID_20260718_111159.jpg";
 
 export const REFERENCES = [
-  { src: v1.url, name: "Liz Bennett",        country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
-  { src: v6.url, name: "Ilana Hubert Katz",  country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
-  { src: v3.url, name: "Sal",                country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
-  { src: v4.url, name: "Alfred Taran",       country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
-  { src: v5.url, name: "Josh",               country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
-  { src: v2.url, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
+  { src: v1.url, poster: p1, name: "Liz Bennett",        country: "United States",              flag: "🇺🇸", industry: "Ecommerce",   service: "Email & SMS Marketing Campaign Setup for Growth" },
+  { src: v6.url, poster: p6, name: "Ilana Hubert Katz",  country: "United States",              flag: "🇺🇸", industry: "Real Estate", service: "Lead Generation & Digital Marketing Strategy" },
+  { src: v3.url, poster: p3, name: "Sal",                country: "Belgium",                    flag: "🇧🇪", industry: "Ecommerce",   service: "Ecommerce Growth Strategy & Store Optimisation" },
+  { src: v4.url, poster: p4, name: "Alfred Taran",       country: "United States (California)", flag: "🇺🇸", industry: "Real Estate", service: "Google Ads & CRM Automation for Lead Generation and Sales Growth" },
+  { src: v5.url, poster: p5, name: "Josh",               country: "Australia",                  flag: "🇦🇺", industry: "Ecommerce",   service: "High-Converting Landing Page Design & Optimisation" },
+  { src: v2.url, poster: p2, name: "Daniel",             country: "Canada",                     flag: "🇨🇦", industry: "Ecommerce",   service: "Facebook Ads Management, Content Strategy & CRM Integration" },
 ];
 
 export const WAYS_TO_WORK = [
