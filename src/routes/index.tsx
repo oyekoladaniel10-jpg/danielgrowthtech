@@ -204,7 +204,7 @@ function FeaturedServices() {
         <SectionHeader
           eyebrow="Services"
           title={<>A full growth stack under <span className="gradient-text">one roof.</span></>}
-          sub="Sixteen specialised practices, orchestrated as one performance system."
+          sub="Twelve specialised practices, orchestrated as one performance system."
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {preview.map((s, i) => (
