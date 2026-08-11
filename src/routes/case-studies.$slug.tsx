@@ -72,8 +72,7 @@ function CaseStudyDetail() {
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label={`Play ${c.website} case study video`}
-                className="group relative block w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] shadow-2xl"
-                style={{ aspectRatio: "16 / 9" }}
+                className="group relative block aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] shadow-2xl"
               >
                 {inView ? (
                   <video

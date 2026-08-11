@@ -10,7 +10,7 @@ import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
-import { BRAND, SERVICES, REFERENCES, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
+import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 
@@ -226,7 +226,10 @@ const HOME_SERVICES = [
 ];
 
 function FeaturedServices() {
-  const preview = HOME_SERVICES.map((t) => SERVICES.find((s) => s.title === t)!).filter(Boolean);
+  const preview = HOME_SERVICES.flatMap((title) => {
+    const service = SERVICES.find((item) => item.title === title);
+    return service ? [service] : [];
+  });
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -291,8 +294,7 @@ function FeaturedCases() {
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label={`Play ${featured.website} case study video`}
-                className="relative block w-full overflow-hidden"
-                style={{ aspectRatio: "16 / 9" }}
+                className="relative block aspect-video w-full overflow-hidden bg-surface-2"
               >
                 {inView ? (
                   <video
@@ -303,7 +305,7 @@ function FeaturedCases() {
                     className="absolute inset-0 h-full w-full object-cover"
                   />
                 ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" />
+                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" aria-hidden />
                 )}
                 <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
                   <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
@@ -431,7 +433,7 @@ function ClientReviews() {
       </div>
       {active !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
           onClick={() => setActive(null)}
         >
           <button
