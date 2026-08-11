@@ -68,8 +68,8 @@ export const MINI_PROCESS = [
   { n: "03", t: "Execution", d: "Senior hands-on delivery across CRO, SEO, paid, email and analytics — measured weekly." },
 ];
 
-// Curated Unsplash imagery — swap the URLs freely.
-const IMG = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+
+
 
 import svcAiSearch from "@/assets/services/ai-search.jpg.asset.json";
 import svcGoogleAds from "@/assets/services/google-ads.jpg.asset.json";
