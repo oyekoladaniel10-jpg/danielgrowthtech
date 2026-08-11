@@ -9,7 +9,8 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
-import { BRAND, SERVICES, REFERENCES, PLATFORMS, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
+import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
+import { BRAND, SERVICES, REFERENCES, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 
