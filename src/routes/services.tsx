@@ -9,7 +9,7 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — Jacob Growth" },
-      { name: "description", content: "Sixteen specialised ecommerce growth services — CRO, SEO, AI Search, paid media, email, marketplaces and analytics." },
+      { name: "description", content: "Twelve specialised ecommerce growth services — CRO, SEO, AI Search, paid media, email and marketplaces." },
       { property: "og:title", content: "Services — Jacob Growth" },
       { property: "og:description", content: "A full growth stack orchestrated as one performance system." },
     ],
@@ -21,9 +21,9 @@ function ServicesPage() {
   return (
     <Shell>
       <PageHero
-        eyebrow="Services · 16 practices"
+        eyebrow="Services · 12 practices"
         title={<>A full growth stack <span className="gradient-text">under one roof.</span></>}
-        sub="Sixteen specialised practices, orchestrated as one performance system across every channel that matters."
+        sub="Twelve specialised practices, orchestrated as one performance system across every channel that matters."
       />
       <section className="pb-24">
         <div className="container-lg">
