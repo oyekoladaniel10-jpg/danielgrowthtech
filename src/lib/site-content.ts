@@ -71,24 +71,31 @@ export const MINI_PROCESS = [
 // Curated Unsplash imagery — swap the URLs freely.
 const IMG = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
 
+import svcAiSearch from "@/assets/services/ai-search.jpg.asset.json";
+import svcGoogleAds from "@/assets/services/google-ads.jpg.asset.json";
+import svcMetaAds from "@/assets/services/meta-ads.jpg.asset.json";
+import svcTiktokAds from "@/assets/services/tiktok-ads.jpg.asset.json";
+import svcPinterest from "@/assets/services/pinterest.jpg.asset.json";
+import svcEmail from "@/assets/services/email.jpg.asset.json";
+import svcSpeed from "@/assets/services/speed.jpg.asset.json";
+import svcAmazon from "@/assets/services/amazon.jpg.asset.json";
+import svcReddit from "@/assets/services/reddit.jpg.asset.json";
+
 export const SERVICES = [
   { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates.", img: IMG("photo-1460925895917-afdab827c52f") },
   { title: "Ecommerce SEO", tag: "Organic", desc: "Technical, content and PDP-level SEO built for durable category dominance.", img: IMG("photo-1554774853-aae0a22c8aa4") },
-  { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited.", img: IMG("photo-1677442136019-21780ecad995") },
-  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS.", img: IMG("photo-1611162616475-46b635cb6868") },
-  { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing.", img: IMG("photo-1611605698335-8b1569810432") },
-  { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale.", img: IMG("photo-1596558450268-9c27524ba856") },
-  { title: "Pinterest Marketing", tag: "Discovery", desc: "Inspiration-first campaigns for fashion, home, beauty and lifestyle brands.", img: IMG("photo-1522199755839-a2bacb67c546") },
-  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: IMG("photo-1596526131083-e8c633c948d2") },
-  { title: "Website Speed Optimisation", tag: "Performance", desc: "Sub-2s LCP builds that unlock conversion, SEO and paid efficiency.", img: IMG("photo-1551288049-bebda4e38f71") },
-  { title: "Shopify Growth", tag: "Platform", desc: "Theme, apps, checkout and infrastructure tuned for scaling Shopify stores.", img: IMG("photo-1556742049-0cfed4f6a45d") },
-  { title: "WooCommerce Growth", tag: "Platform", desc: "Hardened WooCommerce builds and revenue engines for content-led brands.", img: IMG("photo-1499750310107-5fef28a66643") },
-  { title: "BigCommerce Growth", tag: "Platform", desc: "Headless and native BigCommerce optimisation for mid-market retailers.", img: IMG("photo-1556155092-490a1ba16284") },
-  { title: "Amazon Marketplace Growth", tag: "Marketplace", desc: "PPC, listings, A+ content and brand store strategy for Amazon sellers.", img: IMG("photo-1586528116311-ad8dd3c8310d") },
-  { title: "Reddit Marketing", tag: "Community", desc: "Authentic Reddit strategy plus paid campaigns for niche audiences.", img: IMG("photo-1522071820081-009f0129c71c") },
+  { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited.", img: svcAiSearch.url },
+  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS.", img: svcGoogleAds.url },
+  { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing.", img: svcMetaAds.url },
+  { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale.", img: svcTiktokAds.url },
+  { title: "Pinterest Marketing", tag: "Discovery", desc: "Inspiration-first campaigns for fashion, home, beauty and lifestyle brands.", img: svcPinterest.url },
+  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: svcEmail.url },
+  { title: "Website Speed Optimisation", tag: "Performance", desc: "Sub-2s LCP builds that unlock conversion, SEO and paid efficiency.", img: svcSpeed.url },
+  { title: "Amazon Marketplace Growth", tag: "Marketplace", desc: "PPC, listings, A+ content and brand store strategy for Amazon sellers.", img: svcAmazon.url },
+  { title: "Reddit Marketing", tag: "Community", desc: "Authentic Reddit strategy plus paid campaigns for niche audiences.", img: svcReddit.url },
   { title: "Quora Marketing", tag: "Intent", desc: "Answer-led acquisition capturing high-intent research traffic.", img: IMG("photo-1454165804606-c3d57bc86b40") },
-  { title: "Analytics & Reporting", tag: "Insights", desc: "GA4, server-side tracking and executive dashboards you can trust.", img: IMG("photo-1543286386-2e659306cd6c") },
 ];
+
 
 export const INDUSTRIES = [
   "Fashion", "Beauty", "Health & Wellness", "Home & Garden", "Jewellery", "Electronics",
