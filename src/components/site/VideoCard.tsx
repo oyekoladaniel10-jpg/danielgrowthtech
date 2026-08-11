@@ -17,9 +17,13 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
     const io = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setInView(true); io.disconnect(); } },
-      { rootMargin: "200px" },
+      ([entry]) => setInView(Boolean(entry?.isIntersecting)),
+      { rootMargin: "80px" },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -28,14 +32,13 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
   return (
     <article
       ref={containerRef}
-      className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition duration-500 hover:-translate-y-1 hover:border-emerald-brand/40"
+      className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-emerald-brand/40"
     >
       <button
         type="button"
         onClick={onOpen}
         aria-label={`Play video from ${data.name}`}
-        className="relative block w-full overflow-hidden"
-        style={{ aspectRatio: "16 / 9" }}
+        className="relative block aspect-video w-full overflow-hidden bg-surface-2"
       >
         {inView ? (
           <video
@@ -46,7 +49,7 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-surface-2 to-surface" />
+          <div className="absolute inset-0 bg-gradient-to-br from-surface-2 to-surface" aria-hidden />
         )}
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
@@ -81,7 +84,7 @@ export function Lightbox({ src, onClose }: { src: string; onClose: () => void })
   }, [onClose]);
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 animate-fade-in"
+       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
       onClick={onClose}
     >
       <button
@@ -92,8 +95,7 @@ export function Lightbox({ src, onClose }: { src: string; onClose: () => void })
         <X className="h-5 w-5" />
       </button>
       <div
-        className="relative w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
-        style={{ aspectRatio: "16 / 9" }}
+        className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <video src={src} controls autoPlay playsInline className="h-full w-full object-contain" />

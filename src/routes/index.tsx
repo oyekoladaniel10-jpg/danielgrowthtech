@@ -3,14 +3,14 @@ import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerCl
 import { useEffect, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Shell } from "@/components/site/Shell";
-import { Reveal, SectionHeader } from "@/components/site/ui";
+import { Reveal, SectionHeader, useInView } from "@/components/site/ui";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
-import { BRAND, SERVICES, REFERENCES, PILLARS, MINI_PROCESS, REVIEWS } from "@/lib/site-content";
+import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
 
@@ -226,7 +226,10 @@ const HOME_SERVICES = [
 ];
 
 function FeaturedServices() {
-  const preview = HOME_SERVICES.map((t) => SERVICES.find((s) => s.title === t)!).filter(Boolean);
+  const preview = HOME_SERVICES.flatMap((title) => {
+    const service = SERVICES.find((item) => item.title === title);
+    return service ? [service] : [];
+  });
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -274,6 +277,7 @@ function FeaturedServices() {
 function FeaturedCases() {
   const featured = CASES[0];
   const [open, setOpen] = useState(false);
+  const { ref: videoRef, inView } = useInView<HTMLButtonElement>(0.1);
   return (
     <section className="section-pad">
       <div className="container-lg">
@@ -286,19 +290,23 @@ function FeaturedCases() {
           <Reveal>
             <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
               <button
+                ref={videoRef}
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label={`Play ${featured.website} case study video`}
-                className="relative block w-full overflow-hidden"
-                style={{ aspectRatio: "16 / 9" }}
+                className="relative block aspect-video w-full overflow-hidden bg-surface-2"
               >
-                <video
-                  src={featured.video}
-                  preload="none"
-                  muted
-                  playsInline
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
+                {inView ? (
+                  <video
+                    src={featured.video}
+                    preload="none"
+                    muted
+                    playsInline
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : (
+                   <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" aria-hidden />
+                )}
                 <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
                   <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
                     <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
@@ -425,7 +433,7 @@ function ClientReviews() {
       </div>
       {active !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 animate-fade-in"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
           onClick={() => setActive(null)}
         >
           <button

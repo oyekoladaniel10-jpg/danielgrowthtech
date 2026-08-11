@@ -97,6 +97,50 @@
   ::selection { background: color-mix(in oklab, var(--emerald-brand) 45%, transparent); color: white; }
 }
 
+/* Reveal without permanent compositor layers. The transform exists only while
+   an element enters; mobile/coarse-pointer devices render content immediately. */
+.reveal-safe {
+  opacity: 0;
+  transform: translateY(20px);
+  transition-property: opacity, transform;
+  transition-duration: 600ms;
+  transition-timing-function: ease-out;
+}
+.reveal-safe.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.site-nav { position: fixed; }
+
+@media (max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-safe,
+  .reveal-safe.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .site-nav {
+    position: absolute;
+    transition: none;
+  }
+  .card-lux,
+  .hover-scale,
+  .animate-float,
+  .animate-fade-up,
+  .shimmer-border {
+    animation: none;
+    transform: none;
+    transition-property: border-color, background-color, color, opacity;
+  }
+  img,
+  video,
+  svg {
+    transform: none !important;
+  }
+}
+
 @utility container-lg {
   width: 100%;
   margin-inline: auto;

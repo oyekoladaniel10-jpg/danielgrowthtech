@@ -6,8 +6,17 @@ export function useInView<T extends HTMLElement>(threshold = 0.15) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      set(true);
+      return;
+    }
     const io = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { set(true); io.disconnect(); } },
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          set(true);
+          io.disconnect();
+        }
+      },
       { threshold },
     );
     io.observe(el);
@@ -21,11 +30,9 @@ export function Reveal({ children, delay = 0, className }: { children: ReactNode
   return (
     <div
       ref={ref}
-      className={className}
+      className={`reveal-safe ${inView ? "is-visible" : ""} ${className ?? ""}`}
       style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity .8s ease ${delay}ms, transform .8s ease ${delay}ms`,
+        transitionDelay: `${delay}ms`,
       }}
     >
       {children}
