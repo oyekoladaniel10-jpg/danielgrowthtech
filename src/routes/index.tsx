@@ -101,7 +101,7 @@ function Intro() {
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div>
-            <h2 className="mt-3 text-3xl md:text-5xl">
+            <h2 className="mt-3 text-2xl md:text-4xl">
               A senior growth partner — not another <span className="gradient-text">agency middleman.</span>
             </h2>
             <div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center">
@@ -223,7 +223,7 @@ function FeaturedServices() {
                   <img
                     src={s.img}
                     alt={s.title}
-                    loading="lazy"
+                    loading="lazy" decoding="async"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
@@ -366,7 +366,7 @@ function ClientReviews() {
               <span className="text-[#1DBF73]">Verified Fiverr Review</span>
               <Star className="h-3.5 w-3.5 fill-gold text-gold" />
             </div>
-            <h2 className="text-3xl md:text-5xl">
+            <h2 className="text-2xl md:text-4xl">
               Client <span className="gradient-text">Reviews</span>
             </h2>
             <p className="text-muted-foreground">
@@ -375,7 +375,7 @@ function ClientReviews() {
           </div>
         </Reveal>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.map((src, i) => (
+          {REVIEWS.slice(0, 3).map((src, i) => (
             <Reveal key={i} delay={i * 40}>
               <button
                 type="button"
@@ -385,7 +385,7 @@ function ClientReviews() {
                 <img
                   src={src}
                   alt={`Fiverr review ${i + 1}`}
-                  loading="lazy"
+                  loading="lazy" decoding="async"
                   className="h-full w-full object-contain"
                 />
               </button>
