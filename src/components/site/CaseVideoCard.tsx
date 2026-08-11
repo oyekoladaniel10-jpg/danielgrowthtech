@@ -1,61 +1,36 @@
-import { useEffect, useRef, useState } from "react";
-import { Play } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 
 export function CaseVideoCard({
-  video,
+  poster,
   website,
   industry,
   slug,
   onPlay,
 }: {
-  video: string;
+  poster: string;
   website: string;
   industry: string;
   slug: string;
   onPlay: () => void;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => setInView(Boolean(entry?.isIntersecting)),
-      { rootMargin: "80px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
-    <article
-      ref={ref}
-      className="group card-lux flex h-full flex-col overflow-hidden p-0 transition duration-500 hover:-translate-y-1"
-    >
+    <article className="group card-lux flex h-full flex-col overflow-hidden p-0 transition duration-500 hover:-translate-y-1">
       <button
         type="button"
         onClick={onPlay}
         aria-label={`Play ${website} case study video`}
         className="relative block aspect-video w-full overflow-hidden bg-surface-2"
       >
-        {inView ? (
-          <video
-            src={video}
-            preload="none"
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" />
-        )}
+        <img
+          src={poster}
+          alt={`${website} case study video thumbnail`}
+          width={640}
+          height={360}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
           <div className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl transition duration-500 group-hover:scale-110 md:h-20 md:w-20">
