@@ -142,29 +142,31 @@ function Intro() {
 
 /* ---------------- Trusted Platforms ---------------- */
 const TRUST_PLATFORMS = [
-  { name: "Shopify", Logo: ShopifyLogo },
-  { name: "Amazon", Logo: AmazonLogo },
-  { name: "Klaviyo", Logo: KlaviyoLogo },
-  { name: "Meta Ads", Logo: MetaLogo },
-  { name: "Google Ads", Logo: GoogleAdsLogo },
-  { name: "WooCommerce", Logo: WooCommerceLogo },
+  { name: "Shopify", Logo: ShopifyLogo, size: "h-12 w-12 md:h-16 md:w-16" },
+  { name: "Amazon", Logo: AmazonLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]" },
+  { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-12 w-12 md:h-16 md:w-16" },
+  { name: "Meta Ads", Logo: MetaLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]" },
+  { name: "Google Ads", Logo: GoogleAdsLogo, size: "h-12 w-12 md:h-16 md:w-16" },
+  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-16 w-16 md:h-20 md:w-20" },
 ];
 
 function Platforms() {
   return (
-    <section className="pb-20">
+    <section className="py-[88px] md:py-28">
       <div className="container-lg">
         <Reveal>
-          <div className="text-center text-[11px] tracking-[0.3em] text-muted-foreground uppercase md:text-xs">
+          <h2 className="text-center text-[11px] font-light uppercase tracking-[0.42em] text-muted-foreground md:text-[13px]">
             Trusted by Leading Platforms
-          </div>
+          </h2>
         </Reveal>
-        <div className="mx-auto mt-10 grid max-w-3xl grid-cols-2 gap-x-10 gap-y-12 sm:gap-x-16">
-          {TRUST_PLATFORMS.map(({ name, Logo }, i) => (
-            <Reveal key={name} delay={i * 60}>
-              <div className="group flex flex-col items-center gap-3 text-center transition duration-300 hover:scale-[1.04]">
-                <Logo className="h-12 w-12 opacity-80 transition duration-300 group-hover:opacity-100 md:h-14 md:w-14" />
-                <span className="text-sm tracking-wide text-muted-foreground transition group-hover:text-foreground md:text-base">
+        <div className="mx-auto mt-14 grid max-w-[900px] grid-cols-2 gap-x-8 gap-y-[60px] sm:gap-x-24 md:mt-20 md:gap-y-[70px]">
+          {TRUST_PLATFORMS.map(({ name, Logo, size }, i) => (
+            <Reveal key={name} delay={i * 50}>
+              <div className="group flex flex-col items-center text-center">
+                <div className="flex h-16 items-center justify-center md:h-20">
+                  <Logo className={`${size} text-foreground/60 transition-colors duration-300 group-hover:text-foreground`} />
+                </div>
+                <span className="mt-6 text-[15px] tracking-wide text-muted-foreground transition-colors duration-300 group-hover:text-foreground md:text-[17px]">
                   {name}
                 </span>
               </div>
@@ -175,6 +177,7 @@ function Platforms() {
     </section>
   );
 }
+
 
 /* ---------------- 3 Growth Pillars ---------------- */
 const PILLAR_ICONS = [Target, MousePointerClick, Repeat];
