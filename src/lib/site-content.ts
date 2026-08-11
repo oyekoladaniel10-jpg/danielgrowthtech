@@ -68,8 +68,8 @@ export const MINI_PROCESS = [
   { n: "03", t: "Execution", d: "Senior hands-on delivery across CRO, SEO, paid, email and analytics — measured weekly." },
 ];
 
-// Curated Unsplash imagery — swap the URLs freely.
-const IMG = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`;
+
+
 
 import svcAiSearch from "@/assets/services/ai-search.jpg.asset.json";
 import svcGoogleAds from "@/assets/services/google-ads.jpg.asset.json";
@@ -80,20 +80,23 @@ import svcEmail from "@/assets/services/email.jpg.asset.json";
 import svcSpeed from "@/assets/services/speed.jpg.asset.json";
 import svcAmazon from "@/assets/services/amazon.jpg.asset.json";
 import svcReddit from "@/assets/services/reddit.jpg.asset.json";
+import svcCro from "@/assets/services/cro.jpg.asset.json";
+import svcSeo from "@/assets/services/seo.jpg.asset.json";
+import svcQuora from "@/assets/services/quora.webp.asset.json";
 
 export const SERVICES = [
-  { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates.", img: IMG("photo-1460925895917-afdab827c52f") },
-  { title: "Ecommerce SEO", tag: "Organic", desc: "Technical, content and PDP-level SEO built for durable category dominance.", img: IMG("photo-1554774853-aae0a22c8aa4") },
+  { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates.", img: svcCro.url },
+  { title: "SEO", tag: "Organic", desc: "Technical, content and on-page SEO built for durable category dominance.", img: svcSeo.url },
   { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited.", img: svcAiSearch.url },
   { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS.", img: svcGoogleAds.url },
   { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing.", img: svcMetaAds.url },
+  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: svcEmail.url },
   { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale.", img: svcTiktokAds.url },
   { title: "Pinterest Marketing", tag: "Discovery", desc: "Inspiration-first campaigns for fashion, home, beauty and lifestyle brands.", img: svcPinterest.url },
-  { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: svcEmail.url },
   { title: "Website Speed Optimisation", tag: "Performance", desc: "Sub-2s LCP builds that unlock conversion, SEO and paid efficiency.", img: svcSpeed.url },
   { title: "Amazon Marketplace Growth", tag: "Marketplace", desc: "PPC, listings, A+ content and brand store strategy for Amazon sellers.", img: svcAmazon.url },
   { title: "Reddit Marketing", tag: "Community", desc: "Authentic Reddit strategy plus paid campaigns for niche audiences.", img: svcReddit.url },
-  { title: "Quora Marketing", tag: "Intent", desc: "Answer-led acquisition capturing high-intent research traffic.", img: IMG("photo-1454165804606-c3d57bc86b40") },
+  { title: "Quora Marketing", tag: "Intent", desc: "Answer-led acquisition capturing high-intent research traffic.", img: svcQuora.url },
 ];
 
 
