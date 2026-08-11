@@ -54,7 +54,7 @@ export function FaqSection() {
         </div>
 
         <Reveal>
-          <div className="mx-auto mt-12 max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center backdrop-blur md:p-10">
+          <div className="mx-auto mt-12 max-w-3xl rounded-[2rem] border border-white/10 bg-white/5 p-8 text-center md:p-10">
             <h3 className="text-2xl md:text-3xl">Have more questions?</h3>
             <p className="mt-3 text-muted-foreground">
               Let's discuss your ecommerce growth goals.

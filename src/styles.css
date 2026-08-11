@@ -115,16 +115,15 @@
 }
 
 @utility glass {
-  background: color-mix(in oklab, white 4%, transparent);
+  background: color-mix(in oklab, white 6%, transparent);
   border: 1px solid color-mix(in oklab, white 10%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 @utility glass-strong {
-  background: color-mix(in oklab, white 6%, transparent);
+  /* Solid-ish surface instead of backdrop-filter: blurring a fixed element
+     triggers compositor corruption (horizontal glitch lines) on Chrome Android. */
+  background: color-mix(in oklab, var(--background) 88%, white 6%);
   border: 1px solid color-mix(in oklab, white 14%, transparent);
-  backdrop-filter: blur(20px);
 }
 
 @utility btn-primary {
