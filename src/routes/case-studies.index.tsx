@@ -34,7 +34,7 @@ function CaseStudiesPage() {
             {CASES.map((c, i) => (
               <Reveal key={c.slug} delay={i * 80}>
                 <CaseVideoCard
-                  video={c.video}
+                  poster={c.poster}
                   website={c.website}
                   industry={c.industry}
                   slug={c.slug}

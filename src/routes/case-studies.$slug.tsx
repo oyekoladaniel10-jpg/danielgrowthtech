@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, Play } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
-import { Reveal, useInView } from "@/components/site/ui";
+import { Reveal } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { Lightbox } from "@/components/site/VideoCard";
 import { CASES } from "@/lib/case-assets";
@@ -41,7 +41,6 @@ export const Route = createFileRoute("/case-studies/$slug")({
 function CaseStudyDetail() {
   const { c } = Route.useLoaderData();
   const [open, setOpen] = useState(false);
-  const { ref: videoRef, inView } = useInView<HTMLButtonElement>(0.1);
 
   return (
     <Shell>
@@ -68,23 +67,19 @@ function CaseStudyDetail() {
             </Reveal>
             <Reveal delay={120}>
               <button
-                ref={videoRef}
                 type="button"
                 onClick={() => setOpen(true)}
                 aria-label={`Play ${c.website} case study video`}
                 className="group relative block aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.02] shadow-2xl"
               >
-                {inView ? (
-                  <video
-                    src={c.video}
-                    preload="none"
-                    muted
-                    playsInline
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-white/[0.02]" />
-                )}
+                <img
+                  src={c.poster}
+                  alt={`${c.website} case study video thumbnail`}
+                  width={640}
+                  height={360}
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
                 <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
                   <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
                     <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
@@ -96,7 +91,7 @@ function CaseStudyDetail() {
         </div>
       </section>
 
-      {open && <Lightbox src={c.video} onClose={() => setOpen(false)} />}
+      {open && <Lightbox src={c.video} poster={c.poster} onClose={() => setOpen(false)} />}
 
       <CtaBanner
         title={<>Want results like <span className="gradient-text">{c.website}?</span></>}

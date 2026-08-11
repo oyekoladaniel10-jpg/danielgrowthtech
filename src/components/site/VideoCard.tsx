@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Play, X } from "lucide-react";
 
 export type VideoRef = {
   src: string;
+  poster: string;
   name: string;
   country: string;
   flag: string;
@@ -11,27 +12,8 @@ export type VideoRef = {
 };
 
 export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => setInView(Boolean(entry?.isIntersecting)),
-      { rootMargin: "80px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <article
-      ref={containerRef}
       className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-emerald-brand/40"
     >
       <button
@@ -40,17 +22,15 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
         aria-label={`Play video from ${data.name}`}
         className="relative block aspect-video w-full overflow-hidden bg-surface-2"
       >
-        {inView ? (
-          <video
-            src={data.src}
-            preload="none"
-            muted
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : (
-          <div className="absolute inset-0 bg-gradient-to-br from-surface-2 to-surface" aria-hidden />
-        )}
+        <img
+          src={data.poster}
+          alt={`Video testimonial from ${data.name}`}
+          width={640}
+          height={360}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
           <div className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl transition duration-500 group-hover:scale-110 group-hover:bg-white md:h-20 md:w-20">
@@ -71,7 +51,7 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
   );
 }
 
-export function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
+export function Lightbox({ src, poster, onClose }: { src: string; poster?: string; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -98,7 +78,7 @@ export function Lightbox({ src, onClose }: { src: string; onClose: () => void })
         className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <video src={src} controls autoPlay playsInline className="h-full w-full object-contain" />
+        <video src={src} poster={poster} preload="auto" controls autoPlay playsInline className="h-full w-full object-contain" />
       </div>
     </div>
   );
