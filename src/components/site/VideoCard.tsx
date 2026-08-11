@@ -40,11 +40,11 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
         {inView ? (
           <video
             src={data.src}
-            preload="metadata"
+            preload="none"
             muted
             playsInline
             className="absolute inset-0 h-full w-full object-cover"
-          />
+          />>
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-surface-2 to-surface" />
         )}
