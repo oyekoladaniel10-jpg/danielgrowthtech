@@ -8,6 +8,7 @@ import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
+import { CaseVideoCard } from "@/components/site/CaseVideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
 import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
