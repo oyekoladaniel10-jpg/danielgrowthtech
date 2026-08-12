@@ -9,7 +9,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { CaseVideoCard } from "@/components/site/CaseVideoCard";
-import { FiverrIcon } from "@/components/site/social-icons";
+
 import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
 import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
@@ -346,7 +346,7 @@ function FeaturedReferences() {
 }
 
 
-/* ---------------- Client Reviews (Fiverr screenshots) ---------------- */
+/* ---------------- Client Reviews ---------------- */
 function ClientReviews() {
   const [active, setActive] = useState<number | null>(null);
   useEffect(() => {
@@ -366,15 +366,14 @@ function ClientReviews() {
         <Reveal>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
             <div className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs tracking-widest uppercase">
-              <FiverrIcon className="h-4 w-4 text-[#1DBF73]" />
-              <span className="text-[#1DBF73]">Verified Fiverr Review</span>
+              <span className="text-gold">Verified Client Review</span>
               <Star className="h-3.5 w-3.5 fill-gold text-gold" />
             </div>
             <h2 className="text-2xl md:text-4xl">
               Client <span className="gradient-text">Reviews</span>
             </h2>
             <p className="text-muted-foreground">
-              Real, verified 5-star reviews from clients on my Fiverr profile — tap any screenshot to view it larger.
+              Real, verified 5-star reviews from clients I've worked with — tap any screenshot to view it larger.
             </p>
           </div>
         </Reveal>
@@ -388,7 +387,7 @@ function ClientReviews() {
               >
                 <img
                   src={src}
-                  alt={`Fiverr review ${i + 1}`}
+                  alt={`Client review ${i + 1}`}
                   loading="lazy" decoding="async"
                   className="h-full w-full object-contain"
                 />
@@ -397,14 +396,12 @@ function ClientReviews() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <a
-            href={BRAND.socials.fiverr}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#1DBF73] px-6 py-3 text-sm font-medium text-white shadow-lg transition hover:bg-[#19a866]"
+          <Link
+            to="/references"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-6 py-3 text-sm font-medium transition hover:bg-gold/10"
           >
-            <FiverrIcon className="h-4 w-4" /> View My Fiverr Profile <ExternalLink className="h-3.5 w-3.5" />
-          </a>
+            View Client References
+          </Link>
         </div>
       </div>
       {active !== null && (
@@ -421,7 +418,7 @@ function ClientReviews() {
           </button>
           <img
             src={REVIEWS[active]}
-            alt="Fiverr review"
+            alt="Client review"
             className="max-h-[90vh] max-w-full rounded-xl bg-white object-contain shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           />
