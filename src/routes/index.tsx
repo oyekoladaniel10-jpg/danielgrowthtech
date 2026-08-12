@@ -392,9 +392,12 @@ function ClientReviews() {
                 <img
                   src={src}
                   alt={`Client review ${i + 1}`}
+                  width={720}
+                  height={1350}
                   loading="lazy" decoding="async"
                   className="h-full w-full object-contain"
                 />
+
               </button>
             </Reveal>
           ))}
