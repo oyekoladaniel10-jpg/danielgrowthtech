@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as PricingRouteImport } from './routes/pricing'
@@ -19,6 +20,11 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -73,6 +79,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
 }
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies': typeof CaseStudiesIndexRoute
 }
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
   '/services': typeof ServicesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
 }
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/references'
     | '/services'
+    | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies/'
   fileRoutesByTo: FileRoutesByTo
@@ -120,6 +130,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/references'
     | '/services'
+    | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies'
   id:
@@ -131,6 +142,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/references'
     | '/services'
+    | '/sitemap.xml'
     | '/case-studies/$slug'
     | '/case-studies/'
   fileRoutesById: FileRoutesById
@@ -143,12 +155,20 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   ReferencesRoute: typeof ReferencesRoute
   ServicesRoute: typeof ServicesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -223,6 +243,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   ReferencesRoute: ReferencesRoute,
   ServicesRoute: ServicesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
 }
