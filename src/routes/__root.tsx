@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { title: "Jacob Growth | Ecommerce Sales Growth Expert" },
       {
         name: "description",
         content:
-          "Jacob Growth — data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
+          "Jacob Growth: data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
       { name: "author", content: "Jacob Growth" },
-      { property: "og:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { property: "og:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
       {
         property: "og:description",
         content:
@@ -92,7 +92,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { name: "twitter:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
       { name: "twitter:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
     ],
     links: [
