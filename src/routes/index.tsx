@@ -146,12 +146,13 @@ function Intro() {
 
 /* ---------------- Trusted Platforms ---------------- */
 const TRUST_PLATFORMS = [
-  { name: "Shopify", Logo: ShopifyLogo, size: "h-12 w-12 md:h-16 md:w-16" },
-  { name: "Amazon", Logo: AmazonLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]" },
-  { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-12 w-12 md:h-16 md:w-16" },
-  { name: "Meta Ads", Logo: MetaLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]" },
-  { name: "Google Ads", Logo: GoogleAdsLogo, size: "h-12 w-12 md:h-16 md:w-16" },
-  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-auto w-28 md:w-36" },
+  // Official brand colours
+  { name: "Shopify", Logo: ShopifyLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#95BF47" },
+  { name: "Amazon", Logo: AmazonLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]", color: "#FF9900" },
+  { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#F5F5F5" },
+  { name: "Meta Ads", Logo: MetaLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]", color: "#0081FB" },
+  { name: "Google Ads", Logo: GoogleAdsLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#FBBC04" },
+  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-auto w-28 md:w-36", color: "#7F54B3" },
 ];
 
 function Platforms() {
@@ -164,11 +165,11 @@ function Platforms() {
           </h2>
         </Reveal>
         <div className="mx-auto mt-14 grid max-w-[900px] grid-cols-2 gap-x-8 gap-y-[60px] sm:gap-x-24 md:mt-20 md:gap-y-[70px]">
-          {TRUST_PLATFORMS.map(({ name, Logo, size }, i) => (
+          {TRUST_PLATFORMS.map(({ name, Logo, size, color }, i) => (
             <Reveal key={name} delay={i * 50}>
               <div className="group flex flex-col items-center text-center">
                 <div className="flex h-16 items-center justify-center md:h-20">
-                  <Logo className={`${size} text-foreground/60 transition-colors duration-300 group-hover:text-foreground`} />
+                  <Logo className={`${size} opacity-90 transition-opacity duration-300 group-hover:opacity-100`} style={{ color }} />
                 </div>
                 <span className="mt-6 text-[15px] tracking-wide text-muted-foreground transition-colors duration-300 group-hover:text-foreground md:text-[17px]">
                   {name}
