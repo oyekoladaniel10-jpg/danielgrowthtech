@@ -83,19 +83,22 @@ function Hero() {
             </div>
           </Reveal>
           <Reveal delay={420}>
-            <div className="mx-auto mt-10 grid max-w-md grid-cols-3 gap-3">
+            <div className="mx-auto mt-10 grid max-w-xl grid-cols-3 gap-3 sm:gap-4">
               {[
-                { k: "Revenue lift", v: "+312%" },
-                { k: "Conv. lift", v: "+168%" },
-                { k: "Retention", v: "94%" },
+                { v: "1.5K+", k: "Projects Delivered" },
+                { v: "260+", k: "Happy Customers" },
+                { v: "6+", k: "Years of Experience" },
               ].map((s) => (
-                <div key={s.k} className="glass rounded-2xl px-3 py-3 text-center">
-                  <div className="text-lg gradient-text md:text-xl">{s.v}</div>
-                  <div className="mt-0.5 text-[10px] tracking-widest text-muted-foreground uppercase">{s.k}</div>
+                <div key={s.k} className="glass rounded-2xl px-3 py-4 text-center sm:px-5 sm:py-5">
+                  <div className="gradient-text text-xl font-semibold sm:text-2xl md:text-3xl">{s.v}</div>
+                  <div className="mt-1.5 text-[10px] leading-snug tracking-[0.14em] text-muted-foreground uppercase sm:text-xs">
+                    {s.k}
+                  </div>
                 </div>
               ))}
             </div>
           </Reveal>
+
         </div>
       </div>
     </section>
