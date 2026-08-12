@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Jacob Growth" },
+      { title: "Contact | Jacob Growth" },
       { name: "description", content: "Book a free ecommerce growth consultation with Jacob Growth. Reply within one business day with next steps and pricing." },
-      { property: "og:title", content: "Contact — Jacob Growth" },
+      { property: "og:title", content: "Contact | Jacob Growth" },
       { property: "og:description", content: "Book a free ecommerce growth consultation." },
     ],
   }),
@@ -47,7 +47,7 @@ function ContactPage() {
 
           <form
             className="h-fit min-w-0 flex-1 rounded-3xl border border-border bg-surface p-6 md:p-8"
-            onSubmit={(e) => { e.preventDefault(); alert("Thanks — I'll be in touch shortly."); }}
+            onSubmit={(e) => { e.preventDefault(); alert("Thanks, I'll be in touch shortly."); }}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full name" name="name" required />

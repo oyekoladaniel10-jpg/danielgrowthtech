@@ -19,9 +19,9 @@ import { CASES } from "@/lib/case-assets";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { title: "Jacob Growth | Ecommerce Sales Growth Expert" },
       { name: "description", content: "Jacob Growth helps ecommerce brands acquire, convert and retain customers through data-driven CRO, SEO, paid media and lifecycle marketing." },
-      { property: "og:title", content: "Jacob Growth — Ecommerce Sales Growth Expert" },
+      { property: "og:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
       { property: "og:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -69,7 +69,7 @@ function Hero() {
           <Reveal delay={220}>
             <p className="mx-auto mt-6 max-w-xl text-base text-muted-foreground md:text-lg">
               I help ambitious ecommerce brands increase qualified traffic, lift conversion rates
-              and grow revenue — through CRO, SEO, paid media, email and analytics engineered for
+              and grow revenue, through CRO, SEO, paid media, email and analytics engineered for
               compounding profit.
             </p>
           </Reveal>
@@ -111,7 +111,7 @@ function Intro() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div>
             <h2 className="mt-3 text-2xl md:text-4xl">
-              A senior growth partner — not another <span className="gradient-text">agency middleman.</span>
+              A senior growth partner, not another <span className="gradient-text">agency middleman.</span>
             </h2>
             <div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center">
               <p>
@@ -126,7 +126,7 @@ function Intro() {
               </p>
               <p>
                 I work closely with each client to understand their business, identify growth
-                opportunities, and build practical strategies around their specific goals — whether
+                opportunities, and build practical strategies around their specific goals, whether
                 that's improving their store, increasing qualified traffic, optimising conversion
                 rates, or scaling their marketing channels.
               </p>
@@ -189,7 +189,7 @@ function Pillars() {
         <SectionHeader
           eyebrow="Growth Pillars"
           title={<>A complete system for <span className="gradient-text">scaling ecommerce.</span></>}
-          sub="Three integrated pillars working together to compound revenue — not siloed tactics."
+          sub="Three integrated pillars working together to compound revenue, not siloed tactics."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {PILLARS.map((p, i) => {
@@ -373,7 +373,7 @@ function ClientReviews() {
               Client <span className="gradient-text">Reviews</span>
             </h2>
             <p className="text-muted-foreground">
-              Real, verified 5-star reviews from clients I've worked with — tap any screenshot to view it larger.
+              Real, verified 5-star reviews from clients I've worked with. Tap any screenshot to view it larger.
             </p>
           </div>
         </Reveal>
@@ -443,7 +443,7 @@ function Home() {
       <FaqSection />
       <CtaBanner
         title={<>Let's build your <span className="gradient-text">next growth chapter.</span></>}
-        sub="Book a free 30-minute strategy call — no obligation, just clarity."
+        sub="Book a free 30-minute strategy call, no obligation, just clarity."
         primaryLabel="Book a Free Consultation"
         secondaryLabel="View services"
         secondaryTo="/services"

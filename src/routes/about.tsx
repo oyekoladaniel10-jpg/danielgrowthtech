@@ -10,10 +10,10 @@ import { WHY, PROCESS, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Jacob Growth" },
-      { name: "description", content: "Meet Jacob — founder of Jacob Growth. Partnering with ecommerce brands to increase qualified traffic, conversions and long-term profitability." },
-      { property: "og:title", content: "About — Jacob Growth" },
-      { property: "og:description", content: "Ecommerce Sales Growth Expert — helping ambitious brands scale sustainably." },
+      { title: "About | Jacob Growth" },
+      { name: "description", content: "Meet Jacob, founder of Jacob Growth. Partnering with ecommerce brands to increase qualified traffic, conversions and long-term profitability." },
+      { property: "og:title", content: "About | Jacob Growth" },
+      { property: "og:description", content: "Ecommerce Sales Growth Expert, helping ambitious brands scale sustainably." },
     ],
   }),
   component: AboutPage,
@@ -36,7 +36,7 @@ function AboutPage() {
               />
               <img
                 src={portrait}
-                alt="Jacob — founder of Jacob Growth"
+                alt="Jacob, founder of Jacob Growth"
                 width={900}
                 height={1100}
                 loading="eager"
@@ -58,7 +58,7 @@ function AboutPage() {
                 I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online
                 businesses improve their visibility, attract qualified customers, increase conversions,
                 and grow revenue. Based in the United Kingdom, I work remotely with eCommerce
-                businesses across the UK, US, Canada, Australia, and other countries — so no matter
+                businesses across the UK, US, Canada, Australia, and other countries, so no matter
                 where you're located, we can work together smoothly. My approach is focused on clear
                 strategy, measurable results, and sustainable growth.
               </p>

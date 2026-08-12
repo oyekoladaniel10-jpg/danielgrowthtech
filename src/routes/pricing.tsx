@@ -10,9 +10,9 @@ import { useState } from "react";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Jacob Growth" },
-      { name: "description", content: "Simple, transparent pricing — Basic, Standard and Premium plans plus a performance-based partnership option." },
-      { property: "og:title", content: "Pricing — Jacob Growth" },
+      { title: "Pricing | Jacob Growth" },
+      { name: "description", content: "Simple, transparent pricing: Basic, Standard and Premium plans plus a performance-based partnership option." },
+      { property: "og:title", content: "Pricing | Jacob Growth" },
       { property: "og:description", content: "Three plans plus a commission-based growth partnership." },
     ],
   }),

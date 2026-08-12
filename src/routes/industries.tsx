@@ -8,9 +8,9 @@ import { INDUSTRIES } from "@/lib/site-content";
 export const Route = createFileRoute("/industries")({
   head: () => ({
     meta: [
-      { title: "Industries — Jacob Growth" },
+      { title: "Industries | Jacob Growth" },
       { name: "description", content: "Category-specific ecommerce playbooks for fashion, beauty, health, home, luxury, B2B and more." },
-      { property: "og:title", content: "Industries — Jacob Growth" },
+      { property: "og:title", content: "Industries | Jacob Growth" },
       { property: "og:description", content: "Deep, category-specific ecommerce playbooks." },
     ],
   }),

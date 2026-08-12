@@ -61,8 +61,8 @@ export const PILLARS = [
 
 export const MINI_PROCESS = [
   { n: "01", t: "Audit",     d: "A deep review of your store, funnel, analytics and channels to expose the real growth levers." },
-  { n: "02", t: "Strategy",  d: "A prioritised roadmap tied to revenue targets — clear scope, timeline and expected impact." },
-  { n: "03", t: "Execution", d: "Senior hands-on delivery across CRO, SEO, paid, email and analytics — measured weekly." },
+  { n: "02", t: "Strategy",  d: "A prioritised roadmap tied to revenue targets, with clear scope, timeline and expected impact." },
+  { n: "03", t: "Execution", d: "Senior hands-on delivery across CRO, SEO, paid, email and analytics, measured weekly." },
 ];
 
 
@@ -85,7 +85,7 @@ export const SERVICES = [
   { title: "Conversion Rate Optimisation", tag: "CRO", desc: "Systematic experimentation to lift add-to-cart, checkout and repeat purchase rates.", img: svcCro.url },
   { title: "SEO", tag: "Organic", desc: "Technical, content and on-page SEO built for durable category dominance.", img: svcSeo.url },
   { title: "AI Search Visibility", tag: "GEO", desc: "Optimise for ChatGPT, Perplexity, Gemini and AI Overviews so your brand is cited.", img: svcAiSearch.url },
-  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit — not vanity ROAS.", img: svcGoogleAds.url },
+  { title: "Google Ads Management", tag: "Paid", desc: "Performance Max, Shopping and Search tuned to profit, not vanity ROAS.", img: svcGoogleAds.url },
   { title: "Meta Ads", tag: "Paid Social", desc: "Creative-led Facebook & Instagram funnels with iterative UGC testing.", img: svcMetaAds.url },
   { title: "Email Marketing", tag: "Lifecycle", desc: "Klaviyo flows, segmentation and campaigns that turn subscribers into revenue.", img: svcEmail.url },
   { title: "TikTok Ads", tag: "Paid Social", desc: "Native, culture-fluent TikTok campaigns engineered for full-funnel scale.", img: svcTiktokAds.url },
@@ -131,9 +131,9 @@ export const VALUES = [
 ];
 
 export const WHY = [
-  { t: "Tailored Growth Strategies", d: "No templates — every roadmap is built around your brand's economics." },
+  { t: "Tailored Growth Strategies", d: "No templates. Every roadmap is built around your brand's economics." },
   { t: "Data-Driven Decisions", d: "Every recommendation is defended with numbers and experiments." },
-  { t: "Multi-Channel Expertise", d: "SEO, paid, email, marketplaces — orchestrated as one system." },
+  { t: "Multi-Channel Expertise", d: "SEO, paid, email, marketplaces, orchestrated as one system." },
   { t: "Transparent Reporting", d: "Weekly async updates and real-time dashboards, always." },
   { t: "Conversion-Focused", d: "Optimising for LTV and contribution profit, not vanity ROAS." },
   { t: "Long-Term Partnership", d: "Senior specialists on Slack, not junior account managers." },
@@ -218,7 +218,7 @@ export const PRICING = [
 export const PARTNERSHIP = {
   tier: "Performance Partnership",
   eyebrow: "Commission-Based Growth",
-  desc: "Work together with a results-focused model — aligned on the outcomes that actually move the business.",
+  desc: "Work together with a results-focused model, aligned on the outcomes that actually move the business.",
   features: [
     "No large upfront commitment",
     "Strategy and execution based on agreed goals",
@@ -235,7 +235,7 @@ export const CASES_META = [
     client: "Marketing Growth Transformation",
     industry: "Shopify · Marketing",
     challenge: "Underperforming marketing channels producing inconsistent traffic and weak conversion signals.",
-    strategy: "Rebuilt the marketing engine end-to-end: paid, organic, email, and creative — measured against contribution profit.",
+    strategy: "Rebuilt the marketing engine end-to-end: paid, organic, email, and creative, measured against contribution profit.",
     work: "Channel audit, funnel rebuild, creative testing, tracking and attribution.",
     results: [
       { k: "Sessions", v: "+22%" },

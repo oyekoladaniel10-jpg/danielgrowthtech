@@ -8,9 +8,9 @@ import { SERVICES, WHATSAPP_URL } from "@/lib/site-content";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Jacob Growth" },
-      { name: "description", content: "Twelve specialised ecommerce growth services — CRO, SEO, AI Search, paid media, email and marketplaces." },
-      { property: "og:title", content: "Services — Jacob Growth" },
+      { title: "Services | Jacob Growth" },
+      { name: "description", content: "Twelve specialised ecommerce growth services: CRO, SEO, AI Search, paid media, email and marketplaces." },
+      { property: "og:title", content: "Services | Jacob Growth" },
       { property: "og:description", content: "A full growth stack orchestrated as one performance system." },
     ],
   }),
