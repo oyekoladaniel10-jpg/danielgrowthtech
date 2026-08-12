@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { CASES } from "../lib/case-assets";
 
 const BASE_URL = "https://jacobgrowth.uk";
 
@@ -23,11 +22,13 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/references", changefreq: "monthly", priority: "0.7" },
           { path: "/pricing", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "yearly", priority: "0.6" },
-          ...CASES.map((c) => ({
-            path: `/case-studies/${c.slug}`,
-            changefreq: "monthly" as const,
-            priority: "0.6",
-          })),
+          ...["dtaillab", "starstyling", "lovestitchesboutique", "golfmk2parts"].map(
+            (slug) => ({
+              path: `/case-studies/${slug}`,
+              changefreq: "monthly" as const,
+              priority: "0.6",
+            }),
+          ),
         ];
 
         const urls = entries.map((e) =>
