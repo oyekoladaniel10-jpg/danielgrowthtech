@@ -84,7 +84,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Jacob Growth: data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
       { name: "author", content: "Jacob Growth" },
-      { name: "google-site-verification", content: "4BpGjRw7ZOsWEdmuJfLvdcaT3pcLzGQrwBWWMJ1ER40" },
       { property: "og:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
       {
         property: "og:description",
