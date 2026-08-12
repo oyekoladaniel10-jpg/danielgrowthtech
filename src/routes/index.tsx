@@ -160,7 +160,7 @@ function Platforms() {
     <section className="py-[88px] md:py-28">
       <div className="container-lg">
         <Reveal>
-          <h2 className="text-center text-[11px] font-light uppercase tracking-[0.42em] text-muted-foreground md:text-[13px]">
+          <h2 className="text-center text-[11px] font-normal uppercase tracking-[0.42em] text-muted-foreground md:text-[13px]">
             Trusted by Leading Platforms
           </h2>
         </Reveal>
