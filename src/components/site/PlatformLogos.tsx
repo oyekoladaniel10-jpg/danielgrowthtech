@@ -1,5 +1,5 @@
 // Official brand marks (simple-icons paths) rendered monochrome for the dark theme.
-type P = { className?: string };
+type P = { className?: string; style?: React.CSSProperties };
 
 const base = "fill-current";
 
