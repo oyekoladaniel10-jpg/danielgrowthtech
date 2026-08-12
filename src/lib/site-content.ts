@@ -15,10 +15,7 @@ export const BRAND = {
   ],
   basedIn: { country: "United Kingdom", flag: "🇬🇧" },
   logo: logo.url,
-  // Editable — paste your real profile URLs here.
-  socials: {
-    fiverr: "https://www.fiverr.com/jacobgrowth1?source=inbox",
-  },
+  socials: {},
 };
 
 export const WHATSAPP_URL = "https://wa.me/447828706004";

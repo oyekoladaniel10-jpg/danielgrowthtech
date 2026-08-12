@@ -1,5 +1,4 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { FiverrIcon } from "@/components/site/social-icons";
 import { BRAND, WHATSAPP_URL } from "@/lib/site-content";
 
 type ContactMethodsProps = {
@@ -37,34 +36,13 @@ export function ContactMethods({ includeDetails = false }: ContactMethodsProps) 
       </a>
 
       {includeDetails && (
-        <>
-          <div className={methodClass}>
-            <MapPin className="h-5 w-5 shrink-0 text-gold" aria-hidden />
-            <span className="min-w-0">
-              <span className="block text-[10px] tracking-widest text-muted-foreground uppercase">Based in</span>
-              <span className="block truncate">{BRAND.basedIn.flag} {BRAND.basedIn.country}</span>
-            </span>
-          </div>
-
-          <div className="flex basis-full flex-col rounded-2xl border border-border bg-surface p-5">
-            <span className="text-xs tracking-widest text-gold uppercase">Work With Me</span>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Prefer to hire through a marketplace? Find my verified Fiverr profile below.
-            </p>
-            <a
-              href={BRAND.socials.fiverr}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-4 flex items-center gap-3 rounded-2xl border border-border bg-surface-2 px-4 py-3"
-            >
-              <FiverrIcon className="h-5 w-5 shrink-0 text-gold" />
-              <span className="min-w-0">
-                <span className="block text-sm font-medium">Fiverr</span>
-                <span className="block truncate text-xs text-muted-foreground">Hire me on Fiverr</span>
-              </span>
-            </a>
-          </div>
-        </>
+        <div className={methodClass}>
+          <MapPin className="h-5 w-5 shrink-0 text-gold" aria-hidden />
+          <span className="min-w-0">
+            <span className="block text-[10px] tracking-widest text-muted-foreground uppercase">Based in</span>
+            <span className="block truncate">{BRAND.basedIn.flag} {BRAND.basedIn.country}</span>
+          </span>
+        </div>
       )}
     </div>
   );
