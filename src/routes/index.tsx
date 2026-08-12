@@ -8,6 +8,7 @@ import { FaqSection } from "@/components/site/FaqSection";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
+import { CaseVideoCard } from "@/components/site/CaseVideoCard";
 import { FiverrIcon } from "@/components/site/social-icons";
 import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
 import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
@@ -276,68 +277,44 @@ function FeaturedServices() {
   );
 }
 
-/* ---------------- Featured Case ---------------- */
+/* ---------------- Featured Cases ---------------- */
 function FeaturedCases() {
-  const featured = CASES[0];
-  const [open, setOpen] = useState(false);
+  const featured = CASES.slice(0, 3);
+  const [active, setActive] = useState<number | null>(null);
   return (
     <section className="section-pad">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Case Studies"
-          title={<>Featured <span className="gradient-text">case study.</span></>}
+          title={<>Featured <span className="gradient-text">case studies.</span></>}
           sub="Real ecommerce brands, real stores, real results."
         />
-        <div className="mt-14 mx-auto max-w-4xl">
-          <Reveal>
-            <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
-              <button
-                type="button"
-                onClick={() => setOpen(true)}
-                aria-label={`Play ${featured.website} case study video`}
-                className="relative block aspect-video w-full overflow-hidden bg-surface-2"
-              >
-                <img
-                  src={featured.poster}
-                  alt={`${featured.website} case study video thumbnail`}
-                  width={640}
-                  height={360}
-                  loading="lazy"
-                  decoding="async"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 grid place-items-center bg-black/10 transition group-hover:bg-black/0">
-                  <div className="grid h-20 w-20 place-items-center rounded-full bg-white/95 shadow-2xl transition group-hover:scale-110 md:h-24 md:w-24">
-                    <Play className="ml-1 h-8 w-8 fill-background text-background md:h-10 md:w-10" />
-                  </div>
-                </div>
-              </button>
-              <div className="flex flex-1 flex-col gap-2 p-6 md:p-8">
-                <span className="inline-flex w-fit rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] tracking-widest text-gold uppercase">
-                  {featured.industry}
-                </span>
-                <h3 className="mt-2 text-2xl md:text-3xl">{featured.website}</h3>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Link
-                    to="/case-studies/$slug"
-                    params={{ slug: featured.slug }}
-                    className="btn-ghost transition group-hover:border-gold/50 group-hover:text-gold"
-                  >
-                    View Case Study <ArrowRight className="h-4 w-4" />
-                  </Link>
-                  <Link to="/case-studies" className="btn-primary">
-                    View All Case Studies <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </article>
-          </Reveal>
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+          {featured.map((c, i) => (
+            <Reveal key={c.slug} delay={i * 80}>
+              <CaseVideoCard
+                poster={c.poster}
+                website={c.website}
+                industry={c.industry}
+                slug={c.slug}
+                onPlay={() => setActive(i)}
+              />
+            </Reveal>
+          ))}
         </div>
-        {open && <Lightbox src={featured.video} poster={featured.poster} onClose={() => setOpen(false)} />}
+        <div className="mt-10 flex justify-center">
+          <Link to="/case-studies" className="btn-primary">
+            View All Case Studies <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        {active !== null && (
+          <Lightbox src={featured[active].video} poster={featured[active].poster} onClose={() => setActive(null)} />
+        )}
       </div>
     </section>
   );
 }
+
 
 
 /* ---------------- Featured References ---------------- */
