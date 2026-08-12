@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "4BpGjRw7ZOsWEdmuJfLvdcaT3pcLzGQrwBWWMJ1ER40" },
+      { name: "msvalidate.01", content: "30CA627CFB509DCE122ED66A08672A83" },
       { title: "Jacob Growth | Ecommerce Sales Growth Expert" },
       {
         name: "description",
