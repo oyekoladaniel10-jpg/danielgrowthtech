@@ -80,12 +80,13 @@ export function Nav() {
                   key={l.to}
                   to={l.to}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-2.5 text-sm text-muted-foreground hover:bg-white/5 hover:text-foreground"
+                  className="flex min-h-12 items-center rounded-xl px-3 text-sm text-muted-foreground active:bg-white/10 hover:bg-white/5 hover:text-foreground"
                 >
                   {l.label}
                 </Link>
               ))}
             </div>
+
             <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary mt-3 w-full">
               Book a call <ArrowRight className="h-4 w-4" />
             </Link>

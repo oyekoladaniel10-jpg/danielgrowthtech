@@ -157,10 +157,10 @@ const TRUST_PLATFORMS = [
 
 function Platforms() {
   return (
-    <section className="py-[88px] md:py-28">
+    <section className="py-[88px] md:py-28 cv-auto">
       <div className="container-lg">
         <Reveal>
-          <h2 className="text-center text-[11px] font-light uppercase tracking-[0.42em] text-muted-foreground md:text-[13px]">
+          <h2 className="text-center text-[11px] font-normal uppercase tracking-[0.42em] text-muted-foreground md:text-[13px]">
             Trusted by Leading Platforms
           </h2>
         </Reveal>
@@ -188,7 +188,7 @@ function Platforms() {
 const PILLAR_ICONS = [Target, MousePointerClick, Repeat];
 function Pillars() {
   return (
-    <section className="section-pad">
+    <section className="section-pad cv-auto">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Growth Pillars"
@@ -239,7 +239,7 @@ function FeaturedServices() {
     return service ? [service] : [];
   });
   return (
-    <section className="section-pad">
+    <section className="section-pad cv-auto">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Services"
@@ -286,7 +286,7 @@ function FeaturedCases() {
   const featured = CASES.slice(0, 3);
   const [active, setActive] = useState<number | null>(null);
   return (
-    <section className="section-pad">
+    <section className="section-pad cv-auto">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Case Studies"
@@ -326,7 +326,7 @@ function FeaturedReferences() {
   const [active, setActive] = useState<number | null>(null);
   const featured = REFERENCES.slice(0, 3);
   return (
-    <section className="section-pad">
+    <section className="section-pad cv-auto">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Client References"
@@ -365,7 +365,7 @@ function ClientReviews() {
     };
   }, [active]);
   return (
-    <section className="section-pad">
+    <section className="section-pad cv-auto">
       <div className="container-lg">
         <Reveal>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
@@ -392,9 +392,12 @@ function ClientReviews() {
                 <img
                   src={src}
                   alt={`Client review ${i + 1}`}
+                  width={720}
+                  height={1350}
                   loading="lazy" decoding="async"
                   className="h-full w-full object-contain"
                 />
+
               </button>
             </Reveal>
           ))}

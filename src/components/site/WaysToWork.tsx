@@ -5,7 +5,7 @@ import { WAYS_TO_WORK } from "@/lib/site-content";
 
 export function WaysToWork() {
   return (
-    <section className="pb-24">
+    <section className="pb-24 cv-auto">
       <div className="container-lg">
         <Reveal>
           <div className="mx-auto max-w-2xl text-center">

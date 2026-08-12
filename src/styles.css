@@ -249,3 +249,11 @@
   background-size: 200% 100%;
   animation: shimmer 4s linear infinite;
 }
+
+/* Mobile-only: skip rendering work for offscreen sections */
+@media (max-width: 767px) {
+  .cv-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 700px;
+  }
+}
