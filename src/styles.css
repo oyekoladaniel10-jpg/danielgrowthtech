@@ -257,4 +257,39 @@
    no-op now so section markup stays unchanged while rendering stays stable. */
 .cv-auto {
   content-visibility: visible;
+  contain-intrinsic-size: auto;
+  contain: none;
 }
+
+/* ---- Permanent mobile rendering stability guards ----
+   These prevent the classes of GPU/raster bugs that produced duplicated
+   horizontal bands on Chrome Android. Desktop rendering is unaffected. */
+html,
+body {
+  overflow-x: hidden;
+  overflow-anchor: none;
+}
+
+@media (max-width: 1023px), (pointer: coarse) {
+  /* No element may keep a permanent compositor layer or paint containment. */
+  *,
+  *::before,
+  *::after {
+    will-change: auto !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    content-visibility: visible !important;
+    contain: none !important;
+  }
+  /* Long-running transforms/filters on tall elements are the trigger. */
+  section,
+  main,
+  article,
+  header,
+  footer {
+    filter: none !important;
+    perspective: none !important;
+    transform-style: flat !important;
+  }
+}
+
