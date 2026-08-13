@@ -13,7 +13,7 @@ export function FaqSection() {
     );
 
   return (
-    <section className="section-pad cv-auto" id="faq">
+    <section className="section-pad" id="faq">
       <div className="container-lg">
         <div className="mx-auto max-w-2xl text-center">
           <div className="text-xs tracking-[0.25em] text-gold uppercase">FAQ</div>

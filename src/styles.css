@@ -1,6 +1,5 @@
 @import "tailwindcss" source(none);
 @source "../src";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -270,50 +269,18 @@
   animation: shimmer 4s linear infinite;
 }
 
-/* NOTE: `content-visibility: auto` + `contain-intrinsic-size` was previously
-   applied to offscreen sections on mobile. On Chrome Android this caused the
-   skipped subtrees to be re-painted incorrectly during scroll (horizontal
-   corruption bands with duplicated text/cards). The class is intentionally a
-   no-op now so section markup stays unchanged while rendering stays stable. */
-.cv-auto {
-  content-visibility: visible;
-  contain-intrinsic-size: auto;
-  contain: none;
-}
-
-/* ---- Permanent mobile rendering stability guards ----
-   These prevent the classes of GPU/raster bugs that produced duplicated
-   horizontal bands on Chrome Android. Desktop rendering is unaffected. */
+/* Keep the document on one horizontal axis without creating transformed or
+   contained scrolling ancestors. */
 html,
 body {
   overflow-x: hidden;
-  overflow-anchor: none;
 }
 
 @media (max-width: 1023px), (pointer: coarse) {
-  /* Mobile/touch uses one stable, static paint path. Nothing is allowed to
-     retain a transform, filter, animation, containment or large shadow layer
-     while the document scrolls. Interactive overlays are handled separately. */
-  *,
-  *::before,
-  *::after {
-    will-change: auto !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    content-visibility: visible !important;
-    contain: none !important;
-    transform: none !important;
-    filter: none !important;
-    perspective: none !important;
-    transform-style: flat !important;
-    mix-blend-mode: normal !important;
-    mask: none !important;
-    animation: none !important;
-  }
-
   .reveal-safe,
   .reveal-safe.is-visible {
     opacity: 1 !important;
+    transform: none !important;
     transition: none !important;
   }
 
@@ -331,11 +298,6 @@ body {
     transition: none !important;
   }
 
-  /* Keep the menu icon understandable without creating transformed layers. */
-  .site-nav button span {
-    transition: none !important;
-  }
-
   /* Fixed overlays are promoted to their own GPU texture on Android Chrome.
      Keep the contact control available at the end of the page on touch/mobile,
      but inside the document's normal paint layer. Desktop remains floating. */
@@ -348,7 +310,6 @@ body {
     bottom: 1.25rem !important;
   }
 
-  /* background-clip:text can create extra glyph masks on some Android GPUs. */
   .gradient-text {
     background: none !important;
     -webkit-background-clip: border-box !important;
@@ -378,9 +339,7 @@ body {
   }
 }
 
-/* The mobile Growth Pillars path is intentionally plain document-flow CSS.
-   There are no observer wrappers, generated layers, transforms, filters,
-   transitions, containment or translucent gradients in this subtree. */
+/* Mobile Growth Pillars is a single, plain document-flow paint path. */
 @media (max-width: 767px) {
   .pillars-section,
   .pillars-section .container-lg {
@@ -395,7 +354,6 @@ body {
   }
 
   .pillar-card {
-    position: relative;
     display: block;
     width: 100%;
     max-width: 100%;
@@ -404,22 +362,19 @@ body {
     margin: 0 0 1.25rem;
     padding: 1.75rem;
     box-sizing: border-box;
-    overflow: visible;
     border: 1px solid var(--border);
     border-radius: 1.5rem;
     background: var(--surface);
     box-shadow: none;
-    opacity: 1;
-    transform: none;
-    transition: none;
-    animation: none;
-    filter: none;
-    backdrop-filter: none;
-    perspective: none;
-    isolation: auto;
-    contain: none;
-    content-visibility: visible;
-    will-change: auto;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    contain: none !important;
+    content-visibility: visible !important;
+    will-change: auto !important;
   }
 
   .pillar-card:last-child { margin-bottom: 0; }
@@ -430,13 +385,29 @@ body {
     position: static;
     background: var(--surface-2);
     box-shadow: none;
-    transform: none;
-    transition: none;
-    animation: none;
-    filter: none;
-    backdrop-filter: none;
-    contain: none;
-    will-change: auto;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    contain: none !important;
+    will-change: auto !important;
+  }
+
+  .pillars-section *,
+  .pillars-section *::before,
+  .pillars-section *::after {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+    content-visibility: visible !important;
+    will-change: auto !important;
   }
 }
 
