@@ -15,7 +15,7 @@ export function CaseVideoCard({
   onPlay: () => void;
 }) {
   return (
-    <article className="group card-lux flex h-full flex-col overflow-hidden p-0 transition duration-500 hover:-translate-y-1">
+    <article className="group card-lux flex h-full flex-col overflow-hidden p-0">
       <button
         type="button"
         onClick={onPlay}
@@ -33,7 +33,7 @@ export function CaseVideoCard({
         />
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
-          <div className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl transition duration-500 group-hover:scale-110 md:h-20 md:w-20">
+          <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
             <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
           </div>
         </div>

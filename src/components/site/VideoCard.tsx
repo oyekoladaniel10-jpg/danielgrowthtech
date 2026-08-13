@@ -14,7 +14,7 @@ export type VideoRef = {
 export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void }) {
   return (
     <article
-      className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition-[transform,border-color] duration-300 hover:-translate-y-1 hover:border-emerald-brand/40"
+      className="video-card group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)]"
     >
       <button
         type="button"
@@ -33,7 +33,7 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
         />
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
-          <div className="grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl transition duration-500 group-hover:scale-110 group-hover:bg-white md:h-20 md:w-20">
+          <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
             <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
           </div>
         </div>
