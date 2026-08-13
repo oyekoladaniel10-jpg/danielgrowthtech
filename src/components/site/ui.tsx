@@ -6,7 +6,10 @@ export function useInView<T extends HTMLElement>(threshold = 0.15) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (typeof IntersectionObserver === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const staticRendering = window.matchMedia(
+      "(max-width: 1023px), (pointer: coarse), (prefers-reduced-motion: reduce)",
+    ).matches;
+    if (typeof IntersectionObserver === "undefined" || staticRendering) {
       set(true);
       return;
     }

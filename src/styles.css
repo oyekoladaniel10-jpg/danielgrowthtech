@@ -291,7 +291,9 @@ body {
 }
 
 @media (max-width: 1023px), (pointer: coarse) {
-  /* No element may keep a permanent compositor layer or paint containment. */
+  /* Mobile/touch uses one stable, static paint path. Nothing is allowed to
+     retain a transform, filter, animation, containment or large shadow layer
+     while the document scrolls. Interactive overlays are handled separately. */
   *,
   *::before,
   *::after {
@@ -300,22 +302,58 @@ body {
     -webkit-backdrop-filter: none !important;
     content-visibility: visible !important;
     contain: none !important;
-  }
-  /* Long-running transforms/filters on tall elements are the trigger. */
-  section,
-  main,
-  article,
-  header,
-  footer {
+    transform: none !important;
     filter: none !important;
     perspective: none !important;
     transform-style: flat !important;
+    mix-blend-mode: normal !important;
+    mask: none !important;
+    animation: none !important;
   }
+
+  .reveal-safe,
+  .reveal-safe.is-visible {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .card-lux,
+  .pillar-card,
+  .video-card,
+  .whatsapp-link,
+  [class*="shadow-"] {
+    box-shadow: none !important;
+  }
+
   .video-card,
   .video-play-control,
   .whatsapp-link {
-    transform: none !important;
-    transition-property: border-color, background-color, color !important;
+    transition: none !important;
+  }
+
+  /* Keep the menu icon understandable without creating transformed layers. */
+  .site-nav button span {
+    transition: none !important;
+  }
+
+  /* Fixed overlays are promoted to their own GPU texture on Android Chrome.
+     Keep the contact control available at the end of the page on touch/mobile,
+     but inside the document's normal paint layer. Desktop remains floating. */
+  .site-shell {
+    position: relative;
+  }
+
+  .whatsapp-link {
+    position: absolute !important;
+    bottom: 1.25rem !important;
+  }
+
+  /* background-clip:text can create extra glyph masks on some Android GPUs. */
+  .gradient-text {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    color: var(--gold) !important;
   }
 }
 
