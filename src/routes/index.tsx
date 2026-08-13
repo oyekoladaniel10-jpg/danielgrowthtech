@@ -34,7 +34,7 @@ export const Route = createFileRoute("/")({
 /* ---------------- Hero + About intro ---------------- */
 function Hero() {
   return (
-    <section className="relative overflow-hidden pt-32 md:pt-40">
+    <section className="home-hero relative overflow-hidden pt-32 md:pt-40">
       <img
         src={heroBg}
         alt=""
@@ -43,7 +43,7 @@ function Hero() {
         height={1200}
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
       />
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-background/75 to-background" />
+      <div className="home-hero-scrim pointer-events-none absolute inset-0 bg-gradient-to-b from-background/60 via-background/75 to-background" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-[520px]"
