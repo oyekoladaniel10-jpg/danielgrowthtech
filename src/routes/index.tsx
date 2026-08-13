@@ -188,20 +188,20 @@ function Platforms() {
 const PILLAR_ICONS = [Target, MousePointerClick, Repeat];
 function Pillars() {
   return (
-    <section className="section-pad cv-auto">
+    <section className="pillars-section section-pad">
       <div className="container-lg">
         <SectionHeader
           eyebrow="Growth Pillars"
           title={<>A complete system for <span className="gradient-text">scaling ecommerce.</span></>}
           sub="Three integrated pillars working together to compound revenue, not siloed tactics."
         />
-        <div className="mt-14 grid gap-5 md:grid-cols-3">
+        <div className="pillars-grid mt-14 grid gap-5 md:grid-cols-3">
           {PILLARS.map((p, i) => {
             const Icon = PILLAR_ICONS[i];
             return (
-              <Reveal key={p.t} delay={i * 80}>
-                <article className="card-lux flex h-full flex-col">
-                  <div className="glass grid h-12 w-12 place-items-center rounded-2xl">
+              <Reveal key={p.t} delay={i * 80} className="pillar-reveal">
+                <article className="pillar-card card-lux flex h-full flex-col">
+                  <div className="pillar-icon glass grid h-12 w-12 place-items-center rounded-2xl">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
                   <h3 className="mt-6 text-2xl">{p.t}</h3>

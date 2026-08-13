@@ -293,3 +293,87 @@ body {
   }
 }
 
+/* Growth Pillars mobile rendering is deliberately kept on the CPU paint path.
+   The previous card inherited the reusable reveal transform and translucent
+   gradient surface. On Chrome Android, that combination could be promoted to
+   a tiled compositor layer and repaint as repeated strips during fast scroll. */
+@media (max-width: 767px) {
+  .pillars-section,
+  .pillars-section .container-lg,
+  .pillars-grid,
+  .pillar-reveal {
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: visible;
+    opacity: 1;
+    transform: none;
+    translate: none;
+    scale: none;
+    rotate: none;
+    animation: none;
+    transition: none;
+    filter: none;
+    backdrop-filter: none;
+    perspective: none;
+    transform-style: flat;
+    mix-blend-mode: normal;
+    mask: none;
+    isolation: auto;
+    will-change: auto;
+  }
+
+  .pillar-card {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: visible;
+    background-color: var(--surface);
+    background-image: none;
+    box-shadow: none;
+    opacity: 1;
+    transform: none;
+    translate: none;
+    scale: none;
+    rotate: none;
+    animation: none;
+    transition: none;
+    filter: none;
+    backdrop-filter: none;
+    perspective: none;
+    transform-style: flat;
+    mix-blend-mode: normal;
+    mask: none;
+    isolation: auto;
+    will-change: auto;
+  }
+
+  .pillar-card::before,
+  .pillar-card::after,
+  .pillar-reveal::before,
+  .pillar-reveal::after {
+    content: none;
+  }
+
+  .pillar-icon {
+    position: relative;
+    background-color: var(--surface-2);
+    background-image: none;
+    box-shadow: none;
+    transform: none;
+    animation: none;
+    transition: none;
+    filter: none;
+    backdrop-filter: none;
+    mix-blend-mode: normal;
+    will-change: auto;
+  }
+}
+
