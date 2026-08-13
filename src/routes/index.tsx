@@ -199,22 +199,20 @@ function Pillars() {
           {PILLARS.map((p, i) => {
             const Icon = PILLAR_ICONS[i];
             return (
-              <div key={p.t} className="pillar-reveal">
-                <article className="pillar-card flex h-full flex-col">
-                  <div className="pillar-icon glass grid h-12 w-12 place-items-center rounded-2xl">
-                    <Icon className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="mt-6 text-2xl">{p.t}</h3>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
-                  <ul className="mt-5 space-y-2">
-                    {p.items.map((it) => (
-                      <li key={it} className="flex items-start gap-2 text-sm">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {it}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </div>
+              <article key={p.t} className="pillar-card">
+                <div className="pillar-icon glass grid h-12 w-12 place-items-center rounded-2xl">
+                  <Icon className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="mt-6 text-2xl">{p.t}</h3>
+                <p className="mt-3 text-sm text-muted-foreground">{p.d}</p>
+                <ul className="mt-5 space-y-2">
+                  {p.items.map((it) => (
+                    <li key={it} className="flex items-start gap-2 text-sm">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {it}
+                    </li>
+                  ))}
+                </ul>
+              </article>
             );
           })}
         </div>
