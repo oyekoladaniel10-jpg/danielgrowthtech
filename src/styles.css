@@ -112,7 +112,7 @@
 
 .site-nav { position: fixed; }
 
-@media (max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+@media (max-width: 767px), (pointer: coarse), (any-pointer: coarse), (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal-safe,
   .reveal-safe.is-visible {
@@ -276,7 +276,7 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 1023px), (pointer: coarse) {
+@media (max-width: 1023px), (pointer: coarse), (any-pointer: coarse) {
   .reveal-safe,
   .reveal-safe.is-visible {
     opacity: 1 !important;
@@ -340,7 +340,7 @@ body {
 }
 
 /* Mobile Growth Pillars is a single, plain document-flow paint path. */
-@media (max-width: 767px) {
+@media (max-width: 1023px), (pointer: coarse), (any-pointer: coarse) {
   .pillars-section,
   .pillars-section .container-lg {
     position: static;
