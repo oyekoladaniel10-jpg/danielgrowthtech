@@ -223,6 +223,26 @@
   padding-block: 6rem;
 }
 
+.video-card {
+  transition: border-color 0.3s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .video-card {
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .video-card:hover {
+    transform: translateY(-0.25rem);
+    border-color: color-mix(in oklab, var(--emerald-brand) 40%, transparent);
+  }
+  .video-play-control {
+    transition: transform 0.5s, background-color 0.5s;
+  }
+  .group:hover .video-play-control {
+    transform: scale(1.1);
+  }
+}
+
 @keyframes float-slow {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
@@ -290,6 +310,12 @@ body {
     filter: none !important;
     perspective: none !important;
     transform-style: flat !important;
+  }
+  .video-card,
+  .video-play-control,
+  .whatsapp-link {
+    transform: none !important;
+    transition-property: border-color, background-color, color !important;
   }
 }
 
