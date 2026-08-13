@@ -200,7 +200,7 @@ function Pillars() {
             const Icon = PILLAR_ICONS[i];
             return (
               <div key={p.t} className="pillar-reveal">
-                <article className="pillar-card card-lux flex h-full flex-col">
+                <article className="pillar-card flex h-full flex-col">
                   <div className="pillar-icon glass grid h-12 w-12 place-items-center rounded-2xl">
                     <Icon className="h-5 w-5 text-primary" />
                   </div>
