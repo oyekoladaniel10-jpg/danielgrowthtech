@@ -5,7 +5,7 @@ import { WHATSAPP_URL } from "@/lib/site-content";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
-    <div className="dark min-h-screen bg-background text-foreground">
+    <div className="site-shell dark min-h-screen bg-background text-foreground">
       <Nav />
       <main>{children}</main>
       <Footer />

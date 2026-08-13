@@ -335,6 +335,26 @@ body {
   .site-nav button span {
     transition: none !important;
   }
+
+  /* Fixed overlays are promoted to their own GPU texture on Android Chrome.
+     Keep the contact control available at the end of the page on touch/mobile,
+     but inside the document's normal paint layer. Desktop remains floating. */
+  .site-shell {
+    position: relative;
+  }
+
+  .whatsapp-link {
+    position: absolute !important;
+    bottom: 1.25rem !important;
+  }
+
+  /* background-clip:text can create extra glyph masks on some Android GPUs. */
+  .gradient-text {
+    background: none !important;
+    -webkit-background-clip: border-box !important;
+    background-clip: border-box !important;
+    color: var(--gold) !important;
+  }
 }
 
 /* Pillar cards keep their desktop appearance without inheriting card-lux's
