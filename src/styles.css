@@ -112,7 +112,7 @@
 
 .site-nav { position: fixed; }
 
-@media (max-width: 767px), (pointer: coarse), (prefers-reduced-motion: reduce) {
+@media (max-width: 767px), (pointer: coarse), (any-pointer: coarse), (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal-safe,
   .reveal-safe.is-visible {
@@ -276,7 +276,7 @@ body {
   overflow-x: hidden;
 }
 
-@media (max-width: 1023px), (pointer: coarse) {
+@media (max-width: 1023px), (pointer: coarse), (any-pointer: coarse) {
   .reveal-safe,
   .reveal-safe.is-visible {
     opacity: 1 !important;
@@ -340,7 +340,7 @@ body {
 }
 
 /* Mobile Growth Pillars is a single, plain document-flow paint path. */
-@media (max-width: 767px) {
+@media (max-width: 1023px), (pointer: coarse), (any-pointer: coarse) {
   .pillars-section,
   .pillars-section .container-lg {
     position: static;
@@ -408,6 +408,52 @@ body {
     contain: none !important;
     content-visibility: visible !important;
     will-change: auto !important;
+  }
+
+  /* Android Chrome stability mode: keep the complete mobile document on a
+     single, inexpensive paint path. This is intentionally site-wide because
+     off-screen composited surfaces can corrupt a different section while the
+     browser recycles tiles during long bidirectional scrolls. Desktop keeps
+     the full gradients, shadows and interactions. */
+  .site-shell *,
+  .site-shell *::before,
+  .site-shell *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    perspective: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+    contain: none !important;
+    content-visibility: visible !important;
+    will-change: auto !important;
+  }
+
+  .home-hero-scrim {
+    background-color: color-mix(in oklab, var(--background) 78%, transparent) !important;
+  }
+
+  .glass,
+  .glass-strong {
+    background-color: color-mix(in oklab, var(--background) 92%, white 8%) !important;
+  }
+
+  .card-lux,
+  .pillar-card,
+  .video-card {
+    background-color: var(--surface) !important;
+  }
+
+  .btn-primary {
+    background-color: var(--primary) !important;
+  }
+
+  .btn-ghost {
+    background-color: transparent !important;
   }
 }
 
