@@ -250,10 +250,11 @@
   animation: shimmer 4s linear infinite;
 }
 
-/* Mobile-only: skip rendering work for offscreen sections */
-@media (max-width: 767px) {
-  .cv-auto {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 700px;
-  }
+/* NOTE: `content-visibility: auto` + `contain-intrinsic-size` was previously
+   applied to offscreen sections on mobile. On Chrome Android this caused the
+   skipped subtrees to be re-painted incorrectly during scroll (horizontal
+   corruption bands with duplicated text/cards). The class is intentionally a
+   no-op now so section markup stays unchanged while rendering stays stable. */
+.cv-auto {
+  content-visibility: visible;
 }
