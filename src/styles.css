@@ -330,9 +330,6 @@ body {
     overflow: visible;
     opacity: 1;
     transform: none !important;
-    translate: none !important;
-    scale: none !important;
-    rotate: none !important;
     animation: none !important;
     transition: none !important;
     filter: none !important;
@@ -359,9 +356,6 @@ body {
     box-shadow: none;
     opacity: 1;
     transform: none !important;
-    translate: none !important;
-    scale: none !important;
-    rotate: none !important;
     animation: none !important;
     transition: none !important;
     filter: none !important;
