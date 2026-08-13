@@ -378,78 +378,64 @@ body {
   }
 }
 
-/* Growth Pillars mobile rendering is deliberately kept on the normal paint
-   path with no observer, transform, filter, containment, or animated surface. */
-@media (max-width: 767px), (pointer: coarse) {
+/* The mobile Growth Pillars path is intentionally plain document-flow CSS.
+   There are no observer wrappers, generated layers, transforms, filters,
+   transitions, containment or translucent gradients in this subtree. */
+@media (max-width: 767px) {
   .pillars-section,
-  .pillars-section .container-lg,
-  .pillars-grid,
-  .pillar-reveal {
+  .pillars-section .container-lg {
     position: static;
+    overflow: visible;
+  }
+
+  .pillars-grid {
+    display: block;
     width: 100%;
     max-width: 100%;
-    height: auto;
-    min-height: 0;
-    box-sizing: border-box;
-    overflow: visible;
-    opacity: 1;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    perspective: none;
-    transform-style: flat;
-    mix-blend-mode: normal;
-    mask: none;
-    isolation: auto;
-    will-change: auto;
   }
 
   .pillar-card {
     position: relative;
-    display: flex;
+    display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
     min-height: 0;
+    margin: 0 0 1.25rem;
+    padding: 1.75rem;
     box-sizing: border-box;
     overflow: visible;
-    background-color: var(--surface);
-    background-image: none;
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    background: var(--surface);
     box-shadow: none;
     opacity: 1;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
+    transform: none;
+    transition: none;
+    animation: none;
+    filter: none;
+    backdrop-filter: none;
     perspective: none;
-    transform-style: flat;
-    mix-blend-mode: normal;
-    mask: none;
     isolation: auto;
+    contain: none;
+    content-visibility: visible;
     will-change: auto;
   }
 
+  .pillar-card:last-child { margin-bottom: 0; }
   .pillar-card::before,
-  .pillar-card::after,
-  .pillar-reveal::before,
-  .pillar-reveal::after {
-    content: none;
-  }
+  .pillar-card::after { content: none; }
 
   .pillar-icon {
-    position: relative;
-    background-color: var(--surface-2);
-    background-image: none;
+    position: static;
+    background: var(--surface-2);
     box-shadow: none;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-    filter: none !important;
-    backdrop-filter: none !important;
-    mix-blend-mode: normal;
+    transform: none;
+    transition: none;
+    animation: none;
+    filter: none;
+    backdrop-filter: none;
+    contain: none;
     will-change: auto;
   }
 }
