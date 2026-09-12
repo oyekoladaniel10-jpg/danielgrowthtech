@@ -281,7 +281,7 @@ function FeaturedServices() {
 
 /* ---------------- Featured Cases ---------------- */
 function FeaturedCases() {
-  const featured = CASES.slice(0, 3);
+  const featured = CASES;
   const [active, setActive] = useState<number | null>(null);
   return (
     <section className="section-pad">
