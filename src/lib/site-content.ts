@@ -26,8 +26,22 @@ import r3 from "@/assets/reviews/review-3.jpg.asset.json";
 import r4 from "@/assets/reviews/review-4.jpg.asset.json";
 import r5 from "@/assets/reviews/review-5.jpg.asset.json";
 import r6 from "@/assets/reviews/review-6.jpg.asset.json";
+import r7 from "@/assets/reviews/review-7.jpg.asset.json";
+import r8 from "@/assets/reviews/review-8.jpg.asset.json";
+import r9 from "@/assets/reviews/review-9.jpg.asset.json";
+import r10 from "@/assets/reviews/review-10.jpg.asset.json";
+import r11 from "@/assets/reviews/review-11.jpg.asset.json";
+import r12 from "@/assets/reviews/review-12.jpg.asset.json";
+import r13 from "@/assets/reviews/review-13.jpg.asset.json";
+import r14 from "@/assets/reviews/review-14.jpg.asset.json";
+import r15 from "@/assets/reviews/review-15.jpg.asset.json";
+import r16 from "@/assets/reviews/review-16.jpg.asset.json";
 
-export const REVIEWS = [r1.url, r2.url, r3.url, r4.url, r5.url, r6.url];
+export const REVIEWS = [
+  r1.url, r2.url, r3.url, r4.url, r5.url, r6.url, r7.url, r8.url,
+  r9.url, r10.url, r11.url, r12.url, r13.url, r14.url, r15.url, r16.url,
+];
+
 
 export type NavLink = { label: string; to: string };
 export const NAV: NavLink[] = [

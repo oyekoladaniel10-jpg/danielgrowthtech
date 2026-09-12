@@ -351,6 +351,10 @@ function FeaturedReferences() {
 /* ---------------- Client Reviews ---------------- */
 function ClientReviews() {
   const [active, setActive] = useState<number | null>(null);
+  const [index, setIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+
   useEffect(() => {
     if (active === null) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActive(null);
@@ -362,8 +366,37 @@ function ClientReviews() {
       document.body.style.overflow = prev;
     };
   }, [active]);
+
+  const goTo = (i: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.children[0] as HTMLElement | undefined;
+    if (!card) return;
+    const step = card.offsetWidth + 24;
+    const next = ((i % REVIEWS.length) + REVIEWS.length) % REVIEWS.length;
+    setIndex(next);
+    track.scrollTo({ left: step * next, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (active !== null) return;
+    const id = window.setInterval(() => {
+      if (pausedRef.current) return;
+      setIndex((prev) => {
+        const track = trackRef.current;
+        const next = (prev + 1) % REVIEWS.length;
+        if (track) {
+          const card = track.children[0] as HTMLElement | undefined;
+          if (card) track.scrollTo({ left: (card.offsetWidth + 24) * next, behavior: "smooth" });
+        }
+        return next;
+      });
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [active]);
+
   return (
-    <section className="section-pad">
+    <section className="section-pad relative">
       <div className="container-lg">
         <Reveal>
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-4 text-center">
@@ -377,29 +410,81 @@ function ClientReviews() {
             <p className="text-muted-foreground">
               Real, verified 5-star reviews from clients I've worked with. Tap any screenshot to view it larger.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
+              <span className="inline-flex items-center gap-1.5">
+                <Star className="h-3.5 w-3.5 fill-gold text-gold" /> 5.0 average
+              </span>
+              <span className="opacity-40">/</span>
+              <span>{REVIEWS.length} verified screenshots</span>
+              <span className="opacity-40">/</span>
+              <span>Global clients</span>
+            </div>
           </div>
         </Reveal>
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {REVIEWS.slice(0, 3).map((src, i) => (
-            <Reveal key={i} delay={i * 40}>
+
+        <div
+          className="mt-12"
+          onMouseEnter={() => { pausedRef.current = true; }}
+          onMouseLeave={() => { pausedRef.current = false; }}
+          onTouchStart={() => { pausedRef.current = true; }}
+        >
+          <div
+            ref={trackRef}
+            className="review-track flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {REVIEWS.map((src, i) => (
               <button
+                key={i}
                 type="button"
                 onClick={() => setActive(i)}
-                className="group block h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition hover:-translate-y-1 hover:border-gold/40"
+                aria-label={`Open client review ${i + 1}`}
+                className="group relative w-[85%] shrink-0 snap-center overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)] transition hover:border-gold/40 sm:w-[46%] lg:w-[31.5%]"
               >
                 <img
                   src={src}
-                  alt={`Client review ${i + 1}`}
+                  alt={`Verified client review ${i + 1}`}
                   width={720}
                   height={1350}
-                  loading="lazy" decoding="async"
+                  loading={i < 3 ? "eager" : "lazy"}
+                  decoding="async"
                   className="h-full w-full object-contain"
                 />
-
               </button>
-            </Reveal>
-          ))}
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <button
+              type="button"
+              onClick={() => goTo(index - 1)}
+              aria-label="Previous review"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/40 text-gold transition hover:bg-gold/10"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </button>
+            <div className="flex max-w-[60%] flex-wrap items-center justify-center gap-2">
+              {REVIEWS.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Go to review ${i + 1}`}
+                  className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-gold" : "w-1.5 bg-white/25"}`}
+                />
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => goTo(index + 1)}
+              aria-label="Next review"
+              className="grid h-10 w-10 place-items-center rounded-full border border-gold/40 text-gold transition hover:bg-gold/10"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </div>
         </div>
+
         <div className="mt-10 text-center">
           <Link
             to="/references"
@@ -432,6 +517,7 @@ function ClientReviews() {
     </section>
   );
 }
+
 
 function Home() {
   return (
