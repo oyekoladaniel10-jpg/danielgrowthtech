@@ -164,16 +164,20 @@ function Platforms() {
             Trusted by Leading Platforms
           </h2>
         </Reveal>
-        <div className="mx-auto mt-14 grid max-w-[900px] grid-cols-2 gap-x-8 gap-y-[60px] sm:gap-x-24 md:mt-20 md:gap-y-[70px]">
+        <div className="mx-auto mt-14 flex max-w-md flex-col items-stretch gap-5 md:mt-20">
           {TRUST_PLATFORMS.map(({ name, Logo, size, color }, i) => (
             <Reveal key={name} delay={i * 50}>
-              <div className="group flex flex-col items-center text-center">
-                <div className="flex h-16 items-center justify-center md:h-20">
+              <div className="group flex items-center gap-5 rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.06] md:gap-6 md:px-6 md:py-5">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/[0.04] md:h-16 md:w-16">
                   <Logo className={`${size} opacity-90 transition-opacity duration-300 group-hover:opacity-100`} style={{ color }} />
                 </div>
-                <span className="mt-6 text-[15px] tracking-wide text-muted-foreground transition-colors duration-300 group-hover:text-foreground md:text-[17px]">
-                  {name}
-                </span>
+                <div className="flex flex-col">
+                  <span className="text-lg font-medium tracking-wide text-foreground md:text-xl">
+                    {name}
+                  </span>
+                  <span className="text-sm text-muted-foreground">Official partner & certified specialist</span>
+                </div>
+                <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-muted-foreground opacity-0 transition group-hover:opacity-100 group-hover:text-foreground" />
               </div>
             </Reveal>
           ))}
