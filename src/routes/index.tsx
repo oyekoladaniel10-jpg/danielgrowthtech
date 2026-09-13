@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ArrowUpRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Star, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Sparkles, Play, Check, Target, MousePointerClick, Repeat, Star, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
