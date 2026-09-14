@@ -13,10 +13,9 @@ export function ShopifyLogo({ className, style }: P) {
 
 export function KlaviyoLogo({ className, style }: P) {
   return (
-    <svg viewBox="0 0 48 48" className={className} style={style} aria-hidden>
-      <path className={base} d="M4 15.4 21.9 4.4a3.9 3.9 0 0 1 4.2 0L44 15.4a1.7 1.7 0 0 1 0 2.9l-3.3 2A28.6 28.6 0 0 0 24 15.1 28.6 28.6 0 0 0 7.3 20.3l-3.3-2a1.7 1.7 0 0 1 0-2.9Z" />
-      <path className={base} d="M24 21.2c5.3 0 10.2 2 13.8 5.4l-3.7 2.3a15.6 15.6 0 0 0-20.2 0l-3.7-2.3A20 20 0 0 1 24 21.2Z" />
-      <circle className={base} cx="24" cy="35.6" r="7.2" />
+    <svg viewBox="0 0 154 42" className={className} style={style} aria-hidden>
+      <text x="1" y="31" fill="currentColor" fontFamily="Georgia, serif" fontSize="34" fontWeight="700">klaviyo</text>
+      <path className={base} d="M132 5h19l-4 8h-15z" />
     </svg>
   );
 }
@@ -28,6 +27,46 @@ export function GoogleAdsLogo({ className, style }: P) {
       <path fill="#34A853" d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.6-70.9c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v71.6c46.2 91.9 140.3 151.3 243.2 151.3z" />
       <path fill="#FBBC04" d="M119.3 321.4c-11.4-33.8-11.4-70.4 0-104.2V145.6H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-68.6z" />
       <path fill="#EA4335" d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 59.4 28.9 151.4l90.4 68.6c21.5-64.5 81.8-112.3 152.8-112.3z" />
+    </svg>
+  );
+}
+
+export function GoogleLogo({ className }: P) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden>
+      <path fill="#EA4335" d="M24 9.5c3.5 0 6.7 1.2 9.2 3.6l6.9-6.9C35.9 2.3 30.4 0 24 0 14.6 0 6.5 5.4 2.6 13.3l8 6.2C12.5 13.6 17.8 9.5 24 9.5Z" />
+      <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 2.9-2.2 5.4-4.7 7.1l7.7 6c4.5-4.2 6.8-10.3 6.8-17.6Z" />
+      <path fill="#FBBC05" d="M10.6 28.5A14.3 14.3 0 0 1 9.8 24c0-1.6.3-3.1.8-4.5l-8-6.2A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.7l8-6.2Z" />
+      <path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.8-5.8l-7.7-6c-2.1 1.4-4.9 2.4-8.1 2.4-6.2 0-11.5-4.2-13.4-9.9l-8 6.2C6.5 42.6 14.6 48 24 48Z" />
+    </svg>
+  );
+}
+
+export function AmazonWordmark({ className }: P) {
+  return (
+    <svg viewBox="0 0 150 52" className={className} aria-hidden>
+      <text x="4" y="34" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="33" fontWeight="700">amazon</text>
+      <path d="M21 41c27 12 65 11 93-2" fill="none" stroke="#FF9900" strokeWidth="4" strokeLinecap="round" />
+      <path d="m107 37 11 1-7 8" fill="none" stroke="#FF9900" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function MetaWordmark({ className }: P) {
+  return (
+    <svg viewBox="0 0 148 44" className={className} aria-hidden>
+      <path fill="#0866FF" d="M5 28c0-10 5-19 12-19 6 0 10 7 15 15l4 7c4 7 7 10 10 10 4 0 7-5 7-13 0-9-3-15-8-15-4 0-7 3-11 9l-4-6C35 8 40 4 46 4c10 0 16 10 16 24 0 12-5 20-14 20-7 0-12-5-17-14l-5-8c-4-7-6-10-9-10-3 0-6 5-6 12 0 6 2 10 6 10 3 0 5-2 8-7l4 6c-4 7-8 11-14 11C9 48 5 40 5 28Z" transform="scale(.83)" />
+      <text x="59" y="32" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="600">Meta</text>
+    </svg>
+  );
+}
+
+export function WooCommerceWordmark({ className }: P) {
+  return (
+    <svg viewBox="0 0 180 48" className={className} aria-hidden>
+      <path fill="#96588A" d="M3 8h64a5 5 0 0 1 5 5v21a5 5 0 0 1-5 5H31l-11 7 3-7H8a5 5 0 0 1-5-5Z" />
+      <text x="9" y="30" fill="#fff" fontFamily="Arial, sans-serif" fontSize="18" fontWeight="800">Woo</text>
+      <text x="76" y="31" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="19" fontWeight="800">COMMERCE</text>
     </svg>
   );
 }

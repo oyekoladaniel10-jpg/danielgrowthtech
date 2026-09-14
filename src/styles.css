@@ -226,6 +226,25 @@
   transition: border-color 0.3s;
 }
 
+.platform-item {
+  background-color: color-mix(in oklab, var(--background) 96%, white 4%);
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
+}
+
+.platform-item-featured {
+  color: var(--background);
+  background-color: var(--foreground);
+  border-color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  box-shadow: 0 16px 44px -24px color-mix(in oklab, black 75%, transparent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .platform-item:not(.platform-item-featured):hover {
+    background-color: color-mix(in oklab, var(--background) 90%, white 10%);
+    border-color: color-mix(in oklab, white 10%, transparent);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .video-card {
     transition: transform 0.3s, border-color 0.3s;
