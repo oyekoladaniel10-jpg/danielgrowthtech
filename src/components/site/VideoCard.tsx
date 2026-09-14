@@ -78,7 +78,7 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
         className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <video src={src} poster={poster} preload="auto" controls autoPlay playsInline className="h-full w-full object-contain" />
+        <video src={src} poster={poster} preload="metadata" controls autoPlay playsInline className="h-full w-full object-contain" />
       </div>
     </div>
   );

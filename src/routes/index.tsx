@@ -10,7 +10,7 @@ import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { CaseVideoCard } from "@/components/site/CaseVideoCard";
 
-import { ShopifyLogo, AmazonLogo, KlaviyoLogo, MetaLogo, GoogleAdsLogo, WooCommerceLogo } from "@/components/site/PlatformLogos";
+import { ShopifyLogo, AmazonWordmark, KlaviyoLogo, MetaWordmark, GoogleLogo, WooCommerceWordmark } from "@/components/site/PlatformLogos";
 import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
 import { CASES } from "@/lib/case-assets";
 
@@ -146,13 +146,12 @@ function Intro() {
 
 /* ---------------- Trusted Platforms ---------------- */
 const TRUST_PLATFORMS = [
-  // Official brand colours
-  { name: "Shopify", Logo: ShopifyLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#95BF47" },
-  { name: "Amazon", Logo: AmazonLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]", color: "#FF9900" },
-  { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#F5F5F5" },
-  { name: "Meta Ads", Logo: MetaLogo, size: "h-14 w-14 md:h-[4.5rem] md:w-[4.5rem]", color: "#0081FB" },
-  { name: "Google Ads", Logo: GoogleAdsLogo, size: "h-12 w-12 md:h-16 md:w-16", color: "#FBBC04" },
-  { name: "WooCommerce", Logo: WooCommerceLogo, size: "h-auto w-28 md:w-36", color: "#7F54B3" },
+  { name: "Shopify", Logo: ShopifyLogo, size: "h-11 w-11", color: "#7AB55C" },
+  { name: "Amazon", Logo: AmazonWordmark, size: "h-11 w-24", color: "#F5F7FA" },
+  { name: "Klaviyo", Logo: KlaviyoLogo, size: "h-10 w-28", color: "#101827", featured: true },
+  { name: "Meta Ads", Logo: MetaWordmark, size: "h-11 w-28", color: "#F5F7FA" },
+  { name: "Google Ads", Logo: GoogleLogo, size: "h-11 w-11", color: "#F5F7FA" },
+  { name: "WooCommerce", Logo: WooCommerceWordmark, size: "h-10 w-32", color: "#F5F7FA" },
 ];
 
 function Platforms() {
@@ -164,20 +163,14 @@ function Platforms() {
             Trusted by Leading Platforms
           </h2>
         </Reveal>
-        <div className="mx-auto mt-14 flex max-w-md flex-col items-stretch gap-5 md:mt-20">
-          {TRUST_PLATFORMS.map(({ name, Logo, size, color }, i) => (
+        <div className="platform-strip mx-auto mt-10 grid max-w-6xl grid-cols-2 gap-3 sm:grid-cols-3 lg:mt-14 lg:grid-cols-6 lg:gap-2">
+          {TRUST_PLATFORMS.map(({ name, Logo, size, color, featured }, i) => (
             <Reveal key={name} delay={i * 50}>
-              <div className="group flex items-center gap-5 rounded-2xl border border-white/8 bg-white/[0.03] px-5 py-4 transition-colors duration-300 hover:border-white/15 hover:bg-white/[0.06] md:gap-6 md:px-6 md:py-5">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-white/[0.04] md:h-16 md:w-16">
-                  <Logo className={`${size} opacity-90 transition-opacity duration-300 group-hover:opacity-100`} style={{ color }} />
+              <div className={`platform-item group flex min-h-32 flex-col items-center justify-center gap-4 rounded-lg border px-3 py-5 text-center ${featured ? "platform-item-featured" : "border-transparent"}`}>
+                <div className="flex h-12 w-full items-center justify-center">
+                  <Logo className={`${size} max-w-full`} style={{ color }} />
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-lg font-medium tracking-wide text-foreground md:text-xl">
-                    {name}
-                  </span>
-                  <span className="text-sm text-muted-foreground">Official partner & certified specialist</span>
-                </div>
-                <ArrowUpRight className="ml-auto h-5 w-5 shrink-0 text-muted-foreground opacity-0 transition group-hover:opacity-100 group-hover:text-foreground" />
+                <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground">{name}</span>
               </div>
             </Reveal>
           ))}
@@ -450,7 +443,7 @@ function ClientReviews() {
                   alt={`Verified client review ${i + 1}`}
                   width={720}
                   height={1350}
-                  loading={i < 3 ? "eager" : "lazy"}
+                  loading="lazy"
                   decoding="async"
                   className="h-full w-full object-contain"
                 />
