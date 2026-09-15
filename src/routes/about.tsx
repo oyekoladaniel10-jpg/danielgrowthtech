@@ -120,25 +120,6 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="section-pad">
-        <div className="container-lg">
-          <SectionHeader eyebrow="Process" title={<>An <span className="gradient-text">eight-step</span> operating rhythm.</>} />
-          <div className="mt-14 grid gap-4 md:grid-cols-2">
-            {PROCESS.map((p, i) => (
-              <Reveal key={p.n} delay={i * 60}>
-                <div className="card-lux flex gap-5">
-                  <div className="text-4xl font-display gradient-text">{p.n}</div>
-                  <div>
-                    <h3 className="text-xl">{p.t}</h3>
-                    <p className="mt-1.5 text-sm text-muted-foreground">{p.d}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <CtaBanner
         title={<>Ready to <span className="gradient-text">work together?</span></>}
         sub="Let's talk about your brand, goals and next milestone."
