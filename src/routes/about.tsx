@@ -5,7 +5,7 @@ import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { BarChart3, Check } from "lucide-react";
-import { WHY, PROCESS, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
+import { WHY, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
