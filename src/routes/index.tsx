@@ -123,9 +123,9 @@ function Intro() {
                 and grow revenue.
               </p>
               <p>
-                Based in the United Kingdom, I work remotely with eCommerce businesses across the UK,
-                US, Canada, Australia, and other countries, so no matter where you're located, we can
-                work together smoothly.
+                From Western Africa and based in the United Kingdom, I work remotely with eCommerce
+                businesses across the UK, US, Canada, Australia, and other countries, so no matter
+                where you're located, we can work together smoothly.
               </p>
               <p>
                 I work closely with each client to understand their business, identify growth
