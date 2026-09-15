@@ -154,18 +154,13 @@ export const WHY = [
 ];
 
 export const GENERAL_FAQS = [
-  { q: "What type of businesses do you work with?", a: "I work with ecommerce businesses and online brands across industries including fashion, beauty, home, lifestyle, automotive, health and wellness, and more." },
-  { q: "Where are you based?", a: "I'm based in the United Kingdom and work remotely with ecommerce businesses in the UK, US, Canada, Australia, and other international markets." },
-  { q: "What ecommerce platforms do you work with?", a: "I work with platforms including Shopify, WooCommerce, BigCommerce, and Amazon, depending on the needs of the business." },
-  { q: "What services do you offer?", a: "My services include Conversion Rate Optimisation (CRO), Ecommerce SEO, AI Search Visibility, Google Ads, Meta Ads, TikTok Ads, Pinterest Marketing, Email Marketing, Website Speed Optimisation, and ecommerce growth strategy." },
-  { q: "How do you determine which services my business needs?", a: "I start by understanding your business, current performance, goals, and challenges. From there, I identify the biggest growth opportunities and recommend the strategies that are most relevant to your situation." },
-  { q: "Do you offer one-time projects or ongoing support?", a: "Both. I offer one-time projects for specific growth needs as well as ongoing support for businesses looking for continuous optimisation and growth." },
-  { q: "How long does it take to see results?", a: "The timeline depends on the service, starting point, industry, and level of implementation. Some improvements can be seen quickly, while SEO, CRO testing, and long-term growth strategies typically require ongoing optimisation." },
-  { q: "How do we get started?", a: "Book a free consultation or contact me directly. We'll discuss your business, goals, current challenges, and the best next steps." },
-  { q: "Do you offer commission-based partnerships?", a: "Yes. For selected ecommerce businesses, I may offer a performance-based partnership with a 5% commission structure, subject to agreement and suitability." },
-  { q: "Can I see examples of your previous work?", a: "Yes. You can explore my Case Studies and Client References to see examples of projects, results, and feedback from clients I've worked with." },
-  { q: "How do you communicate with clients?", a: "Communication can be handled through channels agreed upon at the start of the project, including WhatsApp, email, and other suitable platforms." },
-  { q: "Do you work with businesses outside the UK?", a: "Yes. Although I'm based in the UK, I work remotely with ecommerce businesses internationally." },
+  { q: "How do I know I can trust you with my business?", a: "I understand that working with a freelancer for the first time requires trust. I keep the process transparent from the beginning, clearly explaining what I recommend, why it is needed, what will be delivered and what you can expect. I also provide examples of previous eCommerce work so you can evaluate my experience before making a decision." },
+  { q: "Will I need to give you full access to my store?", a: "No. I only request the access required to complete the agreed work. Where possible, I work through appropriate collaborator, staff or limited-access permissions rather than asking for unnecessary control of your business. Your store, customer data and business assets remain yours." },
+  { q: "How will we communicate while the project is in progress?", a: "Communication is straightforward and transparent. We can agree on the preferred communication channel before starting, and I provide updates on progress, completed work and any important decisions that require your input." },
+  { q: "What happens after I pay and the project begins?", a: "You will know exactly what is being worked on. I begin with the agreed scope, review the relevant areas of your business, prioritise the highest-impact opportunities and then implement the agreed improvements. You are kept informed throughout rather than being left wondering what is happening." },
+  { q: "How do you handle payments and project security?", a: "I prefer to work through a secure freelance platform such as Upwork or Fiverr when appropriate. This gives both sides a clear record of the agreement, scope and payment process. For larger or ongoing projects, the payment structure can also be agreed in stages based on the work involved." },
+  { q: "What if I am not sure which service my business needs?", a: "That is not a problem. You do not need to know exactly what to purchase before contacting me. I can review your situation, identify the main growth constraints and recommend the areas that should be prioritised. I will explain the reasoning before any work begins." },
+  { q: "Do you work with clients remotely, and will working in different countries be a problem?", a: "No. I work remotely with eCommerce businesses internationally. Location does not prevent us from working together effectively. We can communicate online, agree on the scope and timeline, and manage the project through a clear digital workflow." },
 ];
 
 export const FAQS = [
