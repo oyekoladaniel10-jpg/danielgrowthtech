@@ -94,9 +94,20 @@ function ContactPage() {
                 className="w-full resize-none rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-gold/50"
                 placeholder="Tell me about your brand, goals and current challenges…" />
             </div>
-            <Button type="submit" size="lg" className="mt-6 h-auto w-full rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
-              Send message <ArrowRight className="h-4 w-4" />
+            <Button type="submit" size="lg" disabled={status === "sending"}
+              className="mt-6 h-auto w-full rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
+              {status === "sending" ? "Sending…" : "Send message"} <ArrowRight className="h-4 w-4" />
             </Button>
+            {status === "sent" && (
+              <p role="status" className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-emerald-400">
+                <CheckCircle2 className="h-3.5 w-3.5" /> Message sent — I'll reply within one business day.
+              </p>
+            )}
+            {status === "error" && (
+              <p role="alert" className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-red-400">
+                <AlertCircle className="h-3.5 w-3.5" /> Something went wrong — please email me directly or try again.
+              </p>
+            )}
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
               Your details stay private. No sales spam, ever.
             </p>
