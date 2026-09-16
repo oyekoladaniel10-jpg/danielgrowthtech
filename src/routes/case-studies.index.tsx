@@ -30,6 +30,7 @@ function CaseStudiesPage() {
       />
       <section className="pb-24">
         <div className="container-lg">
+          <h2 className="sr-only">Case study videos</h2>
           <div className="grid gap-6 sm:grid-cols-2 md:gap-8">
             {CASES.map((c, i) => (
               <Reveal key={c.slug} delay={i * 80}>
