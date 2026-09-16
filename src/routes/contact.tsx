@@ -32,7 +32,39 @@ function Field({ label, name, type = "text", required, placeholder }: {
   );
 }
 
+type Status = "idle" | "sending" | "sent" | "error";
+
 function ContactPage() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/Jacobgrowth01@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New enquiry from ${data.name || "your website"}`,
+          _template: "table",
+          _captcha: "false",
+          name: data.name,
+          email: data.email,
+          brand: data.brand,
+          monthly_revenue: data.rev,
+          message: data.msg,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <Shell>
       <PageHero
