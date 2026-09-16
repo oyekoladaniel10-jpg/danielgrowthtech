@@ -31,6 +31,7 @@ function ReferencesPage() {
       />
       <section className="pb-24">
         <div className="container-lg">
+          <h2 className="sr-only">Client video references</h2>
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             {REFERENCES.map((r, i) => (
               <VideoCard key={i} data={r} onOpen={() => setActive(i)} />

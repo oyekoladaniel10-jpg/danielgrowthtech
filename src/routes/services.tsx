@@ -27,6 +27,7 @@ function ServicesPage() {
       />
       <section className="pb-24">
         <div className="container-lg">
+          <h2 className="sr-only">Ecommerce growth services</h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s, i) => (
               <Reveal key={s.title} delay={i * 30}>
