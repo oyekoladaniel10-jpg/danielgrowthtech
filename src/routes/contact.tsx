@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { ContactMethods } from "@/components/site/ContactMethods";
