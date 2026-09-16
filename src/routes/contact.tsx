@@ -80,7 +80,7 @@ function ContactPage() {
 
           <form
             className="h-fit min-w-0 flex-1 rounded-3xl border border-border bg-surface p-6 md:p-8"
-            onSubmit={(e) => { e.preventDefault(); alert("Thanks, I'll be in touch shortly."); }}
+            onSubmit={handleSubmit}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full name" name="name" required />
