@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, CheckCircle2, AlertCircle } from "lucide-react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { ContactMethods } from "@/components/site/ContactMethods";
@@ -31,7 +32,39 @@ function Field({ label, name, type = "text", required, placeholder }: {
   );
 }
 
+type Status = "idle" | "sending" | "sent" | "error";
+
 function ContactPage() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+    const data = Object.fromEntries(new FormData(form).entries());
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/Jacobgrowth01@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          _subject: `New enquiry from ${data.name || "your website"}`,
+          _template: "table",
+          _captcha: "false",
+          name: data.name,
+          email: data.email,
+          brand: data.brand,
+          monthly_revenue: data.rev,
+          message: data.msg,
+        }),
+      });
+      if (!res.ok) throw new Error("Request failed");
+      form.reset();
+      setStatus("sent");
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <Shell>
       <PageHero
@@ -47,7 +80,7 @@ function ContactPage() {
 
           <form
             className="h-fit min-w-0 flex-1 rounded-3xl border border-border bg-surface p-6 md:p-8"
-            onSubmit={(e) => { e.preventDefault(); alert("Thanks, I'll be in touch shortly."); }}
+            onSubmit={handleSubmit}
           >
             <div className="grid gap-4 sm:grid-cols-2">
               <Field label="Full name" name="name" required />
@@ -61,9 +94,20 @@ function ContactPage() {
                 className="w-full resize-none rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none focus:border-gold/50"
                 placeholder="Tell me about your brand, goals and current challenges…" />
             </div>
-            <Button type="submit" size="lg" className="mt-6 h-auto w-full rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
-              Send message <ArrowRight className="h-4 w-4" />
+            <Button type="submit" size="lg" disabled={status === "sending"}
+              className="mt-6 h-auto w-full rounded-full bg-primary px-6 py-3.5 text-primary-foreground">
+              {status === "sending" ? "Sending…" : "Send message"} <ArrowRight className="h-4 w-4" />
             </Button>
+            {status === "sent" && (
+              <p role="status" className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-emerald-400">
+                <CheckCircle2 className="h-3.5 w-3.5" /> Message sent — I'll reply within one business day.
+              </p>
+            )}
+            {status === "error" && (
+              <p role="alert" className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-red-400">
+                <AlertCircle className="h-3.5 w-3.5" /> Something went wrong — please email me directly or try again.
+              </p>
+            )}
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
               Your details stay private. No sales spam, ever.
             </p>

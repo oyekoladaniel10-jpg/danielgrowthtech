@@ -93,6 +93,41 @@ function CaseStudyDetail() {
 
       {open && <Lightbox src={c.video} poster={c.poster} onClose={() => setOpen(false)} />}
 
+      <section className="pb-24">
+        <div className="container-lg grid gap-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+          <div className="min-w-0 space-y-10">
+            <Reveal>
+              <div>
+                <h2 className="text-2xl md:text-3xl">Overview</h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{c.overview}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div>
+                <h2 className="text-2xl md:text-3xl">The challenge</h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{c.challenge}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div>
+                <h2 className="text-2xl md:text-3xl">The strategy</h2>
+                <p className="mt-3 text-muted-foreground leading-relaxed">{c.strategy}</p>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={160}>
+            <aside className="h-fit rounded-3xl border border-border bg-surface p-6 md:p-8">
+              <h2 className="text-xl">Results</h2>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{c.results}</p>
+              <h3 className="mt-6 text-sm font-semibold tracking-widest text-gold uppercase">Tools & platforms</h3>
+              <p className="mt-2 text-sm text-muted-foreground">{c.tools}</p>
+              <h3 className="mt-6 text-sm font-semibold tracking-widest text-gold uppercase">Key outcome</h3>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{c.outcome}</p>
+            </aside>
+          </Reveal>
+        </div>
+      </section>
+
       <CtaBanner
         title={<>Want results like <span className="gradient-text">{c.website}?</span></>}
         sub="Book a free 30-minute strategy call, no obligation, just clarity."
