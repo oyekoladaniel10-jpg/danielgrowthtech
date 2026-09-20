@@ -11,7 +11,7 @@ export type VideoRef = {
   service: string;
 };
 
-export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void }) {
+export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; onOpen: () => void; portrait?: boolean }) {
   return (
     <article
       className="video-card group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)]"
@@ -20,16 +20,16 @@ export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen: () => void
         type="button"
         onClick={onOpen}
         aria-label={`Play video from ${data.name}`}
-        className="relative block aspect-video w-full overflow-hidden bg-surface-2"
+        className={`relative block w-full overflow-hidden bg-surface-2 ${portrait ? "aspect-[9/16]" : "aspect-video"}`}
       >
         <img
           src={data.poster}
           alt={`Video testimonial from ${data.name}`}
-          width={640}
-          height={360}
+          width={portrait ? 360 : 640}
+          height={portrait ? 640 : 360}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
+          className={`absolute inset-0 h-full w-full ${portrait ? "object-contain" : "object-cover"}`}
         />
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
