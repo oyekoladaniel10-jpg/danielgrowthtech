@@ -15,14 +15,10 @@ export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; 
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    if (!isPlaying) return;
-    void videoRef.current?.play();
-  }, [isPlaying]);
-
   const handlePlay = () => {
     if (portrait) {
       setIsPlaying(true);
+      void videoRef.current?.play();
       return;
     }
     onOpen?.();
@@ -33,14 +29,13 @@ export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; 
       className="video-card group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)]"
     >
       <div className={`relative block w-full overflow-hidden bg-surface-2 ${portrait ? "aspect-[9/16]" : "aspect-video"}`}>
-        {portrait && isPlaying ? (
+        {portrait ? (
           <video
             ref={videoRef}
             src={data.src}
             poster={data.poster}
             preload="metadata"
-            controls
-            autoPlay
+            controls={isPlaying}
             playsInline
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -60,6 +55,21 @@ export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; 
               decoding="async"
               className="absolute inset-0 h-full w-full object-cover"
             />
+            <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
+            <div className="absolute inset-0 grid place-items-center">
+              <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
+                <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
+              </div>
+            </div>
+          </button>
+        )}
+        {portrait && !isPlaying && (
+          <button
+            type="button"
+            onClick={handlePlay}
+            aria-label={`Play video from ${data.name}`}
+            className="absolute inset-0 block h-full w-full overflow-hidden"
+          >
             <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
             <div className="absolute inset-0 grid place-items-center">
               <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
