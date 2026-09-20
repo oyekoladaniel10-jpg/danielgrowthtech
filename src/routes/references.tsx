@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { VideoCard, Lightbox } from "@/components/site/VideoCard";
+import { VideoCard } from "@/components/site/VideoCard";
 import { REFERENCES } from "@/lib/site-content";
 
 export const Route = createFileRoute("/references")({
@@ -21,7 +20,6 @@ export const Route = createFileRoute("/references")({
 });
 
 function ReferencesPage() {
-  const [active, setActive] = useState<number | null>(null);
   return (
     <Shell>
       <PageHero
@@ -38,7 +36,7 @@ function ReferencesPage() {
                 key={i}
                 className="flex shrink-0 basis-[calc(100%-2.25rem)] snap-start md:basis-[calc((100%-2rem)/2)] lg:basis-[calc((100%-4rem)/3)]"
               >
-                <VideoCard data={r} onOpen={() => setActive(i)} portrait />
+                <VideoCard data={r} portrait />
               </div>
             ))}
           </div>
@@ -48,7 +46,6 @@ function ReferencesPage() {
         title={<>Ready to become our next <span className="gradient-text">success story?</span></>}
         sub="Let's map a growth plan tailored to your store, no obligation, just clarity."
       />
-      {active !== null && <Lightbox src={REFERENCES[active].src} poster={REFERENCES[active].poster} onClose={() => setActive(null)} />}
     </Shell>
   );
 }
