@@ -32,9 +32,14 @@ function ReferencesPage() {
       <section className="pb-24">
         <div className="container-lg">
           <h2 className="sr-only">Client video references</h2>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+          <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] md:gap-8 [&::-webkit-scrollbar]:hidden">
             {REFERENCES.map((r, i) => (
-              <VideoCard key={i} data={r} onOpen={() => setActive(i)} />
+              <div
+                key={i}
+                className="flex shrink-0 basis-[calc(100%-2.25rem)] snap-start md:basis-[calc((100%-2rem)/2)] lg:basis-[calc((100%-4rem)/3)]"
+              >
+                <VideoCard data={r} onOpen={() => setActive(i)} portrait />
+              </div>
             ))}
           </div>
         </div>
