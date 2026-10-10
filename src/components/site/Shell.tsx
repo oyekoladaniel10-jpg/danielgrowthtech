@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { WHATSAPP_URL } from "@/lib/site-content";
+import { AssistantChat } from "./AssistantChat";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
@@ -9,6 +10,7 @@ export function Shell({ children }: { children: ReactNode }) {
       <Nav />
       <main>{children}</main>
       <Footer />
+      <AssistantChat />
       <a
         href={WHATSAPP_URL}
         target="_blank"
