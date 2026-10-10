@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { WHATSAPP_URL } from "@/lib/site-content";
+import { AssistantChat } from "./AssistantChat";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
