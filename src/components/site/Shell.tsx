@@ -10,6 +10,7 @@ export function Shell({ children }: { children: ReactNode }) {
       <Nav />
       <main>{children}</main>
       <Footer />
+      <AssistantChat />
       <a
         href={WHATSAPP_URL}
         target="_blank"
