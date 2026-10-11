@@ -1,14 +1,19 @@
-# Standardise testimonial video framing
+# Owner portrait and free website audit
 
 ## Scope
-- Change only how testimonial video media is fitted inside the existing 9:16 frames.
-- Preserve the carousel, cards, content, order, playback, controls, styling, and every other page element.
+- Replace Jacob's About-page portrait with the photo supplied in this request.
+- Add a dedicated, responsive free website audit page and a site navigation link.
 
-## Implementation
-- Keep one fixed 9:16 container size and `object-cover` for every testimonial.
-- Add a per-video focal position so landscape and unusually tall sources crop around each speaker rather than using one blind centre crop.
-- Apply the same focal framing to each video's poster and playing media, avoiding website-created black bars without stretching.
+## Experience
+- Let a visitor enter a public website URL and receive a score out of 100 with clearly grouped, actionable findings and positive checks.
+- Inspect the submitted public page and a small, bounded sample of same-site pages for observable SEO, metadata, accessibility, mobile setup, security, and technical signals.
+- Explain that findings reflect what the public pages expose; private analytics, rankings, and logged-in checkout flows are not represented as verified facts.
+
+## Technical details
+- Implement a validated same-origin app endpoint with strict URL, request-size, timeout, response-size, page-count, content-type, and redirect controls to limit abuse and unsafe fetches.
+- Use a deterministic, explainable scoring rubric rather than inventing performance or ranking results; render accessible loading, validation, result, and error states.
+- Preserve the existing visual system and site layout outside the requested About portrait and audit entry point.
 
 ## Verification
-- Inspect all six cards individually before and during playback.
-- Check mobile and desktop for equal frame heights, visible faces and upper bodies, no container bars, no overflow, and unchanged carousel behaviour.
+- Test a real public site through the form, confirm findings and score are returned, reject invalid/private URLs, and check responsive layout and route metadata.
+- Confirm the About photo is updated and the remaining site is unchanged; inspect current build/runtime diagnostics.
