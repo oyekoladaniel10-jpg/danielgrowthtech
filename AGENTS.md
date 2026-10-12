@@ -8,3 +8,5 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Public website audits run through a bounded TanStack server route, not a third-party scoring API, so findings stay transparent and the public fetch surface stays constrained.

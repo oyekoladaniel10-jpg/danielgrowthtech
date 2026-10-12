@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portraitAsset from "@/assets/portrait-jacob-2.jpg.asset.json";
+import portraitAsset from "@/assets/jacob-owner-portrait.jpeg.asset.json";
 const portrait = portraitAsset.url;
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
@@ -37,8 +37,8 @@ function AboutPage() {
               <img
                 src={portrait}
                 alt="Jacob, founder of Jacob Growth"
-                width={900}
-                height={1100}
+                width={960}
+                height={1280}
                 loading="eager"
                 className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
               />
