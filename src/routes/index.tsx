@@ -79,6 +79,7 @@ function Hero() {
                 Book a Free Consultation <ArrowRight className="h-4 w-4" />
               </Link>
               <Link to="/case-studies" className="btn-ghost">View case studies</Link>
+              <Link to="/audit" className="btn-ghost">Free website audit</Link>
               <Link to="/about" className="btn-ghost">About Me <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </Reveal>
