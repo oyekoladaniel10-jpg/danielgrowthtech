@@ -41,14 +41,6 @@ export const Route = createFileRoute("/api/chat")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const apiKey = process.env.LOVABLE_API_KEY;
-        if (!apiKey) {
-          return Response.json(
-            { error: "The assistant is not configured yet. Please email Jacobgrowth01@gmail.com." },
-            { status: 500 },
-          );
-        }
-
         let messages: UIMessage[];
         try {
           const body = (await request.json()) as { messages?: UIMessage[] };
@@ -61,11 +53,7 @@ export const Route = createFileRoute("/api/chat")({
         const modelMessages = await convertToModelMessages(messages);
         const call = createResponsesCall(
           request,
-          {
-            baseURL: "https://ai.gateway.lovable.dev/v1",
-            apiKey,
-            model: "openai/gpt-6-astra",
-          },
+          { model: "openai/gpt-6-astra" },
           modelMessages,
           SYSTEM_PROMPT,
         );
