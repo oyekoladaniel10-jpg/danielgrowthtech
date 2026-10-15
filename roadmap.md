@@ -2,3 +2,4 @@
 - [ ] Build and validate a free public-site audit with a transparent 100-point score and actionable findings.
 - [ ] Verify audit and portrait in the preview, review build/runtime signals, and close this roadmap.
 - [ ] Resolve the user's request to connect the Supabase project named “store growth”; current project backend connection details need clarification/verification.
+- [ ] Promote the latest sales proof to the home screen and move older proof into a sales-proof dashboard, using the provided Drive reference.
