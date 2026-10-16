@@ -27,6 +27,8 @@ export type CaseStudy = {
 
 const driveCaseStudyVideo = "https://drive.google.com/file/d/1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE/view?usp=sharing";
 const driveCaseStudyPoster = "https://drive.google.com/thumbnail?id=1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE&sz=w1200";
+const latestDriveCaseStudyVideo = "https://drive.google.com/file/d/1omRbXSruvukCH_9rHHmdKRiWdA8YmfqS/view?usp=sharing";
+const latestDriveCaseStudyPoster = "https://drive.google.com/thumbnail?id=1omRbXSruvukCH_9rHHmdKRiWdA8YmfqS&sz=w1200";
 
 export const CASES: CaseStudy[] = [
   {
@@ -119,5 +121,18 @@ export const CASES: CaseStudy[] = [
     results: "The video provides a visual walkthrough of the featured case study.",
     tools: "Ecommerce growth strategy and implementation.",
     outcome: "A new visual proof point for prospective clients.",
+  },
+  {
+    slug: "latest-case-study-2",
+    website: "Latest Case Study",
+    industry: "Case Study",
+    video: latestDriveCaseStudyVideo,
+    poster: latestDriveCaseStudyPoster,
+    overview: "The latest case study video featuring real project work and results.",
+    challenge: "Give prospective clients a direct visual walkthrough of the latest project and its outcomes.",
+    strategy: "Use the recorded case study to demonstrate the project, implementation and results.",
+    results: "The video provides a visual walkthrough of the latest featured case study.",
+    tools: "Ecommerce growth strategy and implementation.",
+    outcome: "A current visual proof point for prospective clients.",
   },
 ];
