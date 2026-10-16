@@ -24,7 +24,8 @@ function ProofMetrics({ proof }: { proof: SalesProof }) {
 }
 
 export function FeaturedSalesProof() {
-  const proof = SALES_PROOFS[0];
+  const latestProofs = SALES_PROOFS.slice(0, 4);
+  const featured = latestProofs[0];
 
   return (
     <section className="section-pad pb-0">
@@ -33,53 +34,35 @@ export function FeaturedSalesProof() {
           <div className="mb-6 flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-primary">
             <ChartNoAxesCombined className="h-4 w-4" /> Latest sales proof · {LATEST_SALES_RECORDING.date}
           </div>
-          <article className="grid overflow-hidden rounded-2xl border border-border bg-card md:grid-cols-[1.2fr_0.8fr]">
-            <img
-              src={proof.image}
-              alt={proof.alt}
-              width={822}
-              height={600}
-              fetchPriority="high"
-              decoding="async"
-              className="h-full min-h-64 w-full object-cover object-top md:min-h-0"
-            />
-            <div className="flex flex-col justify-center gap-6 p-6 sm:p-8 lg:p-10">
-              <div>
-                <p className="text-sm text-muted-foreground">{proof.period}</p>
-                <p className="mt-2 text-3xl font-semibold text-foreground sm:text-4xl">{proof.totalSales}</p>
-                <p className="mt-2 text-sm text-muted-foreground">Total sales shown in the supplied analytics screenshot.</p>
-              </div>
-              <ProofMetrics proof={proof} />
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href={LATEST_SALES_RECORDING.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn-primary"
-                >
-                  Open latest recording <ArrowUpRight className="h-4 w-4" />
-                </a>
-                <Link to="/sales-proof" className="btn-ghost">
-                  All sales proof <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </article>
         </Reveal>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {latestProofs.map((proof, index) => (
+            <Reveal key={proof.id} delay={index * 60}>
+              <SalesProofCard proof={proof} featured={proof.id === featured.id} />
+            </Reveal>
+          ))}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link to="/sales-proof" className="btn-ghost">
+            All sales proof <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
 }
 
-export function SalesProofCard({ proof }: { proof: SalesProof }) {
+export function SalesProofCard({ proof, featured = false }: { proof: SalesProof; featured?: boolean }) {
   return (
-    <article className="overflow-hidden rounded-xl border border-border bg-card">
+    <article className={`overflow-hidden rounded-xl border border-border bg-card ${featured ? "sm:col-span-2 lg:col-span-1" : ""}`}>
       <img
         src={proof.image}
         alt={proof.alt}
         width={822}
         height={600}
-        loading="lazy"
+        loading={featured ? "eager" : "lazy"}
         decoding="async"
         className="aspect-[4/3] w-full bg-muted object-contain"
       />
@@ -118,12 +101,7 @@ export function SalesProofArchive() {
             <p className="font-medium">Latest recording · {LATEST_SALES_RECORDING.date}</p>
             <p className="mt-1 text-sm text-muted-foreground">Open the Shopify walkthrough shared in Google Drive.</p>
           </div>
-          <a
-            href={LATEST_SALES_RECORDING.url}
-            target="_blank"
-            rel="noreferrer"
-            className="btn-ghost mt-4 shrink-0 sm:mt-0"
-          >
+          <a href={LATEST_SALES_RECORDING.url} target="_blank" rel="noreferrer" className="btn-ghost mt-4 shrink-0 sm:mt-0">
             Open recording <ArrowUpRight className="h-4 w-4" />
           </a>
         </div>
