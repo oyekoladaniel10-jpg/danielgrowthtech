@@ -10,6 +10,7 @@ import {
   PLATFORMS,
   PRICING,
   PROCESS,
+  REFERENCES,
   SERVICES,
   STATS,
   VALUES,
@@ -46,6 +47,13 @@ const textOnlySalesProof = SALES_PROOFS.map(
     alt,
   }),
 );
+const textOnlyClientReferences = REFERENCES.map(({ name, country, flag, industry, service }) => ({
+  name,
+  country,
+  flag,
+  industry,
+  service,
+}));
 
 export const SITE_KNOWLEDGE = {
   brand: BRAND,
@@ -85,20 +93,21 @@ export const SITE_KNOWLEDGE = {
   caseStudies: textOnlyCases,
   salesProof: textOnlySalesProof,
   latestSalesRecording: LATEST_SALES_RECORDING,
+  clientReferences: textOnlyClientReferences,
   siteFeatures: {
     freeAudit: "Public website audit covering visible SEO, technical setup, accessibility and security checks. It reads the homepage and up to two linked pages and provides a score plus practical findings.",
     customerCareAssistant: "This assistant can answer questions about the website and guide visitors to the relevant page or contact method.",
     caseStudyVideos: "Case-study videos can be opened and played on the website, including Google Drive-hosted videos.",
     salesProof: "The Sales Proof page contains ecommerce analytics screenshots and proof points; the homepage highlights the latest four screenshots.",
     featuredCaseStudies: "The homepage highlights the latest two case studies while the full Case Studies page keeps the wider archive available.",
-    clientReferences: "The site includes video client references/testimonials.",
+    clientReferences: "The homepage shows all published video client references; these are people who have worked with Jacob Growth, not a claim that they are founders.",
   },
 } as const;
 
 export const SITE_KNOWLEDGE_PROMPT = `You are the official AI assistant for Jacob Growth, an ecommerce growth consultancy. Your answers must be grounded in the current site knowledge below. Treat this knowledge as the source of truth for the website: do not invent services, prices, results, policies, contact details, clients, guarantees, or URLs.
 
 CORE JOBS:
-- Answer visitor questions about ANY part of Jacob Growth's website, including services, pricing, process, platforms, industries, case studies, sales proof, FAQs, the free site audit, contact options, the About page, website features, and how to start.
+- Answer visitor questions about ANY part of Jacob Growth's website, including services, pricing, process, platforms, industries, case studies, client references, sales proof, FAQs, the free site audit, contact options, the About page, website features, and how to start.
 - Give practical ecommerce-growth suggestions when the visitor asks for advice. Make clear when advice is general guidance rather than a stated Jacob Growth service or guarantee.
 - When the visitor is ready to act, actively redirect them to the most relevant page or contact method using markdown links with the exact internal paths supplied below.
 - If a visitor asks where to find something, give the direct page link instead of making them search.
@@ -107,6 +116,7 @@ CORE JOBS:
 REDIRECTION RULES:
 - Service questions -> /services
 - Case-study questions -> /case-studies
+- Client reference questions -> / (homepage) or /case-studies when they want project details
 - Sales results/proof questions -> /sales-proof
 - Visitor wants a free audit -> /audit
 - Visitor wants to start, get a quote, or discuss their store -> /contact, plus email/WhatsApp when useful
