@@ -25,6 +25,9 @@ export type CaseStudy = {
   outcome: string;
 };
 
+const driveCaseStudyVideo = "https://drive.google.com/file/d/1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE/view?usp=sharing";
+const driveCaseStudyPoster = "https://drive.google.com/thumbnail?id=1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE&sz=w1200";
+
 export const CASES: CaseStudy[] = [
   {
     slug: "dtaillab",
@@ -103,5 +106,18 @@ export const CASES: CaseStudy[] = [
     results: "The recorded dashboard shows 20,257 sessions, 146 orders, and a 0.53% conversion rate for the featured period.",
     tools: "Shopify and Shopify Analytics.",
     outcome: "Stronger traffic and order growth, with sessions up 74% and orders up 198% in the featured comparison.",
+  },
+  {
+    slug: "latest-case-study",
+    website: "Latest Case Study",
+    industry: "Case Study",
+    video: driveCaseStudyVideo,
+    poster: driveCaseStudyPoster,
+    overview: "A new case study video featuring real project work and results.",
+    challenge: "Show prospective clients the work and outcomes through a direct case-study walkthrough.",
+    strategy: "Use the case-study recording to demonstrate the project and the work completed.",
+    results: "The video provides a visual walkthrough of the featured case study.",
+    tools: "Ecommerce growth strategy and implementation.",
+    outcome: "A new visual proof point for prospective clients.",
   },
 ];
