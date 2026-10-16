@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndustriesRouteImport } from './routes/industries'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as SalesProofRouteImport } from './routes/sales-proof'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ApiAuditRouteImport } from './routes/api/audit'
@@ -58,6 +59,11 @@ const ReferencesRoute = ReferencesRouteImport.update({
   path: '/references',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SalesProofRoute = SalesProofRouteImport.update({
+  id: '/sales-proof',
+  path: '/sales-proof',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
@@ -97,6 +103,7 @@ export interface FileRoutesByFullPath {
   '/industries': typeof IndustriesRoute
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
+  '/sales-proof': typeof SalesProofRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/audit': typeof ApiAuditRoute
@@ -112,6 +119,7 @@ export interface FileRoutesByTo {
   '/industries': typeof IndustriesRoute
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
+  '/sales-proof': typeof SalesProofRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/audit': typeof ApiAuditRoute
@@ -128,6 +136,7 @@ export interface FileRoutesById {
   '/industries': typeof IndustriesRoute
   '/pricing': typeof PricingRoute
   '/references': typeof ReferencesRoute
+  '/sales-proof': typeof SalesProofRoute
   '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/api/audit': typeof ApiAuditRoute
@@ -145,6 +154,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/pricing'
     | '/references'
+    | '/sales-proof'
     | '/services'
     | '/sitemap.xml'
     | '/api/audit'
@@ -160,6 +170,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/pricing'
     | '/references'
+    | '/sales-proof'
     | '/services'
     | '/sitemap.xml'
     | '/api/audit'
@@ -175,6 +186,7 @@ export interface FileRouteTypes {
     | '/industries'
     | '/pricing'
     | '/references'
+    | '/sales-proof'
     | '/services'
     | '/sitemap.xml'
     | '/api/audit'
@@ -191,6 +203,7 @@ export interface RootRouteChildren {
   IndustriesRoute: typeof IndustriesRoute
   PricingRoute: typeof PricingRoute
   ReferencesRoute: typeof ReferencesRoute
+  SalesProofRoute: typeof SalesProofRoute
   ServicesRoute: typeof ServicesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   ApiAuditRoute: typeof ApiAuditRoute
@@ -250,6 +263,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReferencesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sales-proof': {
+      id: '/sales-proof'
+      path: '/sales-proof'
+      fullPath: '/sales-proof'
+      preLoaderRoute: typeof SalesProofRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services': {
       id: '/services'
       path: '/services'
@@ -303,6 +323,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesRoute: IndustriesRoute,
   PricingRoute: PricingRoute,
   ReferencesRoute: ReferencesRoute,
+  SalesProofRoute: SalesProofRoute,
   ServicesRoute: ServicesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   ApiAuditRoute: ApiAuditRoute,
