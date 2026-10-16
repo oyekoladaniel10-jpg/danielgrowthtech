@@ -11,6 +11,11 @@ export type VideoRef = {
   service: string;
 };
 
+function getDrivePreviewUrl(src: string) {
+  const match = src.match(/\/file\/d\/([^/]+)/);
+  return match ? `https://drive.google.com/file/d/${match[1]}/preview` : null;
+}
+
 export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; onOpen?: () => void; portrait?: boolean }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -101,17 +106,20 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
     return () => {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = prev;
-    };
+      };
   }, [onClose]);
+
+  const drivePreviewUrl = getDrivePreviewUrl(src);
+
   return (
     <div
-       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
       onClick={onClose}
     >
       <button
         onClick={onClose}
         aria-label="Close"
-        className="absolute right-4 top-4 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
+        className="absolute right-4 top-4 z-10 grid h-11 w-11 place-items-center rounded-full bg-white/10 text-white transition hover:bg-white/20"
       >
         <X className="h-5 w-5" />
       </button>
@@ -119,7 +127,17 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
         className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <video src={src} poster={poster} preload="metadata" controls autoPlay playsInline className="h-full w-full object-contain" />
+        {drivePreviewUrl ? (
+          <iframe
+            src={drivePreviewUrl}
+            title="Case study video"
+            className="h-full w-full border-0"
+            allow="autoplay; fullscreen"
+            allowFullScreen
+          />
+        ) : (
+          <video src={src} poster={poster} preload="metadata" controls autoPlay playsInline className="h-full w-full object-contain" />
+        )}
       </div>
     </div>
   );
