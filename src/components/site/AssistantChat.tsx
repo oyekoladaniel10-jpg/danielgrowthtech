@@ -8,8 +8,9 @@ import { BRAND, WHATSAPP_URL } from "@/lib/site-content";
 
 const SUGGESTIONS = [
   "What services do you offer?",
-  "How much does it cost?",
-  "How can I contact Jacob?",
+  "Which package is right for my store?",
+  "Show me your latest case studies",
+  "Can I get a free website audit?",
 ];
 
 export function AssistantChat() {
@@ -38,17 +39,17 @@ export function AssistantChat() {
     <>
       {open && (
         <div
-          className="fixed bottom-24 left-4 z-[60] flex h-[min(560px,70dvh)] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl md:bottom-28 md:left-6"
+          className="fixed bottom-24 left-4 z-[60] flex h-[min(560px,70dvh)] w-[min(390px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl md:bottom-28 md:left-6"
           role="dialog"
-          aria-label="Customer care assistant"
+          aria-label="Jacob Growth AI assistant"
         >
           <div className="flex items-center gap-3 border-b border-border bg-surface px-4 py-3">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
               <Headphones className="h-4 w-4" aria-hidden />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold">Customer Care</p>
-              <p className="text-xs text-muted-foreground">Ask me anything about Jacob Growth</p>
+              <p className="truncate text-sm font-semibold">Jacob Growth Assistant</p>
+              <p className="text-xs text-muted-foreground">Ask about any part of the website</p>
             </div>
             <button
               type="button"
@@ -61,8 +62,8 @@ export function AssistantChat() {
           </div>
 
           <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
-            <div className="max-w-[85%] rounded-2xl rounded-tl-sm bg-background px-3.5 py-2.5 text-sm">
-              Hi! I'm the Jacob Growth assistant. Ask me about our services, pricing, or how to start a project.
+            <div className="max-w-[90%] rounded-2xl rounded-tl-sm bg-background px-3.5 py-2.5 text-sm">
+              Hi! I'm the Jacob Growth AI assistant. I know the services, pricing, process, case studies, sales proof, audit and contact options on this website. Ask me anything, and I'll point you to the right place when needed.
             </div>
 
             {messages.length === 0 && (
@@ -87,13 +88,13 @@ export function AssistantChat() {
                 .join("");
               if (!text) return null;
               return m.role === "user" ? (
-                <div key={m.id} className="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-gold px-3.5 py-2.5 text-sm text-background">
+                <div key={m.id} className="ml-auto max-w-[90%] rounded-2xl rounded-tr-sm bg-gold px-3.5 py-2.5 text-sm text-background">
                   {text}
                 </div>
               ) : (
                 <div
                   key={m.id}
-                  className="prose prose-sm prose-invert max-w-[85%] rounded-2xl rounded-tl-sm bg-background px-3.5 py-2.5 text-sm [&_a]:text-gold [&_p]:my-1 [&_ul]:my-1"
+                  className="prose prose-sm prose-invert max-w-[90%] rounded-2xl rounded-tl-sm bg-background px-3.5 py-2.5 text-sm [&_a]:text-gold [&_a]:underline [&_p]:my-1 [&_ul]:my-1"
                 >
                   <ReactMarkdown>{text}</ReactMarkdown>
                 </div>
@@ -107,19 +108,26 @@ export function AssistantChat() {
             )}
 
             {error && (
-              <p className="text-xs text-destructive">
-                Something went wrong. Please try again, or reach us at {BRAND.email}.
-              </p>
+              <div className="rounded-xl border border-border bg-background p-3 text-xs">
+                <p className="text-muted-foreground">The AI assistant is temporarily unavailable.</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <a href="/contact" className="text-gold underline">Contact Jacob</a>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-gold underline">WhatsApp</a>
+                  <a href={`mailto:${BRAND.email}`} className="text-gold underline">Email</a>
+                </div>
+              </div>
             )}
           </div>
 
           <div className="border-t border-border px-3 py-2">
             <div className="mb-2 flex gap-2 text-[11px] text-muted-foreground">
-              <a href={`mailto:${BRAND.email}`} className="hover:text-gold">Email</a>
+              <a href="/services" className="hover:text-gold">Services</a>
               <span aria-hidden>·</span>
-              <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="hover:text-gold">WhatsApp</a>
+              <a href="/case-studies" className="hover:text-gold">Case studies</a>
               <span aria-hidden>·</span>
-              <a href={`tel:${BRAND.phone.replace(/\s/g, "")}`} className="hover:text-gold">Call</a>
+              <a href="/audit" className="hover:text-gold">Free audit</a>
+              <span aria-hidden>·</span>
+              <a href="/contact" className="hover:text-gold">Contact</a>
             </div>
             <form
               className="flex items-center gap-2"
@@ -131,8 +139,8 @@ export function AssistantChat() {
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Type your question…"
-                aria-label="Type your question"
+                placeholder="Ask anything about Jacob Growth…"
+                aria-label="Ask anything about Jacob Growth"
                 className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:border-gold"
               />
               <button
@@ -151,7 +159,7 @@ export function AssistantChat() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close customer care assistant" : "Open customer care assistant"}
+        aria-label={open ? "Close Jacob Growth AI assistant" : "Open Jacob Growth AI assistant"}
         className="fixed bottom-5 left-4 z-[60] grid h-14 w-14 place-items-center rounded-full bg-gold text-background shadow-lg ring-1 ring-white/20 transition-transform hover:scale-105 md:bottom-6 md:left-6 md:h-16 md:w-16"
       >
         {open ? <X className="h-6 w-6" aria-hidden /> : <Headphones className="h-6 w-6 md:h-7 md:w-7" aria-hidden />}
