@@ -9,6 +9,7 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { WaysToWork } from "@/components/site/WaysToWork";
 import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { CaseVideoCard } from "@/components/site/CaseVideoCard";
+import { FeaturedSalesProof } from "@/components/site/SalesProof";
 
 import { ShopifyLogo, AmazonWordmark, KlaviyoLogo, MetaWordmark, GoogleLogo, WooCommerceWordmark } from "@/components/site/PlatformLogos";
 import { BRAND, SERVICES, REFERENCES, PILLARS, REVIEWS } from "@/lib/site-content";
@@ -521,6 +522,7 @@ function Home() {
   return (
     <Shell>
       <Hero />
+      <FeaturedSalesProof />
       <Intro />
       <Platforms />
       <Pillars />

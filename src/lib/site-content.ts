@@ -48,6 +48,7 @@ export const NAV: NavLink[] = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
   { label: "Case Studies", to: "/case-studies" },
+  { label: "Sales Proof", to: "/sales-proof" },
   { label: "Free Site Audit", to: "/audit" },
   { label: "Contact", to: "/contact" },
 ];
