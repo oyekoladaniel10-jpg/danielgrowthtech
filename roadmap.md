@@ -3,3 +3,4 @@
 - [ ] Verify audit and portrait in the preview, review build/runtime signals, and close this roadmap.
 - [ ] Resolve the user's request to connect the Supabase project named “store growth”; current project backend connection details need clarification/verification.
 - [ ] Promote the latest sales proof to the home screen and move older proof into a sales-proof dashboard, using the provided Drive reference.
+- [ ] Build a dedicated Sales Proof page for the four analytics screenshots and feature the newest 7-day result on Home with a link to the October 14 Drive video.
