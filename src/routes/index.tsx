@@ -29,7 +29,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-/* ---------------- Hero + About intro ---------------- */
 function Hero() {
   return (
     <section className="home-hero relative overflow-hidden pt-32 md:pt-40">
@@ -49,7 +48,6 @@ function Hero() {
   );
 }
 
-/* ---------------- Intro ---------------- */
 function Intro() {
   return (
     <section className="section-pad"><div className="container-lg"><Reveal><div className="mx-auto max-w-3xl text-center"><div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div><h2 className="mt-3 text-2xl md:text-4xl">A senior growth partner, not another <span className="gradient-text">agency middleman.</span></h2><div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center"><p>I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online businesses improve their visibility, attract qualified customers, increase conversions, and grow revenue.</p><p>From Western Africa and based in the United Kingdom, I work remotely with eCommerce businesses across the UK, US, Canada, Australia, and other countries, so no matter where you're located, we can work together smoothly.</p><p>I work closely with each client to understand their business, identify growth opportunities, and build practical strategies around their specific goals, whether that's improving their store, increasing qualified traffic, optimising conversion rates, or scaling their marketing channels.</p><p>My approach is focused on clear strategy, measurable results, and sustainable growth.</p></div></div></Reveal></div></section>
@@ -72,7 +70,6 @@ function Pillars() { return (<section className="pillars-section section-pad"><d
 const HOME_SERVICES = ["AI Search Visibility", "Google Ads Management", "Meta Ads", "TikTok Ads", "Website Speed Optimisation", "Amazon Marketplace Growth"];
 function FeaturedServices() { const preview = HOME_SERVICES.flatMap((title) => { const service = SERVICES.find((item) => item.title === title); return service ? [service] : []; }); return (<section className="section-pad"><div className="container-lg"><SectionHeader eyebrow="Services" title={<>A full growth stack under <span className="gradient-text">one roof.</span></>} sub="Twelve specialised practices, orchestrated as one performance system." /><div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{preview.map((s, i) => <Reveal key={s.title} delay={i * 40}><article className="card-lux group flex h-full flex-col overflow-hidden !p-0"><div className="relative aspect-[16/10] w-full overflow-hidden"><img src={s.img} alt={s.title} loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" /><div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" /><span className="absolute top-3 left-3 rounded-full border border-white/15 bg-[color-mix(in_oklab,var(--background)_82%,white_6%)] px-2.5 py-1 text-[10px] tracking-widest text-gold uppercase">{s.tag}</span></div><div className="flex flex-1 flex-col p-6"><div className="flex items-start justify-between gap-3"><h3 className="text-xl md:text-2xl">{s.title}</h3><ArrowUpRight className="mt-1 h-5 w-5 shrink-0 text-muted-foreground transition group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" /></div><p className="mt-3 text-sm text-muted-foreground">{s.desc}</p></div></article></Reveal>)}</div><div className="mt-10 text-center"><Link to="/services" className="btn-ghost">View all services <ArrowRight className="h-4 w-4" /></Link></div></div></section>); }
 
-/* ---------------- Featured Cases ---------------- */
 function FeaturedCases() {
   const featured = CASES.slice(-2).reverse();
   const [active, setActive] = useState<number | null>(null);
@@ -88,7 +85,19 @@ function FeaturedCases() {
   );
 }
 
-function FeaturedReferences() { const [active, setActive] = useState<number | null>(null); const featured = REFERENCES.slice(0, 3); return (<section className="section-pad"><div className="container-lg"><SectionHeader eyebrow="Client References" title={<>Hear it from <span className="gradient-text">the founders.</span></>} sub="Authentic video stories from ecommerce brands we've partnered with." /><div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">{featured.map((r, i) => <VideoCard key={i} data={r} onOpen={() => setActive(i)} />)}</div>{active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} onClose={() => setActive(null)} />}</div></section>); }
+function FeaturedReferences() {
+  const [active, setActive] = useState<number | null>(null);
+  const featured = REFERENCES;
+  return (
+    <section className="section-pad">
+      <div className="container-lg">
+        <SectionHeader eyebrow="Client References" title={<>Hear it directly from <span className="gradient-text">Jacob Growth clients.</span></>} sub="Real experiences from people who have worked with Jacob Growth." />
+        <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />)}</div>
+        {active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} onClose={() => setActive(null)} />}
+      </div>
+    </section>
+  );
+}
 
 function Home() {
   return (<Shell><Hero /><Intro /><Platforms /><Pillars /><FeaturedServices /><FeaturedSalesProof /><FeaturedCases /><FeaturedReferences /><FaqSection /><WaysToWork /><CtaBanner /></Shell>);
