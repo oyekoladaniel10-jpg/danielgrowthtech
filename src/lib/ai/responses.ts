@@ -7,10 +7,18 @@ export function createResponsesCall(
   messages: ModelMessage[],
   system?: string,
 ) {
-  const gatewayToken = process.env.AI_GATEWAY_API_KEY || process.env.VERCEL_OIDC_TOKEN;
+  // Vercel provides the OIDC credential to serverless functions in a request
+  // header at runtime. It is not reliably exposed as process.env.VERCEL_OIDC_TOKEN
+  // during function execution, so read the runtime header as the fallback.
+  const gatewayToken =
+    process.env.AI_GATEWAY_API_KEY ||
+    process.env.VERCEL_OIDC_TOKEN ||
+    request.headers.get("x-vercel-oidc-token");
 
   if (!gatewayToken) {
-    throw new Error("AI Gateway authentication is not configured. Expected AI_GATEWAY_API_KEY or VERCEL_OIDC_TOKEN.");
+    throw new Error(
+      "AI Gateway authentication is not configured. Expected AI_GATEWAY_API_KEY or Vercel OIDC authentication.",
+    );
   }
 
   const gateway = createOpenAI({
