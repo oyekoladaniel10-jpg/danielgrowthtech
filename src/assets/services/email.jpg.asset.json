@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "efcbfda9-e55c-4167-a8e5-c4e897623b9e",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/services/email.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/efcbfda9-e55c-4167-a8e5-c4e897623b9e/email.jpg",
-  "original_filename": "email.jpg",
-  "size": 95730,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-11T16:38:53Z"
+  "created_at": "2026-08-11T16:38:53Z",
+  "original_filename": "email.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/efcbfda9-e55c-4167-a8e5-c4e897623b9e/email.jpg",
+  "size": 95730,
+  "url": "/media/services/email.jpg",
+  "version": 1
 }

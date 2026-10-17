@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "075c061c-3f0f-4d96-bb30-ca46e191f6e2",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/cases/case-marketing.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/075c061c-3f0f-4d96-bb30-ca46e191f6e2/case-marketing.jpg",
-  "original_filename": "case-marketing.jpg",
-  "size": 74564,
   "content_type": "image/jpeg",
-  "created_at": "2026-07-17T07:04:25Z"
+  "created_at": "2026-07-17T07:04:25Z",
+  "original_filename": "case-marketing.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/075c061c-3f0f-4d96-bb30-ca46e191f6e2/case-marketing.jpg",
+  "size": 74564,
+  "url": "/media/cases/case-marketing.jpg",
+  "version": 1
 }

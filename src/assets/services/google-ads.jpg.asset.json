@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "a1abec10-e486-40ca-a5ca-368e7530d8d5",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/services/google-ads.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/a1abec10-e486-40ca-a5ca-368e7530d8d5/google-ads.jpg",
-  "original_filename": "google-ads.jpg",
-  "size": 56154,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-11T16:38:01Z"
+  "created_at": "2026-08-11T16:38:01Z",
+  "original_filename": "google-ads.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/a1abec10-e486-40ca-a5ca-368e7530d8d5/google-ads.jpg",
+  "size": 56154,
+  "url": "/media/services/google-ads.jpg",
+  "version": 1
 }

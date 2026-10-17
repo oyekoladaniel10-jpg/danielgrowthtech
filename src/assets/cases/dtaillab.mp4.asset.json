@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "89477a4e-f0e6-4dc9-a603-ba4d7efc4c35",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/cases/dtaillab.mp4",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/89477a4e-f0e6-4dc9-a603-ba4d7efc4c35/dtaillab.mp4",
-  "original_filename": "dtaillab.mp4",
-  "size": 499871,
   "content_type": "video/mp4",
-  "created_at": "2026-07-22T15:51:40Z"
+  "created_at": "2026-07-22T15:51:40Z",
+  "original_filename": "dtaillab.mp4",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/89477a4e-f0e6-4dc9-a603-ba4d7efc4c35/dtaillab.mp4",
+  "size": 499871,
+  "url": "/media/cases/dtaillab.mp4",
+  "version": 1
 }

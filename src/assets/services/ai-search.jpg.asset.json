@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "c25158d2-4ec3-455d-86cb-318b028aca3b",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/services/ai-search.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/c25158d2-4ec3-455d-86cb-318b028aca3b/ai-search.jpg",
-  "original_filename": "ai-search.jpg",
-  "size": 71661,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-11T16:38:48Z"
+  "created_at": "2026-08-11T16:38:48Z",
+  "original_filename": "ai-search.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/c25158d2-4ec3-455d-86cb-318b028aca3b/ai-search.jpg",
+  "size": 71661,
+  "url": "/media/services/ai-search.jpg",
+  "version": 1
 }

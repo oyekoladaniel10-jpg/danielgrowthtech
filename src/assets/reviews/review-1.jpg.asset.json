@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "d1a63211-6651-44e5-9333-5c42ca847d5c",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/reviews/review-1.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/d1a63211-6651-44e5-9333-5c42ca847d5c/review-1.jpg",
-  "original_filename": "review-1.jpg",
-  "size": 76574,
   "content_type": "image/jpeg",
-  "created_at": "2026-08-12T16:17:22Z"
+  "created_at": "2026-08-12T16:17:22Z",
+  "original_filename": "review-1.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/d1a63211-6651-44e5-9333-5c42ca847d5c/review-1.jpg",
+  "size": 76574,
+  "url": "/media/reviews/review-1.jpg",
+  "version": 1
 }

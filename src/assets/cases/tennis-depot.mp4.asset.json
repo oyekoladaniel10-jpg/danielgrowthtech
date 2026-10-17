@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "c0a6781a-2924-44ce-b7ed-ede36817811a",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/cases/tennis-depot.mp4",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/c0a6781a-2924-44ce-b7ed-ede36817811a/tennis-depot.mp4",
-  "original_filename": "tennis-depot.mp4",
-  "size": 628936,
   "content_type": "video/mp4",
-  "created_at": "2026-09-12T12:33:35Z"
+  "created_at": "2026-09-12T12:33:35Z",
+  "original_filename": "tennis-depot.mp4",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/c0a6781a-2924-44ce-b7ed-ede36817811a/tennis-depot.mp4",
+  "size": 628936,
+  "url": "/media/cases/tennis-depot.mp4",
+  "version": 1
 }

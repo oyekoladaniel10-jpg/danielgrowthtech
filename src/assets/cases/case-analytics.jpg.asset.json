@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "82a553e9-7f79-4bba-a38c-775029ede9d6",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/cases/case-analytics.jpg",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/82a553e9-7f79-4bba-a38c-775029ede9d6/case-analytics.jpg",
-  "original_filename": "case-analytics.jpg",
-  "size": 37362,
   "content_type": "image/jpeg",
-  "created_at": "2026-07-17T07:04:29Z"
+  "created_at": "2026-07-17T07:04:29Z",
+  "original_filename": "case-analytics.jpg",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/82a553e9-7f79-4bba-a38c-775029ede9d6/case-analytics.jpg",
+  "size": 37362,
+  "url": "/media/cases/case-analytics.jpg",
+  "version": 1
 }

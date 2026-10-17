@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "c5770dd5-abf6-4a38-b0d2-d061e49c95d2",
-  "project_id": "167ad0d0-aa27-445d-ae60-12133794b16f",
-  "url": "/media/jacob-growth-logo.png",
-  "r2_key": "a/v1/167ad0d0-aa27-445d-ae60-12133794b16f/c5770dd5-abf6-4a38-b0d2-d061e49c95d2/jacob-growth-logo.png",
-  "original_filename": "jacob-growth-logo.png",
-  "size": 36029,
   "content_type": "image/png",
-  "created_at": "2026-08-12T16:17:16Z"
+  "created_at": "2026-08-12T16:17:16Z",
+  "original_filename": "jacob-growth-logo.png",
+  "project_id": "a37c1386-8f9e-4622-8f3e-6a07a2d58eb8",
+  "r2_key": "a/v1/a37c1386-8f9e-4622-8f3e-6a07a2d58eb8/c5770dd5-abf6-4a38-b0d2-d061e49c95d2/jacob-growth-logo.png",
+  "size": 36029,
+  "url": "/media/jacob-growth-logo.png",
+  "version": 1
 }
