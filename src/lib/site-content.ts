@@ -1,20 +1,21 @@
-import logo from "@/assets/jacob-growth-logo.png.asset.json";
+import logo from "@/assets/danielgrowth-logo.png";
 
 export const BRAND = {
-  name: "Jacob Growth",
-  short: "Jacob",
+  name: "Danielgrowth",
+  short: "Daniel",
+  owner: "Oyekola Daniel Gafar",
   tagline: "Ecommerce Sales Growth Expert",
   sub: "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies.",
   email: "Jacobgrowth01@gmail.com",
   phone: "+44 7828 706004",
   whatsapp: "+44 7828 706004",
-  website: "jacobgrowth.uk",
-  copyright: "© 2026 Jacob Growth. All rights reserved.",
+  website: "danielgrowth.tech",
+  copyright: "© 2026 Danielgrowth. All rights reserved.",
   offices: [
     { country: "United Kingdom", flag: "🇬🇧" },
   ],
   basedIn: { country: "United Kingdom", flag: "🇬🇧" },
-  logo: logo.url,
+  logo: logo,
   socials: {},
 };
 

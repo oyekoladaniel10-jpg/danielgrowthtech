@@ -8,9 +8,11 @@ import { SERVICES, WHATSAPP_URL } from "@/lib/site-content";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services | Jacob Growth" },
+      { title: "Services | Danielgrowth" },
       { name: "description", content: "Twelve specialised ecommerce growth services: CRO, SEO, AI Search, paid media, email and marketplaces." },
-      { property: "og:title", content: "Services | Jacob Growth" },
+      { property: "og:title", content: "Services | Danielgrowth" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "A full growth stack orchestrated as one performance system." },
     ],
   }),
@@ -55,7 +57,7 @@ function ServicesPage() {
                       ))}
                     </ul>
                     <a
-                      href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Hi Jacob, I'd like to discuss the "${s.title}" service.`)}`}
+                      href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Hi Daniel, I'd like to discuss the "${s.title}" service.`)}`}
                       target="_blank"
                       rel="noreferrer"
                       className="mt-6 inline-flex items-center gap-1 text-sm text-gold hover:underline"

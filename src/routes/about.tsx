@@ -10,9 +10,11 @@ import { WHY, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About | Jacob Growth" },
-      { name: "description", content: "Meet Jacob, founder of Jacob Growth. Partnering with ecommerce brands to increase qualified traffic, conversions and long-term profitability." },
-      { property: "og:title", content: "About | Jacob Growth" },
+      { title: "About | Danielgrowth" },
+      { name: "description", content: "Meet Oyekola Daniel Gafar, founder of Danielgrowth. Partnering with ecommerce brands to increase qualified traffic, conversions and long-term profitability." },
+      { property: "og:title", content: "About | Danielgrowth" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "Ecommerce Sales Growth Expert, helping ambitious brands scale sustainably." },
     ],
   }),
@@ -36,14 +38,14 @@ function AboutPage() {
               />
               <img
                 src={portrait}
-                alt="Jacob, founder of Jacob Growth"
+                alt="Oyekola Daniel Gafar, founder of Danielgrowth"
                 width={960}
                 height={1280}
                 loading="eager"
                 className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
               />
               <div className="glass-strong absolute -bottom-6 right-4 w-56 rounded-2xl p-4">
-                <div className="text-2xl gradient-text">Jacob</div>
+                <div className="text-2xl gradient-text">Oyekola Daniel Gafar</div>
                 <div className="text-xs tracking-widest text-muted-foreground uppercase">Founder</div>
               </div>
             </div>
@@ -55,7 +57,7 @@ function AboutPage() {
                 Helping ambitious ecommerce brands achieve <span className="gradient-text">sustainable, profitable growth.</span>
               </h1>
               <p className="mt-5 text-muted-foreground">
-                I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online
+                I'm Oyekola Daniel Gafar, an eCommerce growth specialist with 6+ years of experience helping online
                 businesses improve their visibility, attract qualified customers, increase conversions,
                 and grow revenue. From Western Africa and based in the United Kingdom, I work remotely
                 with eCommerce businesses across the UK, US, Canada, Australia, and other countries, so

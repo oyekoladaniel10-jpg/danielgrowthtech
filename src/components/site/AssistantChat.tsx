@@ -41,14 +41,14 @@ export function AssistantChat() {
         <div
           className="fixed bottom-24 left-4 z-[60] flex h-[min(560px,70dvh)] w-[min(390px,calc(100vw-2rem))] flex-col overflow-hidden rounded-3xl border border-border bg-surface shadow-2xl md:bottom-28 md:left-6"
           role="dialog"
-          aria-label="Jacob Growth AI assistant"
+          aria-label="Danielgrowth AI assistant"
         >
           <div className="flex items-center gap-3 border-b border-border bg-surface px-4 py-3">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
               <Headphones className="h-4 w-4" aria-hidden />
             </span>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm font-semibold">Jacob Growth Assistant</p>
+              <p className="truncate text-sm font-semibold">Danielgrowth Assistant</p>
               <p className="text-xs text-muted-foreground">Ask about any part of the website</p>
             </div>
             <button
@@ -63,7 +63,7 @@ export function AssistantChat() {
 
           <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto px-4 py-4">
             <div className="max-w-[90%] rounded-2xl rounded-tl-sm bg-background px-3.5 py-2.5 text-sm">
-              Hi! I'm the Jacob Growth AI assistant. I know the services, pricing, process, case studies, sales proof, audit and contact options on this website. Ask me anything, and I'll point you to the right place when needed.
+              Hi! I'm the Danielgrowth AI assistant. I know the services, pricing, process, case studies, sales proof, audit and contact options on this website. Ask me anything, and I'll point you to the right place when needed.
             </div>
 
             {messages.length === 0 && (
@@ -111,7 +111,7 @@ export function AssistantChat() {
               <div className="rounded-xl border border-border bg-background p-3 text-xs">
                 <p className="text-muted-foreground">The AI assistant is temporarily unavailable.</p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <a href="/contact" className="text-gold underline">Contact Jacob</a>
+                  <a href="/contact" className="text-gold underline">Contact Daniel</a>
                   <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="text-gold underline">WhatsApp</a>
                   <a href={`mailto:${BRAND.email}`} className="text-gold underline">Email</a>
                 </div>
@@ -139,8 +139,8 @@ export function AssistantChat() {
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask anything about Jacob Growth…"
-                aria-label="Ask anything about Jacob Growth"
+                placeholder="Ask anything about Danielgrowth…"
+                aria-label="Ask anything about Danielgrowth"
                 className="min-w-0 flex-1 rounded-full border border-border bg-background px-4 py-2.5 text-sm outline-none placeholder:text-muted-foreground focus:border-gold"
               />
               <button
@@ -159,7 +159,7 @@ export function AssistantChat() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-label={open ? "Close Jacob Growth AI assistant" : "Open Jacob Growth AI assistant"}
+        aria-label={open ? "Close Danielgrowth AI assistant" : "Open Danielgrowth AI assistant"}
         className="fixed bottom-5 left-4 z-[60] grid h-14 w-14 place-items-center rounded-full bg-gold text-background shadow-lg ring-1 ring-white/20 transition-transform hover:scale-105 md:bottom-6 md:left-6 md:h-16 md:w-16"
       >
         {open ? <X className="h-6 w-6" aria-hidden /> : <Headphones className="h-6 w-6 md:h-7 md:w-7" aria-hidden />}

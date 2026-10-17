@@ -79,14 +79,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "google-site-verification", content: "4BpGjRw7ZOsWEdmuJfLvdcaT3pcLzGQrwBWWMJ1ER40" },
       { name: "msvalidate.01", content: "30CA627CFB509DCE122ED66A08672A83" },
-      { title: "Jacob Growth | Ecommerce Sales Growth Expert" },
+      { title: "Danielgrowth | Ecommerce Sales Growth Expert" },
       {
         name: "description",
         content:
-          "Jacob Growth: data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
+          "Danielgrowth: data-driven ecommerce growth partner: CRO, SEO, paid media, email and analytics for ambitious DTC and marketplace brands.",
       },
-      { name: "author", content: "Jacob Growth" },
-      { property: "og:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
+      { name: "author", content: "Oyekola Daniel Gafar" },
+      { property: "og:title", content: "Danielgrowth | Ecommerce Sales Growth Expert" },
       {
         property: "og:description",
         content:
@@ -94,12 +94,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
+      { name: "twitter:title", content: "Danielgrowth | Ecommerce Sales Growth Expert" },
       { name: "twitter:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/media/jacob-growth-logo.png", type: "image/png" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
