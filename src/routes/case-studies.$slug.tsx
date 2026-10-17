@@ -15,15 +15,17 @@ export const Route = createFileRoute("/case-studies/$slug")({
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
-      return { meta: [{ title: "Case Study | Jacob Growth" }, { name: "robots", content: "noindex" }] };
+      return { meta: [{ title: "Case Study | Danielgrowth" }, { name: "robots", content: "noindex" }] };
     }
     const { c } = loaderData;
     return {
       meta: [
-        { title: `${c.website} | Case Study | Jacob Growth` },
+        { title: `${c.website} | Case Study | Danielgrowth` },
         { name: "description", content: `${c.industry} case study for ${c.website}.` },
         { property: "og:title", content: `${c.website} | Case Study` },
-        { property: "og:description", content: `${c.industry} case study for ${c.website}.` },
+        { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:description", content: `${c.industry} case study for ${c.website}.` },
       ],
     };
   },

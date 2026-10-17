@@ -10,9 +10,9 @@ import { auditResponseSchema, normalizeSiteInput, type AuditFinding, type AuditR
 export const Route = createFileRoute("/audit")({
   head: () => ({
     meta: [
-      { title: "Free Website Audit | Jacob Growth" },
+      { title: "Free Website Audit | Danielgrowth" },
       { name: "description", content: "Get a free, evidence-based website audit covering visible SEO, technical setup, accessibility and security checks." },
-      { property: "og:title", content: "Free Website Audit | Jacob Growth" },
+      { property: "og:title", content: "Free Website Audit | Danielgrowth" },
       { property: "og:description", content: "Check your public website and get a clear score with practical findings." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -255,7 +255,7 @@ function AuditPage() {
               </section>
 
               <div className="flex items-start gap-3 rounded-2xl border border-border p-4 text-sm text-muted-foreground"><ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" /><p>This free snapshot checks public page content and response headers. It does not access your admin, checkout, analytics, search rankings, or every page on a large site.</p></div>
-              <div className="text-center"><a href="/contact" className="btn-primary">Want help fixing these? Talk to Jacob <Zap className="h-4 w-4" /></a></div>
+              <div className="text-center"><a href="/contact" className="btn-primary">Want help fixing these? Talk to Daniel <Zap className="h-4 w-4" /></a></div>
             </div>
           )}
         </div>

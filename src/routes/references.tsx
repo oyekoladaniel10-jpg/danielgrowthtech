@@ -8,9 +8,9 @@ import { REFERENCES } from "@/lib/site-content";
 export const Route = createFileRoute("/references")({
   head: () => ({
     meta: [
-      { title: "Client References | Jacob Growth" },
-      { name: "description", content: "Watch real video testimonials from ecommerce brands Jacob Growth has helped scale. DTC founders sharing their growth stories." },
-      { property: "og:title", content: "Client References | Jacob Growth" },
+      { title: "Client References | Danielgrowth" },
+      { name: "description", content: "Watch real video testimonials from ecommerce brands Danielgrowth has helped scale. DTC founders sharing their growth stories." },
+      { property: "og:title", content: "Client References | Danielgrowth" },
       { property: "og:description", content: "Authentic video references from ecommerce clients we've partnered with." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

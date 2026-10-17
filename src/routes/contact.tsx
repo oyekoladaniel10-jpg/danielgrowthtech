@@ -5,13 +5,16 @@ import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { ContactMethods } from "@/components/site/ContactMethods";
 import { Button } from "@/components/ui/button";
+import { BRAND } from "@/lib/site-content";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact | Jacob Growth" },
-      { name: "description", content: "Book a free ecommerce growth consultation with Jacob Growth. Reply within one business day with next steps and pricing." },
-      { property: "og:title", content: "Contact | Jacob Growth" },
+      { title: "Contact | Danielgrowth" },
+      { name: "description", content: "Book a free ecommerce growth consultation with Danielgrowth. Reply within one business day with next steps and pricing." },
+      { property: "og:title", content: "Contact | Danielgrowth" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "Book a free ecommerce growth consultation." },
     ],
   }),
@@ -43,7 +46,7 @@ function ContactPage() {
     setStatus("sending");
     const data = Object.fromEntries(new FormData(form).entries());
     try {
-      const res = await fetch("https://formsubmit.co/ajax/Jacobgrowth01@gmail.com", {
+      const res = await fetch(`https://formsubmit.co/ajax/${BRAND.email}`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({

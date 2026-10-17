@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jacobgrowth.uk/sitemap.xml
+Sitemap: https://danielgrowth.tech/sitemap.xml

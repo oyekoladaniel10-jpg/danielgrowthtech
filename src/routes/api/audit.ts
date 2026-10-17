@@ -8,7 +8,7 @@ const REQUEST_TIMEOUT_MS = 9000;
 const SCANNER_HEADERS = {
   Accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.5",
   "Accept-Language": "en;q=0.9",
-  "User-Agent": "Mozilla/5.0 (compatible; JacobGrowthAudit/1.0; +https://jacobgrowth.uk/audit)",
+  "User-Agent": "Mozilla/5.0 (compatible; DanielgrowthAudit/1.0; +https://danielgrowth.tech/audit)",
 };
 
 type HtmlPage = {
@@ -181,7 +181,7 @@ async function fetchPublicPage(input: URL, expectedOrigin: string): Promise<Html
     if (!response.ok) {
       await response.body?.cancel();
       if ([401, 403, 429, 503].includes(response.status)) {
-        throw new Error(`This website's firewall blocked our scanner (status ${response.status}). Wait a minute and try again, or ask Jacob for a manual audit.`);
+        throw new Error(`This website's firewall blocked our scanner (status ${response.status}). Wait a minute and try again, or ask Daniel for a manual audit.`);
       }
       throw new Error(`The website returned status ${response.status} and could not be inspected.`);
     }

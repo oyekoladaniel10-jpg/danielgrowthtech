@@ -10,9 +10,11 @@ import { Lightbox } from "@/components/site/VideoCard";
 export const Route = createFileRoute("/case-studies/")({
   head: () => ({
     meta: [
-      { title: "Case Studies | Jacob Growth" },
+      { title: "Case Studies | Danielgrowth" },
       { name: "description", content: "Real ecommerce brands, real revenue. Selected video case studies across fashion and automotive." },
-      { property: "og:title", content: "Case Studies | Jacob Growth" },
+      { property: "og:title", content: "Case Studies | Danielgrowth" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { property: "og:description", content: "Selected client wins across DTC and Shopify brands." },
     ],
   }),

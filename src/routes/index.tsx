@@ -17,9 +17,9 @@ import { CASES } from "@/lib/case-assets";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Jacob Growth | Ecommerce Sales Growth Expert" },
-      { name: "description", content: "Jacob Growth helps ecommerce brands acquire, convert and retain customers through data-driven CRO, SEO, paid media and lifecycle marketing." },
-      { property: "og:title", content: "Jacob Growth | Ecommerce Sales Growth Expert" },
+      { title: "Danielgrowth | Ecommerce Sales Growth Expert" },
+      { name: "description", content: "Danielgrowth helps ecommerce brands acquire, convert and retain customers through data-driven CRO, SEO, paid media and lifecycle marketing." },
+      { property: "og:title", content: "Danielgrowth | Ecommerce Sales Growth Expert" },
       { property: "og:description", content: "Data-driven ecommerce growth partner for ambitious DTC and marketplace brands." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -50,7 +50,7 @@ function Hero() {
 
 function Intro() {
   return (
-    <section className="section-pad"><div className="container-lg"><Reveal><div className="mx-auto max-w-3xl text-center"><div className="text-xs tracking-[0.25em] text-gold uppercase">About Jacob</div><h2 className="mt-3 text-2xl md:text-4xl">A senior growth partner, not another <span className="gradient-text">agency middleman.</span></h2><div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center"><p>I'm Jacob, an eCommerce growth specialist with 6+ years of experience helping online businesses improve their visibility, attract qualified customers, increase conversions, and grow revenue.</p><p>From Western Africa and based in the United Kingdom, I work remotely with eCommerce businesses across the UK, US, Canada, Australia, and other countries, so no matter where you're located, we can work together smoothly.</p><p>I work closely with each client to understand their business, identify growth opportunities, and build practical strategies around their specific goals, whether that's improving their store, increasing qualified traffic, optimising conversion rates, or scaling their marketing channels.</p><p>My approach is focused on clear strategy, measurable results, and sustainable growth.</p></div></div></Reveal></div></section>
+    <section className="section-pad"><div className="container-lg"><Reveal><div className="mx-auto max-w-3xl text-center"><div className="text-xs tracking-[0.25em] text-gold uppercase">About Oyekola Daniel Gafar</div><h2 className="mt-3 text-2xl md:text-4xl">A senior growth partner, not another <span className="gradient-text">agency middleman.</span></h2><div className="mt-5 space-y-4 text-left text-muted-foreground md:text-center"><p>I'm Oyekola Daniel Gafar, an eCommerce growth specialist with 6+ years of experience helping online businesses improve their visibility, attract qualified customers, increase conversions, and grow revenue.</p><p>From Western Africa and based in the United Kingdom, I work remotely with eCommerce businesses across the UK, US, Canada, Australia, and other countries, so no matter where you're located, we can work together smoothly.</p><p>I work closely with each client to understand their business, identify growth opportunities, and build practical strategies around their specific goals, whether that's improving their store, increasing qualified traffic, optimising conversion rates, or scaling their marketing channels.</p><p>My approach is focused on clear strategy, measurable results, and sustainable growth.</p></div></div></Reveal></div></section>
   );
 }
 
@@ -91,7 +91,7 @@ function FeaturedReferences() {
   return (
     <section className="section-pad">
       <div className="container-lg">
-        <SectionHeader eyebrow="Client References" title={<>Hear it directly from <span className="gradient-text">Jacob Growth clients.</span></>} sub="Real experiences from people who have worked with Jacob Growth." />
+        <SectionHeader eyebrow="Client References" title={<>Hear it directly from <span className="gradient-text">Danielgrowth clients.</span></>} sub="Real experiences from people who have worked with Danielgrowth." />
         <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />)}</div>
         {active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} onClose={() => setActive(null)} />}
       </div>
