@@ -100,5 +100,5 @@ function FeaturedReferences() {
 }
 
 function Home() {
-  return (<Shell><Hero /><Intro /><Platforms /><Pillars /><FeaturedServices /><FeaturedSalesProof /><FeaturedCases /><FeaturedReferences /><FaqSection /><WaysToWork /><CtaBanner /></Shell>);
+  return (<Shell><Hero /><Intro /><Platforms /><Pillars /><FeaturedServices /><FeaturedSalesProof /><FeaturedCases /><FeaturedReferences /><FaqSection /><WaysToWork /><CtaBanner title={<>Ready to grow your <span className="gradient-text">store?</span></>} sub="Let's map a growth plan tailored to your business." /></Shell>);
 }
