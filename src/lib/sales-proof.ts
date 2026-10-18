@@ -1,3 +1,13 @@
+import sv1 from "@/assets/new/sp1.mp4.asset.json";
+import sv2 from "@/assets/new/sp2.mp4.asset.json";
+import sp1 from "@/assets/new/sp1.jpg.asset.json";
+import sp2 from "@/assets/new/sp2.jpg.asset.json";
+
+export const SALES_VIDEOS = [
+  { src: sv1.url, poster: sp1.url, title: "Store sales walkthrough" },
+  { src: sv2.url, poster: sp2.url, title: "Latest sales dashboard" },
+];
+
 export type SalesProof = {
   id: string;
   label: string;
