@@ -92,7 +92,7 @@ function FeaturedReferences() {
     <section className="section-pad">
       <div className="container-lg">
         <SectionHeader eyebrow="Client References" title={<>Hear it directly from <span className="gradient-text">Danielgrowth clients.</span></>} sub="Real experiences from people who have worked with Danielgrowth." />
-        <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />)}</div>
+        <div className="mt-14 mx-auto grid max-w-3xl gap-6 md:grid-cols-2 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />)}</div>
         {active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} onClose={() => setActive(null)} />}
       </div>
     </section>
@@ -100,5 +100,5 @@ function FeaturedReferences() {
 }
 
 function Home() {
-  return (<Shell><Hero /><Intro /><Platforms /><Pillars /><FeaturedServices /><FeaturedSalesProof /><FeaturedCases /><FeaturedReferences /><FaqSection /><WaysToWork /><CtaBanner /></Shell>);
+  return (<Shell><Hero /><Intro /><Platforms /><Pillars /><FeaturedServices /><FeaturedSalesProof /><FeaturedCases /><FeaturedReferences /><FaqSection /><WaysToWork /><CtaBanner title={<>Ready to grow your <span className="gradient-text">store?</span></>} sub="Let's map a growth plan tailored to your business." /></Shell>);
 }

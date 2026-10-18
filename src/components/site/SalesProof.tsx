@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, ArrowUpRight, ChartNoAxesCombined } from "lucide-react";
-import { LATEST_SALES_RECORDING, SALES_PROOFS, type SalesProof } from "@/lib/sales-proof";
+import { LATEST_SALES_RECORDING, SALES_PROOFS, SALES_VIDEOS, type SalesProof } from "@/lib/sales-proof";
 import { Reveal, SectionHeader } from "./ui";
 
 function ProofMetrics({ proof }: { proof: SalesProof }) {
@@ -35,6 +35,17 @@ export function FeaturedSalesProof() {
             <ChartNoAxesCombined className="h-4 w-4" /> Latest sales proof · {LATEST_SALES_RECORDING.date}
           </div>
         </Reveal>
+
+        <div className="mb-6 grid gap-6 md:grid-cols-2">
+          {SALES_VIDEOS.map((v) => (
+            <Reveal key={v.src}>
+              <figure className="overflow-hidden rounded-xl border border-border bg-card">
+                <video src={v.src} poster={v.poster} controls playsInline preload="none" className="aspect-video w-full bg-muted object-contain" />
+                <figcaption className="p-4 text-sm font-medium">{v.title}</figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {latestProofs.map((proof, index) => (
