@@ -1,3 +1,7 @@
+import cs1v from "@/assets/new/cs1.mp4.asset.json";
+import cs1p from "@/assets/new/cs1.jpg.asset.json";
+import cs2v from "@/assets/new/cs2.mp4.asset.json";
+import cs2p from "@/assets/new/cs2.jpg.asset.json";
 import dtaillab from "@/assets/cases/dtaillab.mp4.asset.json";
 import starstyling from "@/assets/cases/starstyling.mp4.asset.json";
 import lovestitches from "@/assets/cases/lovestitches.mp4.asset.json";
@@ -25,10 +29,10 @@ export type CaseStudy = {
   outcome: string;
 };
 
-const driveCaseStudyVideo = "https://drive.google.com/file/d/1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE/view?usp=sharing";
-const driveCaseStudyPoster = "https://drive.google.com/thumbnail?id=1-q_hQ6wGe-75_1wJ-58FtiRVAagXmoCE&sz=w1200";
-const latestDriveCaseStudyVideo = "https://drive.google.com/file/d/1omRbXSruvukCH_9rHHmdKRiWdA8YmfqS/view?usp=sharing";
-const latestDriveCaseStudyPoster = "https://drive.google.com/thumbnail?id=1omRbXSruvukCH_9rHHmdKRiWdA8YmfqS&sz=w1200";
+const driveCaseStudyVideo = cs1v.url;
+const driveCaseStudyPoster = cs1p.url;
+const latestDriveCaseStudyVideo = cs2v.url;
+const latestDriveCaseStudyPoster = cs2p.url;
 
 export const CASES: CaseStudy[] = [
   {

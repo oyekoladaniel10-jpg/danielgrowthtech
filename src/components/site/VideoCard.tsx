@@ -11,11 +11,6 @@ export type VideoRef = {
   service: string;
 };
 
-function getDrivePreviewUrl(src: string) {
-  const match = src.match(/\/file\/d\/([^/]+)/);
-  return match ? `https://drive.google.com/file/d/${match[1]}/preview` : null;
-}
-
 export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; onOpen?: () => void; portrait?: boolean }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -109,11 +104,10 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
       };
   }, [onClose]);
 
-  const drivePreviewUrl = getDrivePreviewUrl(src);
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black p-2 sm:p-4"
       onClick={onClose}
     >
       <button
@@ -124,20 +118,10 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
         <X className="h-5 w-5" />
       </button>
       <div
-        className="relative aspect-video w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
+        className="relative h-full max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {drivePreviewUrl ? (
-          <iframe
-            src={drivePreviewUrl}
-            title="Case study video"
-            className="h-full w-full border-0"
-            allow="autoplay; fullscreen"
-            allowFullScreen
-          />
-        ) : (
-          <video src={src} poster={poster} preload="metadata" controls autoPlay playsInline className="h-full w-full object-contain" />
-        )}
+        <video src={src} poster={poster} preload="auto" controls autoPlay playsInline className="h-full w-full object-contain" />
       </div>
     </div>
   );
