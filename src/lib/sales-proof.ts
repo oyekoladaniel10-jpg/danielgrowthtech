@@ -74,5 +74,5 @@ export const SALES_PROOFS: SalesProof[] = [
 
 export const LATEST_SALES_RECORDING = {
   date: "14 October 2026",
-  url: "https://drive.google.com/file/d/1omRbXSruvukCH_9rHHmdKRiWdA8YmfqS/view?usp=sharing",
+  url: "/case-studies/latest-case-study-2",
 };
