@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import { Play, X } from "lucide-react";
 
 export type VideoRef = {
   src: string;
   poster: string;
+  captions?: string;
   name: string;
   country: string;
   flag: string;
@@ -11,74 +12,33 @@ export type VideoRef = {
   service: string;
 };
 
-export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; onOpen?: () => void; portrait?: boolean }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const handlePlay = () => {
-    if (portrait) {
-      setIsPlaying(true);
-      void videoRef.current?.play();
-      return;
-    }
-    onOpen?.();
-  };
-
+export function VideoCard({ data, onOpen }: { data: VideoRef; onOpen?: () => void }) {
   return (
     <article
       className="video-card group flex h-full flex-col overflow-hidden rounded-[20px] border border-white/10 bg-gradient-to-b from-white/[0.04] to-white/[0.02] shadow-[0_10px_40px_-20px_rgba(0,0,0,0.6)]"
     >
-      <div className={`relative block w-full overflow-hidden bg-surface-2 ${portrait ? "aspect-[9/16]" : "aspect-video"}`}>
-        {portrait ? (
-          <video
-            ref={videoRef}
-            src={data.src}
-            poster={data.poster}
-            preload="metadata"
-            controls={isPlaying}
-            playsInline
-            className="absolute inset-0 h-full w-full object-cover"
-          />
-        ) : (
-          <button
-            type="button"
-            onClick={handlePlay}
-            aria-label={`Play video from ${data.name}`}
-            className="absolute inset-0 block h-full w-full overflow-hidden"
-          >
-            <img
-              src={data.poster}
-              alt={`Video testimonial from ${data.name}`}
-              width={portrait ? 360 : 640}
-              height={portrait ? 640 : 360}
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
-                <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
-              </div>
-            </div>
-          </button>
-        )}
-        {portrait && !isPlaying && (
-          <button
-            type="button"
-            onClick={handlePlay}
-            aria-label={`Play video from ${data.name}`}
-            className="absolute inset-0 block h-full w-full overflow-hidden"
-          >
-            <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
-            <div className="absolute inset-0 grid place-items-center">
-              <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
-                <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
-              </div>
-            </div>
-          </button>
-        )}
-      </div>
+      <button
+        type="button"
+        onClick={onOpen}
+        aria-label={`Play video from ${data.name}`}
+        className="relative block aspect-video w-full overflow-hidden bg-surface-2"
+      >
+        <img
+          src={data.poster}
+          alt={`Video testimonial from ${data.name}`}
+          width={640}
+          height={360}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+        <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
+        <div className="absolute inset-0 grid place-items-center">
+          <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
+            <Play className="ml-1 h-6 w-6 fill-background text-background md:h-8 md:w-8" />
+          </div>
+        </div>
+      </button>
 
       <div className="flex flex-1 flex-col gap-1.5 p-6 md:p-7">
         <div className="text-xs uppercase tracking-[0.18em] text-emerald-brand">{data.industry}</div>
@@ -92,7 +52,7 @@ export function VideoCard({ data, onOpen, portrait = false }: { data: VideoRef; 
   );
 }
 
-export function Lightbox({ src, poster, onClose }: { src: string; poster?: string; onClose: () => void }) {
+export function Lightbox({ src, poster, captions, onClose }: { src: string; poster?: string; captions?: string; onClose: () => void }) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
@@ -121,7 +81,18 @@ export function Lightbox({ src, poster, onClose }: { src: string; poster?: strin
         className="relative h-full max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <video src={src} poster={poster} preload="auto" controls autoPlay playsInline className="h-full w-full object-contain" />
+        <video
+          src={src}
+          poster={poster}
+          preload="auto"
+          controls
+          autoPlay
+          playsInline
+          crossOrigin="anonymous"
+          className="h-full w-full object-contain"
+        >
+          {captions && <track kind="captions" src={captions} srcLang="en" label="English" default />}
+        </video>
       </div>
     </div>
   );
