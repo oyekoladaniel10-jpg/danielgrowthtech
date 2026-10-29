@@ -296,12 +296,16 @@ export const CASES_META = [
   },
 ];
 
+import v3 from "@/assets/new/ref3.mp4.asset.json";
+import p3 from "@/assets/new/ref3-wide.jpg.asset.json";
+import c3 from "@/assets/new/ref3.vtt.asset.json";
 import v1 from "@/assets/new/ref1.mp4.asset.json";
 import v2 from "@/assets/new/ref2.mp4.asset.json";
 import p1 from "@/assets/new/ref1.jpg.asset.json";
-import p2 from "@/assets/new/ref2.jpg.asset.json";
+import p2 from "@/assets/new/ref2-wide.jpg.asset.json";
 
 export const REFERENCES = [
+  { src: v3.url, poster: p3.url, captions: c3.url, name: "Sarah White", country: "Australia", flag: "🇦🇺", website: "scarvesaustralia.com.au", industry: "Ecommerce · SEO", service: "SEO & CRO · 6 months" },
   { src: v1.url, poster: p1.url, name: "Client Reference", country: "Verified client", flag: "⭐", industry: "Ecommerce", service: "Ecommerce Growth" },
   { src: v2.url, poster: p2.url, name: "Client Reference", country: "Verified client", flag: "⭐", industry: "Ecommerce", service: "Ecommerce Growth" },
 ];

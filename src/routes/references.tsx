@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/references")({
 });
 
 function ReferencesPage() {
+  const [active, setActive] = useState<number | null>(null);
   return (
     <Shell>
       <PageHero
@@ -30,16 +32,14 @@ function ReferencesPage() {
       <section className="pb-24">
         <div className="container-lg">
           <h2 className="sr-only">Client video references</h2>
-          <div className="flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 [scrollbar-width:none] md:gap-8 [&::-webkit-scrollbar]:hidden">
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
             {REFERENCES.map((r, i) => (
-              <div
-                key={i}
-                className="flex shrink-0 basis-[calc(100%-2.25rem)] snap-start md:basis-[calc((100%-2rem)/2)] lg:basis-[calc((100%-4rem)/3)]"
-              >
-                <VideoCard data={r} portrait />
-              </div>
+              <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />
             ))}
           </div>
+          {active !== null && (
+            <Lightbox src={REFERENCES[active].src} poster={REFERENCES[active].poster} captions={REFERENCES[active].captions} onClose={() => setActive(null)} />
+          )}
         </div>
       </section>
       <CtaBanner

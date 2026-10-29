@@ -92,8 +92,8 @@ function FeaturedReferences() {
     <section className="section-pad">
       <div className="container-lg">
         <SectionHeader eyebrow="Client References" title={<>Hear it directly from <span className="gradient-text">Danielgrowth clients.</span></>} sub="Real experiences from people who have worked with Danielgrowth." />
-        <div className="mt-14 mx-auto grid max-w-3xl gap-6 md:grid-cols-2 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} portrait />)}</div>
-        {active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} onClose={() => setActive(null)} />}
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">{featured.map((r, i) => <VideoCard key={`${r.name}-${i}`} data={r} onOpen={() => setActive(i)} />)}</div>
+        {active !== null && <Lightbox src={featured[active].src} poster={featured[active].poster} captions={featured[active].captions} onClose={() => setActive(null)} />}
       </div>
     </section>
   );
