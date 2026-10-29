@@ -1,5 +1,22 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Play, X } from "lucide-react";
+
+function CaptionsTrack({ src }: { src: string }) {
+  const [url, setUrl] = useState<string>();
+  useEffect(() => {
+    let alive = true;
+    fetch(src)
+      .then((r) => (r.ok ? r.text() : Promise.reject(new Error("captions unavailable"))))
+      .then((text) => {
+        if (alive) setUrl(URL.createObjectURL(new Blob([text], { type: "text/vtt" })));
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [src]);
+  return url ? <track kind="captions" src={url} srcLang="en" label="English" default /> : null;
+}
 
 export type VideoRef = {
   src: string;
@@ -88,10 +105,9 @@ export function Lightbox({ src, poster, captions, onClose }: { src: string; post
           controls
           autoPlay
           playsInline
-          crossOrigin="anonymous"
           className="h-full w-full object-contain"
         >
-          {captions && <track kind="captions" src={captions} srcLang="en" label="English" default />}
+          {captions && <CaptionsTrack src={captions} />}
         </video>
       </div>
     </div>
