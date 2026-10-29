@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/references")({
 });
 
 function ReferencesPage() {
+  const [active, setActive] = useState<number | null>(null);
   return (
     <Shell>
       <PageHero
