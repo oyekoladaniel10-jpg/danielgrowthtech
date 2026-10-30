@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Shell } from "@/components/site/Shell";
 import { PageHero } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { VideoCard } from "@/components/site/VideoCard";
+import { VideoCard, Lightbox } from "@/components/site/VideoCard";
 import { REFERENCES } from "@/lib/site-content";
 
 export const Route = createFileRoute("/references")({

@@ -298,7 +298,7 @@ export const CASES_META = [
 
 import v3 from "@/assets/new/ref3.mp4.asset.json";
 import p3 from "@/assets/new/ref3-wide.jpg.asset.json";
-import c3 from "@/assets/new/ref3.vtt.asset.json";
+import c3 from "@/assets/new/ref3.vtt2.asset.json";
 import v1 from "@/assets/new/ref1.mp4.asset.json";
 import v2 from "@/assets/new/ref2.mp4.asset.json";
 import p1 from "@/assets/new/ref1.jpg.asset.json";
