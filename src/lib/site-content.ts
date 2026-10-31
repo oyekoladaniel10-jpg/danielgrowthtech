@@ -1,4 +1,4 @@
-import logo from "@/assets/danielgrowth-logo.png";
+import logo from "@/assets/owner-certificate.jpg.asset.json";
 
 export const BRAND = {
   name: "Danielgrowth",
