@@ -15,7 +15,7 @@ export const BRAND = {
     { country: "United Kingdom", flag: "🇬🇧" },
   ],
   basedIn: { country: "United Kingdom", flag: "🇬🇧" },
-  logo: logo,
+  logo: logo.url,
   socials: {},
 };
 
