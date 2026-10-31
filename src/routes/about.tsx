@@ -4,7 +4,8 @@ const portrait = portraitAsset.url;
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
-import { BarChart3, Check } from "lucide-react";
+import { BarChart3, Check, X } from "lucide-react";
+import { useState } from "react";
 import { WHY, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
 
 export const Route = createFileRoute("/about")({
@@ -22,6 +23,7 @@ export const Route = createFileRoute("/about")({
 });
 
 function AboutPage() {
+  const [zoom, setZoom] = useState(false);
   return (
     <Shell>
       <section className="relative overflow-hidden pt-36 pb-16 md:pt-44 md:pb-20">
@@ -36,18 +38,42 @@ function AboutPage() {
                     "radial-gradient(60% 60% at 30% 20%, color-mix(in oklab, var(--emerald-brand) 22%, transparent), transparent 70%)",
                 }}
               />
-              <img
-                src={portrait}
-                alt="Oyekola Daniel Gafar, founder of Danielgrowth"
-                width={960}
-                height={1280}
-                loading="eager"
-                className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
-              />
-              <div className="glass-strong absolute -bottom-6 right-4 w-56 rounded-2xl p-4">
-                <div className="text-2xl gradient-text">Oyekola Daniel Gafar</div>
-                <div className="text-xs tracking-widest text-muted-foreground uppercase">Founder</div>
+              <button
+                type="button"
+                onClick={() => setZoom(true)}
+                aria-label="View certificate full size"
+                className="relative block w-full cursor-zoom-in"
+              >
+                <img
+                  src={portrait}
+                  alt="Oyekola Daniel Gafar, founder of Danielgrowth"
+                  width={960}
+                  height={1280}
+                  loading="eager"
+                  className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
+                />
+              </button>
+              <div className="glass-strong pointer-events-none absolute -bottom-4 right-3 rounded-xl px-3 py-2">
+                <div className="text-sm gradient-text">Oyekola Daniel Gafar</div>
+                <div className="text-[10px] tracking-widest text-muted-foreground uppercase">Founder · Tap to enlarge</div>
               </div>
+              {zoom && (
+                <div
+                  role="dialog"
+                  aria-label="Certificate full size"
+                  onClick={() => setZoom(false)}
+                  className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4"
+                >
+                  <button
+                    type="button"
+                    aria-label="Close"
+                    className="absolute right-4 top-4 grid h-10 w-10 place-items-center rounded-full bg-surface text-foreground"
+                  >
+                    <X className="h-5 w-5" />
+                  </button>
+                  <img src={portrait} alt="Shopify Partner certificate of Oyekola Daniel Gafar" className="max-h-full max-w-full rounded-xl object-contain" />
+                </div>
+              )}
             </div>
           </Reveal>
           <div>

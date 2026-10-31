@@ -97,7 +97,8 @@ export const SITE_KNOWLEDGE = {
   siteFeatures: {
     freeAudit: "Public website audit covering visible SEO, technical setup, accessibility and security checks. It reads the homepage and up to two linked pages and provides a score plus practical findings.",
     customerCareAssistant: "This assistant can answer questions about the website and guide visitors to the relevant page or contact method.",
-    caseStudyVideos: "Case-study videos can be opened and played on the website, including Google Drive-hosted videos.",
+    caseStudyVideos: "Case-study and client-reference videos show as compact thumbnails; tapping one opens it full size and it plays immediately. The first client reference (Sarah White, scarvesaustralia.com.au) has captions.",
+    founderCredential: "The founder is a certified Shopify Partner (Shopify Partner ID 4120612); his framed Shopify Partner certificate is shown on the About page and used as the brand logo.",
     salesProof: "The Sales Proof page contains ecommerce analytics screenshots and proof points; the homepage highlights the latest four screenshots.",
     featuredCaseStudies: "The homepage highlights the latest two case studies while the full Case Studies page keeps the wider archive available.",
     clientReferences: "The homepage shows all published video client references; these are people who have worked with Danielgrowth, not a claim that they are founders.",

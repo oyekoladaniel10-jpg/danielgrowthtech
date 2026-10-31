@@ -7,30 +7,39 @@ export function createResponsesCall(
   messages: ModelMessage[],
   system?: string,
 ) {
-  // Vercel provides the OIDC credential to serverless functions in a request
-  // header at runtime. It is not reliably exposed as process.env.VERCEL_OIDC_TOKEN
-  // during function execution, so read the runtime header as the fallback.
-  const gatewayToken =
-    process.env.AI_GATEWAY_API_KEY ||
-    process.env.VERCEL_OIDC_TOKEN ||
-    request.headers.get("x-vercel-oidc-token");
+  const apiKey = process.env.LOVABLE_API_KEY;
+  if (!apiKey) throw new Error("LOVABLE_API_KEY is not configured.");
 
-  if (!gatewayToken) {
-    throw new Error(
-      "AI Gateway authentication is not configured. Expected AI_GATEWAY_API_KEY or Vercel OIDC authentication.",
-    );
-  }
+  let runId: string | undefined;
+  const runIdFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
+    const headers = new Headers(init?.headers);
+    if (runId && !headers.has("X-Lovable-AIG-Run-ID")) headers.set("X-Lovable-AIG-Run-ID", runId);
+    const res = await fetch(input, { ...init, headers });
+    runId ??= res.headers.get("X-Lovable-AIG-Run-ID")?.trim() || undefined;
+    return res;
+  };
 
   const gateway = createOpenAI({
-    apiKey: gatewayToken,
-    baseURL: "https://ai-gateway.vercel.sh/v1",
+    apiKey,
+    baseURL: "https://ai.gateway.lovable.dev/v1",
+    headers: { "Lovable-API-Key": apiKey, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
+    fetch: runIdFetch,
   });
 
   const result = streamText({
-    model: gateway(config.model),
+    model: gateway.responses(config.model),
     ...(system ? { system } : {}),
     messages,
     abortSignal: request.signal,
+    providerOptions: {
+      openai: {
+        forceReasoning: true,
+        reasoningEffort: "low",
+        reasoningSummary: "auto",
+        store: false,
+        include: ["reasoning.encrypted_content"],
+      },
+    },
     onError: ({ error }) => {
       console.error("AI Gateway stream error", error);
     },
