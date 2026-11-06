@@ -1,6 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import portraitAsset from "@/assets/owner-certificate.jpg.asset.json";
-const portrait = portraitAsset.url;
 import { Shell } from "@/components/site/Shell";
 import { Reveal, SectionHeader } from "@/components/site/ui";
 import { CtaBanner } from "@/components/site/CtaBanner";
@@ -41,12 +39,12 @@ function AboutPage() {
               <button
                 type="button"
                 onClick={() => setZoom(true)}
-                aria-label="View certificate full size"
+                aria-label="View profile photo full size"
                 className="relative block w-full cursor-zoom-in"
               >
                 <img
-                  src={portrait}
-                  alt="Oyekola Daniel Gafar, founder of Danielgrowth"
+                  src="/media/portrait-jacob-2.jpg"
+                  alt="Portrait of Oyekola Daniel Gafar, founder of Danielgrowth"
                   width={960}
                   height={1280}
                   loading="eager"
@@ -60,7 +58,7 @@ function AboutPage() {
               {zoom && (
                 <div
                   role="dialog"
-                  aria-label="Certificate full size"
+                  aria-label="Profile photo full size"
                   onClick={() => setZoom(false)}
                   className="fixed inset-0 z-[100] flex items-center justify-center bg-background/95 p-4"
                 >
@@ -71,7 +69,7 @@ function AboutPage() {
                   >
                     <X className="h-5 w-5" />
                   </button>
-                  <img src={portrait} alt="Shopify Partner certificate of Oyekola Daniel Gafar" className="max-h-full max-w-full rounded-xl object-contain" />
+                  <img src={portrait} alt="Portrait of Oyekola Daniel Gafar" className="max-h-full max-w-full rounded-xl object-contain" />
                 </div>
               )}
             </div>
