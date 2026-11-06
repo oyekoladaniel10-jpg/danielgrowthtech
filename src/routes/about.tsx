@@ -48,8 +48,8 @@ function AboutPage() {
                 <img
                   src={portrait}
                   alt="Portrait of Oyekola Daniel Gafar, founder of Danielgrowth"
-                  width={960}
-                  height={1280}
+                  width={1080}
+                  height={720}
                   loading="eager"
                   className="relative w-full rounded-3xl border border-white/10 object-cover object-top"
                 />
