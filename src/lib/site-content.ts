@@ -1,3 +1,4 @@
+import logo from "@/assets/owner-certificate.jpg.asset.json";
 
 export const BRAND = {
   name: "Danielgrowth",
@@ -14,7 +15,7 @@ export const BRAND = {
     { country: "United Kingdom", flag: "🇬🇧" },
   ],
   basedIn: { country: "United Kingdom", flag: "🇬🇧" },
-  logo: "/media/jacob-growth-logo.png",
+  logo: logo.url,
   socials: {},
 };
 
