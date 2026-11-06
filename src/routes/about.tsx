@@ -5,6 +5,9 @@ import { CtaBanner } from "@/components/site/CtaBanner";
 import { BarChart3, Check, X } from "lucide-react";
 import { useState } from "react";
 import { WHY, VALUES, INDUSTRIES, BRAND } from "@/lib/site-content";
+import portraitAsset from "@/assets/owner-certificate.jpg.asset.json";
+
+const portrait = portraitAsset.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -43,7 +46,7 @@ function AboutPage() {
                 className="relative block w-full cursor-zoom-in"
               >
                 <img
-                  src="/media/portrait-jacob-2.jpg"
+                  src={portrait}
                   alt="Portrait of Oyekola Daniel Gafar, founder of Danielgrowth"
                   width={960}
                   height={1280}
