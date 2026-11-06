@@ -1,4 +1,4 @@
-# Jacob growth 
+# Daniel growth 
 
 Create a modern, premium, responsive portfolio website for an Ecommerce Sales Growth Expert. The design should feel like a high-end digital agency, using clean layouts, smooth animations, professional typography, subtle gradients, and excellent spacing. Every section must be fully editable so I can replace text, images, logos, testimonials, case studies, and colours later.
 
