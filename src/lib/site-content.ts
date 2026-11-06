@@ -1,4 +1,3 @@
-import logo from "@/assets/owner-certificate.jpg.asset.json";
 
 export const BRAND = {
   name: "Danielgrowth",
@@ -6,7 +5,7 @@ export const BRAND = {
   owner: "Oyekola Daniel Gafar",
   tagline: "Ecommerce Sales Growth Expert",
   sub: "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies.",
-  email: "Jacobgrowth01@gmail.com",
+  email: "contact@danielgrowth.pro",
   phone: "+44 7828 706004",
   whatsapp: "+44 7828 706004",
   website: "danielgrowth.tech",
@@ -15,7 +14,7 @@ export const BRAND = {
     { country: "United Kingdom", flag: "🇬🇧" },
   ],
   basedIn: { country: "United Kingdom", flag: "🇬🇧" },
-  logo: logo.url,
+  logo: "/media/jacob-growth-logo.png",
   socials: {},
 };
 
