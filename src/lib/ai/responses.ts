@@ -41,15 +41,16 @@ export function generateStreamingResponse(
         const abortAttempt = () => attemptController.abort(request.signal.reason);
         request.signal.addEventListener("abort", abortAttempt, { once: true });
 
+        let streamError: unknown;
         const result = streamText({
           model: google(modelName),
           messages,
           system,
           abortSignal: attemptController.signal,
-          // Keep the SDK's single quick retry, then let this ordered chain
-          // move to the next model if no first response arrives in time.
+          // Keep one quick SDK retry, then let the ordered model chain fail over.
           maxRetries: 1,
           onError: ({ error }) => {
+            streamError = error;
             lastError = error;
             console.error(`Rex Gemini stream error (${modelName})`, error);
           },
@@ -89,10 +90,13 @@ export function generateStreamingResponse(
 
         if (firstChunk.done || !firstChunk.value) {
           request.signal.removeEventListener("abort", abortAttempt);
-          lastError = new Error(`Gemini model ${modelName} ended without producing a response.`);
-          console.warn(lastError);
+          lastError = streamError ?? new Error(`Gemini model ${modelName} ended without producing a response.`);
+          console.warn(`Rex model ${modelName} produced no first response; trying the next model.`, lastError);
           await reader.cancel(lastError).catch(() => undefined);
           reader.releaseLock();
+          if (request.signal.aborted) {
+            throw request.signal.reason ?? lastError;
+          }
           continue;
         }
 
@@ -108,6 +112,14 @@ export function generateStreamingResponse(
             if (chunk.value) {
               writer.write({ type: "text-delta", id: textId, delta: chunk.value });
             }
+          }
+
+          if (streamError && !request.signal.aborted) {
+            writer.write({
+              type: "text-delta",
+              id: textId,
+              delta: "\n\nI’m sorry, the response was interrupted. Please try sending your message again.",
+            });
           }
         } catch (error) {
           // Once text has reached the visitor, switching models would append
@@ -128,6 +140,10 @@ export function generateStreamingResponse(
         }
 
         return;
+      }
+
+      if (request.signal.aborted) {
+        throw request.signal.reason ?? new Error("The request was cancelled.");
       }
 
       console.error("All Rex Gemini models failed.", lastError);
