@@ -1,52 +1,162 @@
-import { createOpenAI } from "@ai-sdk/openai";
-import { streamText, type ModelMessage } from "ai";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import {
+  createUIMessageStream,
+  createUIMessageStreamResponse,
+  streamText,
+  type ModelMessage,
+} from "ai";
 
-export function createResponsesCall(
-  request: Request,
-  config: { model: string },
+const MODEL_FALLBACK_CHAIN = [
+  "gemini-3.5-flash-lite",
+  "gemini-3.8-flash",
+  "gemini-2.5-flash",
+] as const;
+
+const FIRST_RESPONSE_TIMEOUT_MS = 10_000;
+
+export function generateStreamingResponse(
   messages: ModelMessage[],
-  system?: string,
-) {
-  const apiKey = process.env.LOVABLE_API_KEY;
-  if (!apiKey) throw new Error("LOVABLE_API_KEY is not configured.");
+  system: string,
+  request: Request,
+): Response {
+  const apiKey = process.env.GEMINI_API_KEY;
 
-  let runId: string | undefined;
-  const runIdFetch = async (input: RequestInfo | URL, init?: RequestInit) => {
-    const headers = new Headers(init?.headers);
-    if (runId && !headers.has("X-Lovable-AIG-Run-ID")) headers.set("X-Lovable-AIG-Run-ID", runId);
-    const res = await fetch(input, { ...init, headers });
-    runId ??= res.headers.get("X-Lovable-AIG-Run-ID")?.trim() || undefined;
-    return res;
-  };
+  if (!apiKey?.trim()) {
+    throw new Error("GEMINI_API_KEY is not configured in the Vercel environment.");
+  }
 
-  const gateway = createOpenAI({
-    apiKey,
-    baseURL: "https://ai.gateway.lovable.dev/v1",
-    headers: { "Lovable-API-Key": apiKey, "X-Lovable-AIG-SDK": "vercel-ai-sdk" },
-    fetch: runIdFetch,
+  const google = createGoogleGenerativeAI({ apiKey });
+
+  const stream = createUIMessageStream({
+    execute: async ({ writer }) => {
+      const textId = crypto.randomUUID();
+      let lastError: unknown;
+
+      for (const modelName of MODEL_FALLBACK_CHAIN) {
+        if (request.signal.aborted) {
+          throw request.signal.reason ?? new Error("The request was cancelled.");
+        }
+
+        const attemptController = new AbortController();
+        const abortAttempt = () => attemptController.abort(request.signal.reason);
+        request.signal.addEventListener("abort", abortAttempt, { once: true });
+
+        let streamError: unknown;
+        const result = streamText({
+          model: google(modelName),
+          messages,
+          system,
+          abortSignal: attemptController.signal,
+          // Keep one quick SDK retry, then let the ordered model chain fail over.
+          maxRetries: 1,
+          onError: ({ error }) => {
+            streamError = error;
+            lastError = error;
+            console.error(`Rex Gemini stream error (${modelName})`, error);
+          },
+        });
+
+        const reader = result.textStream.getReader();
+        let timeoutId: ReturnType<typeof setTimeout> | undefined;
+        let firstChunk: ReadableStreamReadResult<string>;
+
+        try {
+          firstChunk = await Promise.race([
+            reader.read(),
+            new Promise<never>((_, reject) => {
+              timeoutId = setTimeout(() => {
+                const timeoutError = new Error(
+                  `Gemini model ${modelName} did not start responding within ${FIRST_RESPONSE_TIMEOUT_MS}ms.`,
+                );
+                attemptController.abort(timeoutError);
+                reject(timeoutError);
+              }, FIRST_RESPONSE_TIMEOUT_MS);
+            }),
+          ]);
+        } catch (error) {
+          if (timeoutId) clearTimeout(timeoutId);
+          request.signal.removeEventListener("abort", abortAttempt);
+          lastError = error;
+          console.warn(`Rex model ${modelName} failed before its first response; trying the next model.`, error);
+          await reader.cancel(error).catch(() => undefined);
+          reader.releaseLock();
+          if (request.signal.aborted) {
+            throw request.signal.reason ?? error;
+          }
+          continue;
+        }
+
+        if (timeoutId) clearTimeout(timeoutId);
+
+        if (firstChunk.done || !firstChunk.value) {
+          request.signal.removeEventListener("abort", abortAttempt);
+          lastError = streamError ?? new Error(`Gemini model ${modelName} ended without producing a response.`);
+          console.warn(`Rex model ${modelName} produced no first response; trying the next model.`, lastError);
+          await reader.cancel(lastError).catch(() => undefined);
+          reader.releaseLock();
+          if (request.signal.aborted) {
+            throw request.signal.reason ?? lastError;
+          }
+          continue;
+        }
+
+        // Do not send assistant text until a model has produced its first
+        // chunk. This makes pre-response failover safe for the chat UI.
+        writer.write({ type: "text-start", id: textId });
+        writer.write({ type: "text-delta", id: textId, delta: firstChunk.value });
+
+        try {
+          while (true) {
+            const chunk = await reader.read();
+            if (chunk.done) break;
+            if (chunk.value) {
+              writer.write({ type: "text-delta", id: textId, delta: chunk.value });
+            }
+          }
+
+          if (streamError && !request.signal.aborted) {
+            writer.write({
+              type: "text-delta",
+              id: textId,
+              delta: "\n\nI’m sorry, the response was interrupted. Please try sending your message again.",
+            });
+          }
+        } catch (error) {
+          // Once text has reached the visitor, switching models would append
+          // a second answer to a partial first answer. Report the interruption
+          // instead of silently mixing two model responses.
+          if (!request.signal.aborted) {
+            console.error(`Rex response stream interrupted (${modelName})`, error);
+            writer.write({
+              type: "text-delta",
+              id: textId,
+              delta: "\n\nI’m sorry, the response was interrupted. Please try sending your message again.",
+            });
+          }
+        } finally {
+          writer.write({ type: "text-end", id: textId });
+          reader.releaseLock();
+          request.signal.removeEventListener("abort", abortAttempt);
+        }
+
+        return;
+      }
+
+      if (request.signal.aborted) {
+        throw request.signal.reason ?? new Error("The request was cancelled.");
+      }
+
+      console.error("All Rex Gemini models failed.", lastError);
+      writer.write({ type: "text-start", id: textId });
+      writer.write({
+        type: "text-delta",
+        id: textId,
+        delta:
+          "I’m sorry, I’m having trouble connecting right now. Please try again shortly, or contact Daniel through the Contact or WhatsApp options.",
+      });
+      writer.write({ type: "text-end", id: textId });
+    },
   });
 
-  const result = streamText({
-    model: gateway.responses(config.model),
-    ...(system ? { system } : {}),
-    messages,
-    abortSignal: request.signal,
-    providerOptions: {
-      openai: {
-        forceReasoning: true,
-        reasoningEffort: "low",
-        reasoningSummary: "auto",
-        store: false,
-        include: ["reasoning.encrypted_content"],
-      },
-    },
-    onError: ({ error }) => {
-      console.error("AI Gateway stream error", error);
-    },
-  });
-
-  return {
-    result,
-    response: () => result.toUIMessageStreamResponse({ sendReasoning: false }),
-  };
+  return createUIMessageStreamResponse({ stream });
 }

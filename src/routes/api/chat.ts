@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { convertToModelMessages, type UIMessage } from "ai";
 
 import { SITE_KNOWLEDGE_PROMPT } from "@/lib/ai/site-knowledge";
-import { createResponsesCall } from "@/lib/ai/responses";
+import { generateStreamingResponse } from "@/lib/ai/responses";
 
 export const Route = createFileRoute("/api/chat")({
   server: {
@@ -19,17 +19,11 @@ export const Route = createFileRoute("/api/chat")({
 
         try {
           const modelMessages = await convertToModelMessages(messages);
-          const call = createResponsesCall(
-            request,
-            { model: "openai/gpt-6.1-sol" },
-            modelMessages,
-            SITE_KNOWLEDGE_PROMPT,
-          );
-          return call.response();
+          return generateStreamingResponse(modelMessages, SITE_KNOWLEDGE_PROMPT, request);
         } catch (error) {
-          console.error("Assistant request failed", error);
+          console.error("Rex Gemini request failed", error);
           return Response.json(
-            { error: "The assistant is temporarily unavailable. Please use the Contact or WhatsApp options instead." },
+            { error: "Rex is temporarily unavailable. Please use the Contact or WhatsApp options instead." },
             { status: 503 },
           );
         }
