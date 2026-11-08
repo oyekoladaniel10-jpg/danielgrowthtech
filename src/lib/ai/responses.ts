@@ -46,9 +46,9 @@ export function generateStreamingResponse(
           messages,
           system,
           abortSignal: attemptController.signal,
-          // The model chain handles failover; do not spend extra time retrying
-          // the same unavailable model before moving to the next one.
-          maxRetries: 0,
+          // Keep the SDK's single quick retry, then let this ordered chain
+          // move to the next model if no first response arrives in time.
+          maxRetries: 1,
           onError: ({ error }) => {
             lastError = error;
             console.error(`Rex Gemini stream error (${modelName})`, error);
@@ -73,26 +73,30 @@ export function generateStreamingResponse(
             }),
           ]);
         } catch (error) {
+          if (timeoutId) clearTimeout(timeoutId);
+          request.signal.removeEventListener("abort", abortAttempt);
           lastError = error;
           console.warn(`Rex model ${modelName} failed before its first response; trying the next model.`, error);
           await reader.cancel(error).catch(() => undefined);
+          reader.releaseLock();
           if (request.signal.aborted) {
             throw request.signal.reason ?? error;
           }
           continue;
-        } finally {
-          if (timeoutId) clearTimeout(timeoutId);
-          request.signal.removeEventListener("abort", abortAttempt);
         }
 
+        if (timeoutId) clearTimeout(timeoutId);
+
         if (firstChunk.done || !firstChunk.value) {
+          request.signal.removeEventListener("abort", abortAttempt);
           lastError = new Error(`Gemini model ${modelName} ended without producing a response.`);
           console.warn(lastError);
           await reader.cancel(lastError).catch(() => undefined);
+          reader.releaseLock();
           continue;
         }
 
-        // Do not send any assistant text until a model has produced its first
+        // Do not send assistant text until a model has produced its first
         // chunk. This makes pre-response failover safe for the chat UI.
         writer.write({ type: "text-start", id: textId });
         writer.write({ type: "text-delta", id: textId, delta: firstChunk.value });
@@ -109,15 +113,18 @@ export function generateStreamingResponse(
           // Once text has reached the visitor, switching models would append
           // a second answer to a partial first answer. Report the interruption
           // instead of silently mixing two model responses.
-          console.error(`Rex response stream interrupted (${modelName})`, error);
-          writer.write({
-            type: "text-delta",
-            id: textId,
-            delta: "\n\nI’m sorry, the response was interrupted. Please try sending your message again.",
-          });
+          if (!request.signal.aborted) {
+            console.error(`Rex response stream interrupted (${modelName})`, error);
+            writer.write({
+              type: "text-delta",
+              id: textId,
+              delta: "\n\nI’m sorry, the response was interrupted. Please try sending your message again.",
+            });
+          }
         } finally {
           writer.write({ type: "text-end", id: textId });
           reader.releaseLock();
+          request.signal.removeEventListener("abort", abortAttempt);
         }
 
         return;
