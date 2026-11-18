@@ -139,4 +139,17 @@ export const CASES: CaseStudy[] = [
     tools: "Ecommerce growth strategy and implementation.",
     outcome: "A current visual proof point for prospective clients.",
   },
+  {
+    slug: "growth-strategy-case-study",
+    website: "Ecommerce Growth Case Study",
+    industry: "Ecommerce · Growth",
+    video: "https://www.youtube-nocookie.com/embed/ANLUgAlJOuI",
+    poster: "https://img.youtube.com/vi/ANLUgAlJOuI/hqdefault.jpg",
+    overview: "A case-study video presentation showing ecommerce growth strategy and implementation.",
+    challenge: "Demonstrate the practical work behind an ecommerce growth engagement.",
+    strategy: "Walk through the growth approach and the implementation decisions shown in the video.",
+    results: "The video presents the case-study walkthrough. Specific performance figures should be taken from the recording and verified before being stated.",
+    tools: "Ecommerce growth strategy and implementation.",
+    outcome: "A visual case-study example for prospective ecommerce clients.",
+  },
 ];
