@@ -308,6 +308,7 @@ export const REFERENCES = [
   { src: v3.url, poster: p3.url, captions: c3.url, name: "Sarah White", country: "Australia", flag: "🇦🇺", website: "scarvesaustralia.com.au", industry: "Ecommerce · SEO", service: "SEO & CRO · 6 months" },
   { src: v1.url, poster: p1.url, name: "Client Reference", country: "Verified client", flag: "⭐", industry: "Ecommerce", service: "Ecommerce Growth" },
   { src: v2.url, poster: p2.url, name: "Client Reference", country: "Verified client", flag: "⭐", industry: "Ecommerce", service: "Ecommerce Growth" },
+  { src: "https://www.youtube-nocookie.com/embed/ANLUgAlJOuI", poster: "https://img.youtube.com/vi/ANLUgAlJOuI/hqdefault.jpg", name: "Growth Strategy Video", country: "Video presentation", flag: "▶️", industry: "Ecommerce · Growth", service: "Ecommerce Growth Strategy" },
 ];
 
 export const WAYS_TO_WORK = [
