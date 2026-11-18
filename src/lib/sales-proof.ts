@@ -4,7 +4,7 @@ import sp1 from "@/assets/new/sp1.jpg.asset.json";
 import sp2 from "@/assets/new/sp2.jpg.asset.json";
 
 export const SALES_VIDEOS = [
-  { src: "https://files.catbox.moe/fxytcz.mov", title: "Scarves Australia", poster: "/sales-proof-study-poster.jpg" },
+  { src: "https://files.catbox.moe/fxytcz.mov", title: "Scarves Australia" },
   { src: sv1.url, poster: sp1.url, title: "Store sales walkthrough" },
   { src: sv2.url, poster: sp2.url, title: "Latest sales dashboard" },
 ];
