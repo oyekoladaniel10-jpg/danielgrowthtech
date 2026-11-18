@@ -98,17 +98,28 @@ export function Lightbox({ src, poster, captions, onClose }: { src: string; post
         className="relative h-full max-h-[92vh] w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <video
-          src={src}
-          poster={poster}
-          preload="auto"
-          controls
-          autoPlay
-          playsInline
-          className="h-full w-full object-contain"
-        >
-          {captions && <CaptionsTrack src={captions} />}
-        </video>
+        {src.includes("youtube-nocookie.com/embed/") ? (
+          <iframe
+            src={src + (src.includes("?") ? "&" : "?") + "autoplay=1&rel=0"}
+            title="Danielgrowth video reference"
+            className="h-full w-full border-0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : (
+          <video
+            src={src}
+            poster={poster}
+            preload="auto"
+            controls
+            autoPlay
+            playsInline
+            className="h-full w-full object-contain"
+          >
+            {captions && <CaptionsTrack src={captions} />}
+          </video>
+        )}
       </div>
     </div>
   );
