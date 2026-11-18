@@ -7,8 +7,8 @@ export const BRAND = {
   tagline: "Ecommerce Sales Growth Expert",
   sub: "Helping ecommerce brands increase traffic, conversions and revenue through data-driven growth strategies.",
   email: "contact@danielgrowth.pro",
-  phone: "+44 7828 706004",
-  whatsapp: "+44 7828 706004",
+  phone: "+44 7888 674088",
+  whatsapp: "+44 7888 674088",
   website: "danielgrowth.tech",
   copyright: "© 2026 Danielgrowth. All rights reserved.",
   offices: [
@@ -19,7 +19,7 @@ export const BRAND = {
   socials: {},
 };
 
-export const WHATSAPP_URL = "https://wa.me/447828706004";
+export const WHATSAPP_URL = "https://wa.me/447888674088";
 
 import r1 from "@/assets/reviews/review-1.jpg.asset.json";
 import r2 from "@/assets/reviews/review-2.jpg.asset.json";
