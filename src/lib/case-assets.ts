@@ -40,7 +40,7 @@ export const CASES: CaseStudy[] = [
     website: "Scarves Australia",
     industry: "Ecommerce · Fashion",
     video: "https://files.catbox.moe/fxytcz.mov",
-    poster: "",
+    poster: "/sales-proof-study-poster.jpg",
     overview: "A video case study featuring the Scarves Australia ecommerce project.",
     challenge: "Present the ecommerce store and the growth work featured in the project recording.",
     strategy: "Walk through the store and the work demonstrated in the case-study video.",
