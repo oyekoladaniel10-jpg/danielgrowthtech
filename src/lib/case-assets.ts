@@ -36,17 +36,17 @@ const latestDriveCaseStudyPoster = cs2p.url;
 
 export const CASES: CaseStudy[] = [
   {
-    slug: "scarvesaustralia",
-    website: "Scarves Australia",
-    industry: "Fashion & Accessories",
-    video: "/media/cases/scarvesaustralia.mp4",
-    poster: "/media/posters/scarvesaustralia.jpg",
-    overview: "A Shopify case-study walkthrough for Scarves Australia, showing the store admin and recent sales dashboard.",
-    challenge: "Prospective clients need a clear look at the store and the ecommerce activity behind the performance snapshot.",
-    strategy: "The walkthrough opens in Shopify admin and presents the store's recent performance snapshot.",
-    results: "The opening 7-day dashboard view displays 2,397 sessions, A$5,813 in total sales, 40 orders and a 1.58% conversion rate.",
-    tools: "Shopify and Shopify Analytics.",
-    outcome: "A visual case-study record of Scarves Australia's storefront and a dashboard snapshot. The recording alone does not establish that any specific intervention caused these results.",
+    slug: "growth-strategy-case-study",
+    website: "Ecommerce Growth Case Study",
+    industry: "Ecommerce · Growth",
+    video: "https://www.youtube-nocookie.com/embed/ANLUgAlJOuI",
+    poster: "https://img.youtube.com/vi/ANLUgAlJOuI/hqdefault.jpg",
+    overview: "A case-study video presentation showing ecommerce growth strategy and implementation.",
+    challenge: "Demonstrate the practical work behind an ecommerce growth engagement.",
+    strategy: "Walk through the growth approach and the implementation decisions shown in the video.",
+    results: "The video presents the case-study walkthrough. Specific performance figures should be taken from the recording and verified before being stated.",
+    tools: "Ecommerce growth strategy and implementation.",
+    outcome: "A visual case-study example for prospective ecommerce clients.",
   },
   {
     slug: "dtaillab",
