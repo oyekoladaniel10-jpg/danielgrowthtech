@@ -6,6 +6,7 @@ import sp2 from "@/assets/new/sp2.jpg.asset.json";
 export const SALES_VIDEOS = [
   { src: sv1.url, poster: sp1.url, title: "Store sales walkthrough" },
   { src: sv2.url, poster: sp2.url, title: "Latest sales dashboard" },
+  { src: "/sales-proof/sales-proof-study.mp4", poster: "/sales-proof/sales-proof-study-poster.jpg", title: "Sales Proof Study" },
 ];
 
 export type SalesProof = {
