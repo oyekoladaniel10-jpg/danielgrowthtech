@@ -22,15 +22,21 @@ export function CaseVideoCard({
         aria-label={`Play ${website} case study video`}
         className="relative block aspect-video w-full overflow-hidden bg-surface-2"
       >
-        <img
-          src={poster}
-          alt={`${website} case study video thumbnail`}
-          width={640}
-          height={360}
-          loading="lazy"
-          decoding="async"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {poster ? (
+          <img
+            src={poster}
+            alt={`${website} case study video thumbnail`}
+            width={640}
+            height={360}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-indigo-950 via-slate-900 to-background">
+            <span className="px-6 text-center text-lg font-medium text-white/90">{website} · Case Study</span>
+          </div>
+        )}
         <div className="pointer-events-none absolute inset-0 bg-black/10 transition-opacity duration-500 group-hover:bg-black/5" />
         <div className="absolute inset-0 grid place-items-center">
           <div className="video-play-control grid h-16 w-16 place-items-center rounded-full bg-white/95 shadow-2xl md:h-20 md:w-20">
